@@ -16,21 +16,21 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/DSLLexer.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="D:\DSL_language\src\gen" />
-          <option name="libDir" value="D:\DSL_language\src\gen" />
+          <option name="outputDir" value="D:\DSL-language\src" />
+          <option name="libDir" value="D:\DSL-language\src" />
           <option name="encoding" value="" />
-          <option name="pkg" value="" />
-          <option name="language" value="" />
+          <option name="pkg" value="gen" />
+          <option name="language" value="Java" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/DSLParser.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="D:\DSL_language\src\gen" />
-          <option name="libDir" value="D:\DSL_language\src\gen" />
+          <option name="outputDir" value="D:\DSL-language\src" />
+          <option name="libDir" value="D:\DSL-language\src" />
           <option name="encoding" value="" />
-          <option name="pkg" value="" />
-          <option name="language" value="" />
+          <option name="pkg" value="gen" />
+          <option name="language" value="Java" />
           <option name="generateVisitor" value="true" />
         </PerGrammarGenerationSettings>
       </list>
