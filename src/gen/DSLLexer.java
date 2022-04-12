@@ -17,9 +17,10 @@ public class DSLLexer extends Lexer {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		CONTROLLER_DEF_ID=1, CONTROLLER_DEF_END_ID=2, OPEN_SQR_BRACKT_ID=3, CLOSE_SQR_BRACKT_ID=4, 
-		OPEN_PAR_BRACKT_ID=5, CLOSE_PAR_BRACKT_ID=6, BUNDLE_ID=7, VAR_NAME_ID=8, 
-		PRINT_ACTION=9, AND_OP_ID=10, OR_OP_ID=11, EQUAL_OP_ID=12, NAME_ID=13;
+		ASSIGN=1, OPEN_SQR_BRACKT_ID=2, CLOSE_SQR_BRACKT_ID=3, OPEN_PAR_BRACKT_ID=4, 
+		CLOSE_PAR_BRACKT_ID=5, SPACE=6, CONTROLLER_DEF_ID=7, CONTROLLER_DEF_END_ID=8, 
+		BUNDLE_ID=9, VAR_NAME_ID=10, NAME_ID=11, PRINT_ACTION=12, AND_OP_ID=13, 
+		OR_OP_ID=14, EQUAL_OP_ID=15, IF_ID=16;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -30,26 +31,27 @@ public class DSLLexer extends Lexer {
 
 	private static String[] makeRuleNames() {
 		return new String[] {
-			"CONTROLLER_DEF_ID", "CONTROLLER_DEF_END_ID", "OPEN_SQR_BRACKT_ID", "CLOSE_SQR_BRACKT_ID", 
-			"OPEN_PAR_BRACKT_ID", "CLOSE_PAR_BRACKT_ID", "BUNDLE_ID", "VAR_NAME_ID", 
-			"PRINT_ACTION", "AND_OP_ID", "OR_OP_ID", "EQUAL_OP_ID", "NAME_ID", "HEXDIGIT"
+			"ASSIGN", "OPEN_SQR_BRACKT_ID", "CLOSE_SQR_BRACKT_ID", "OPEN_PAR_BRACKT_ID", 
+			"CLOSE_PAR_BRACKT_ID", "SPACE", "CONTROLLER_DEF_ID", "CONTROLLER_DEF_END_ID", 
+			"BUNDLE_ID", "VAR_NAME_ID", "NAME_ID", "PRINT_ACTION", "AND_OP_ID", "OR_OP_ID", 
+			"EQUAL_OP_ID", "IF_ID"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
 
 	private static String[] makeLiteralNames() {
 		return new String[] {
-			null, "'Controller'", "'endController'", "'['", "']'", "'('", "')'", 
-			"'BUNDLE'", null, "'print'", null, null, "'equal'"
+			null, "'='", "'['", "']'", "'('", "')'", "' '", "'Controller'", "'endController'", 
+			null, null, null, "'print'", null, null, "'equal'"
 		};
 	}
 	private static final String[] _LITERAL_NAMES = makeLiteralNames();
 	private static String[] makeSymbolicNames() {
 		return new String[] {
-			null, "CONTROLLER_DEF_ID", "CONTROLLER_DEF_END_ID", "OPEN_SQR_BRACKT_ID", 
-			"CLOSE_SQR_BRACKT_ID", "OPEN_PAR_BRACKT_ID", "CLOSE_PAR_BRACKT_ID", "BUNDLE_ID", 
-			"VAR_NAME_ID", "PRINT_ACTION", "AND_OP_ID", "OR_OP_ID", "EQUAL_OP_ID", 
-			"NAME_ID"
+			null, "ASSIGN", "OPEN_SQR_BRACKT_ID", "CLOSE_SQR_BRACKT_ID", "OPEN_PAR_BRACKT_ID", 
+			"CLOSE_PAR_BRACKT_ID", "SPACE", "CONTROLLER_DEF_ID", "CONTROLLER_DEF_END_ID", 
+			"BUNDLE_ID", "VAR_NAME_ID", "NAME_ID", "PRINT_ACTION", "AND_OP_ID", "OR_OP_ID", 
+			"EQUAL_OP_ID", "IF_ID"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -111,34 +113,42 @@ public class DSLLexer extends Lexer {
 	public ATN getATN() { return _ATN; }
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\17s\b\1\4\2\t\2\4"+
-		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
-		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\3\2\3\2\3\2\3\2\3\2\3\2\3\2\3"+
-		"\2\3\2\3\2\3\2\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3\3"+
-		"\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b\3\t\7\tI"+
-		"\n\t\f\t\16\tL\13\t\3\t\6\tO\n\t\r\t\16\tP\3\n\3\n\3\n\3\n\3\n\3\n\3\13"+
-		"\3\13\3\13\3\13\3\13\3\13\5\13_\n\13\3\f\3\f\3\f\3\f\5\fe\n\f\3\r\3\r"+
-		"\3\r\3\r\3\r\3\r\3\16\6\16n\n\16\r\16\16\16o\3\17\3\17\2\2\20\3\3\5\4"+
-		"\7\5\t\6\13\7\r\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\2\3\2\4\4\2"+
-		"C\\c|\5\2\62;CHch\2v\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2\2\2\2\t\3\2\2\2\2"+
-		"\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2\23\3\2\2\2\2\25\3"+
-		"\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\3\37\3\2\2\2\5*\3\2\2\2"+
-		"\78\3\2\2\2\t:\3\2\2\2\13<\3\2\2\2\r>\3\2\2\2\17@\3\2\2\2\21J\3\2\2\2"+
-		"\23R\3\2\2\2\25^\3\2\2\2\27d\3\2\2\2\31f\3\2\2\2\33m\3\2\2\2\35q\3\2\2"+
-		"\2\37 \7E\2\2 !\7q\2\2!\"\7p\2\2\"#\7v\2\2#$\7t\2\2$%\7q\2\2%&\7n\2\2"+
-		"&\'\7n\2\2\'(\7g\2\2()\7t\2\2)\4\3\2\2\2*+\7g\2\2+,\7p\2\2,-\7f\2\2-."+
-		"\7E\2\2./\7q\2\2/\60\7p\2\2\60\61\7v\2\2\61\62\7t\2\2\62\63\7q\2\2\63"+
-		"\64\7n\2\2\64\65\7n\2\2\65\66\7g\2\2\66\67\7t\2\2\67\6\3\2\2\289\7]\2"+
-		"\29\b\3\2\2\2:;\7_\2\2;\n\3\2\2\2<=\7*\2\2=\f\3\2\2\2>?\7+\2\2?\16\3\2"+
-		"\2\2@A\7D\2\2AB\7W\2\2BC\7P\2\2CD\7F\2\2DE\7N\2\2EF\7G\2\2F\20\3\2\2\2"+
-		"GI\7a\2\2HG\3\2\2\2IL\3\2\2\2JH\3\2\2\2JK\3\2\2\2KN\3\2\2\2LJ\3\2\2\2"+
-		"MO\t\2\2\2NM\3\2\2\2OP\3\2\2\2PN\3\2\2\2PQ\3\2\2\2Q\22\3\2\2\2RS\7r\2"+
-		"\2ST\7t\2\2TU\7k\2\2UV\7p\2\2VW\7v\2\2W\24\3\2\2\2XY\7c\2\2YZ\7p\2\2Z"+
-		"_\7f\2\2[\\\7C\2\2\\]\7P\2\2]_\7F\2\2^X\3\2\2\2^[\3\2\2\2_\26\3\2\2\2"+
-		"`a\7q\2\2ae\7t\2\2bc\7Q\2\2ce\7T\2\2d`\3\2\2\2db\3\2\2\2e\30\3\2\2\2f"+
-		"g\7g\2\2gh\7s\2\2hi\7w\2\2ij\7c\2\2jk\7n\2\2k\32\3\2\2\2ln\t\2\2\2ml\3"+
-		"\2\2\2no\3\2\2\2om\3\2\2\2op\3\2\2\2p\34\3\2\2\2qr\t\3\2\2r\36\3\2\2\2"+
-		"\b\2JP^do\2";
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\2\22\u008d\b\1\4\2"+
+		"\t\2\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4"+
+		"\13\t\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\3\2\3"+
+		"\2\3\3\3\3\3\4\3\4\3\5\3\5\3\6\3\6\3\7\3\7\3\b\3\b\3\b\3\b\3\b\3\b\3\b"+
+		"\3\b\3\b\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3\t\3"+
+		"\t\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n"+
+		"\3\n\5\n[\n\n\3\13\3\13\6\13_\n\13\r\13\16\13`\3\13\7\13d\n\13\f\13\16"+
+		"\13g\13\13\3\f\6\fj\n\f\r\f\16\fk\3\r\3\r\3\r\3\r\3\r\3\r\3\16\3\16\3"+
+		"\16\3\16\3\16\3\16\5\16z\n\16\3\17\3\17\3\17\3\17\5\17\u0080\n\17\3\20"+
+		"\3\20\3\20\3\20\3\20\3\20\3\21\3\21\3\21\3\21\5\21\u008c\n\21\2\2\22\3"+
+		"\3\5\4\7\5\t\6\13\7\r\b\17\t\21\n\23\13\25\f\27\r\31\16\33\17\35\20\37"+
+		"\21!\22\3\2\4\4\2C\\c|\3\2\63;\2\u0094\2\3\3\2\2\2\2\5\3\2\2\2\2\7\3\2"+
+		"\2\2\2\t\3\2\2\2\2\13\3\2\2\2\2\r\3\2\2\2\2\17\3\2\2\2\2\21\3\2\2\2\2"+
+		"\23\3\2\2\2\2\25\3\2\2\2\2\27\3\2\2\2\2\31\3\2\2\2\2\33\3\2\2\2\2\35\3"+
+		"\2\2\2\2\37\3\2\2\2\2!\3\2\2\2\3#\3\2\2\2\5%\3\2\2\2\7\'\3\2\2\2\t)\3"+
+		"\2\2\2\13+\3\2\2\2\r-\3\2\2\2\17/\3\2\2\2\21:\3\2\2\2\23Z\3\2\2\2\25\\"+
+		"\3\2\2\2\27i\3\2\2\2\31m\3\2\2\2\33y\3\2\2\2\35\177\3\2\2\2\37\u0081\3"+
+		"\2\2\2!\u008b\3\2\2\2#$\7?\2\2$\4\3\2\2\2%&\7]\2\2&\6\3\2\2\2\'(\7_\2"+
+		"\2(\b\3\2\2\2)*\7*\2\2*\n\3\2\2\2+,\7+\2\2,\f\3\2\2\2-.\7\"\2\2.\16\3"+
+		"\2\2\2/\60\7E\2\2\60\61\7q\2\2\61\62\7p\2\2\62\63\7v\2\2\63\64\7t\2\2"+
+		"\64\65\7q\2\2\65\66\7n\2\2\66\67\7n\2\2\678\7g\2\289\7t\2\29\20\3\2\2"+
+		"\2:;\7g\2\2;<\7p\2\2<=\7f\2\2=>\7E\2\2>?\7q\2\2?@\7p\2\2@A\7v\2\2AB\7"+
+		"t\2\2BC\7q\2\2CD\7n\2\2DE\7n\2\2EF\7g\2\2FG\7t\2\2G\22\3\2\2\2HI\7D\2"+
+		"\2IJ\7W\2\2JK\7P\2\2KL\7F\2\2LM\7N\2\2M[\7G\2\2NO\7d\2\2OP\7w\2\2PQ\7"+
+		"p\2\2QR\7f\2\2RS\7n\2\2S[\7g\2\2TU\7D\2\2UV\7w\2\2VW\7p\2\2WX\7f\2\2X"+
+		"Y\7n\2\2Y[\7g\2\2ZH\3\2\2\2ZN\3\2\2\2ZT\3\2\2\2[\24\3\2\2\2\\^\7a\2\2"+
+		"]_\t\2\2\2^]\3\2\2\2_`\3\2\2\2`^\3\2\2\2`a\3\2\2\2ae\3\2\2\2bd\t\3\2\2"+
+		"cb\3\2\2\2dg\3\2\2\2ec\3\2\2\2ef\3\2\2\2f\26\3\2\2\2ge\3\2\2\2hj\t\2\2"+
+		"\2ih\3\2\2\2jk\3\2\2\2ki\3\2\2\2kl\3\2\2\2l\30\3\2\2\2mn\7r\2\2no\7t\2"+
+		"\2op\7k\2\2pq\7p\2\2qr\7v\2\2r\32\3\2\2\2st\7c\2\2tu\7p\2\2uz\7f\2\2v"+
+		"w\7C\2\2wx\7P\2\2xz\7F\2\2ys\3\2\2\2yv\3\2\2\2z\34\3\2\2\2{|\7q\2\2|\u0080"+
+		"\7t\2\2}~\7Q\2\2~\u0080\7T\2\2\177{\3\2\2\2\177}\3\2\2\2\u0080\36\3\2"+
+		"\2\2\u0081\u0082\7g\2\2\u0082\u0083\7s\2\2\u0083\u0084\7w\2\2\u0084\u0085"+
+		"\7c\2\2\u0085\u0086\7n\2\2\u0086 \3\2\2\2\u0087\u0088\7k\2\2\u0088\u008c"+
+		"\7h\2\2\u0089\u008a\7K\2\2\u008a\u008c\7H\2\2\u008b\u0087\3\2\2\2\u008b"+
+		"\u0089\3\2\2\2\u008c\"\3\2\2\2\n\2Z`eky\177\u008b\2";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {
