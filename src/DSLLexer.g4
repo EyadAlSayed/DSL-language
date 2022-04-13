@@ -4,6 +4,13 @@ lexer grammar  DSLLexer;
 // EYAD start here !
 // Controller Tokens
 
+// condition
+IF_ID:'if'|'IF';
+
+// logical operation
+AND_OP_ID : 'and' | 'AND';
+OR_OP_ID : 'or' | 'OR';
+EQUAL_OP_ID : 'equal'|'EQUAL';
 
 // symbols
 
@@ -18,23 +25,14 @@ CLOSE_PAR_BRACKT_ID : ')';
 SPACE : ' ';
 
 // controller definition
-CONTROLLER_DEF_ID: 'Controller';
-CONTROLLER_DEF_END_ID: 'endController';
+CONTROLLER_DEF_ID: 'Controller'|'controller'|'CONTROLLER';
+CONTROLLER_DEF_END_ID: 'endController'|'endcontroller'| 'ENDCONTROLLER'|'EndController' ;
 
 // controller words
 BUNDLE_ID:'BUNDLE' | 'bundle' | 'Bundle';
-VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
-NAME_ID : [a-zA-Z]+;
+VAR_NAME_ID: ('_' [a-zA-Z]+ [1-9]*) | ('_' [1-9]+ [a-zA-Z]*);
+NAME_ID : '\'' ~[<']* '\'';
 
 // controller actions
-PRINT_ACTION:'print';
-
-// logical operation
-AND_OP_ID : 'and' | 'AND';
-OR_OP_ID : 'or' | 'OR';
-EQUAL_OP_ID : 'equal';
-
-// condition
-IF_ID:'if'|'IF';
-
+PRINT_ACTION:'print'|'PRINT';
 // Eyad  end here !
