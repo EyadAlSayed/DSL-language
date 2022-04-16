@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -52,12 +52,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTextName(DSLParser.TextNameContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#textAttribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextAttribute(DSLParser.TextAttributeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#value}.
 	 * @param ctx the parse tree
