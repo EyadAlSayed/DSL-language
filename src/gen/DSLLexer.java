@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLLexer.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLLexer.g4 by ANTLR 4.9.1
 package gen;
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;

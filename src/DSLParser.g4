@@ -10,7 +10,7 @@ dslDocument:
 
 //CAESAR
 pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* NEWLINE space headerStructure space body? NEWLINE space END_PAGE;
-headerStructure: HEADER space VALUE WHITE_SPACE* ASSIGN WHITE_SPACE*   TEXT+  NEWLINE space ENDHEADER;
+headerStructure: HEADER space value space NEWLINE space ENDHEADER;
 
 //SALEM
 
@@ -20,11 +20,11 @@ bodyAttribute :
         | form space
         ;
 
-text : TEXT_DEF_ID space  textName space  textAttribute* space TEXT_DEF_END_ID;
-textName : NAME space ASSIGN space  TEXT*  ;
-textAttribute : value;
+text : TEXT_DEF_ID space textName space value space TEXT_DEF_END_ID; // it was 'value*'
+textName : NAME space ASSIGN space TEXT;
 
-value : VALUE WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT*;
+
+value : VALUE WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT;
 
 
 //ABD
