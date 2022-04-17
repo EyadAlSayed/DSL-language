@@ -1,7 +1,9 @@
 package Visitors;
 
+import Models.ControllerModels.*;
 import Models.DSLDocument;
 import Models.PageModels.*;
+import Visitors.ControllerVisitor.ControllerVisitor;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
@@ -153,5 +155,21 @@ public class BaseVisitor extends DSLParserBaseVisitor {
 
         return formBodyAttribute;
     }
+
+
+
+
+    // EYAD
+    @Override
+    public ControllerElement visitControllerElement(DSLParser.ControllerElementContext ctx) {
+        ControllerElement controllerElement = new ControllerElement();
+        controllerElement.setControllerDef(ControllerVisitor.getInstance().visitControllerDef(ctx.controllerDef()));
+        return controllerElement;
+    }
+
+
+
+
+
 
 }
