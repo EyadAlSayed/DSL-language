@@ -1,0 +1,19 @@
+controller _cc
+
+_username = bundle [ 'username' ]
+
+_password = bundle [ 'password' ]
+
+if(_username equal 'eyad')
+print 'hi'
+
+
+
+if(_username equal 'salem' and _password equal 'eyad')
+print 'hi salem'
+
+if(_username equal 'salem' or _password equal 'eyad')
+print 'hi salem'
+
+endController
+
