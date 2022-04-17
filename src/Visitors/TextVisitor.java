@@ -8,7 +8,6 @@ import gen.DSLParserBaseVisitor;
 public class TextVisitor extends DSLParserBaseVisitor {
 
     TextBodyAttribute textBodyAttribute;
-    TextName textName;
     ValueVisitor valueVisitor;
 
     @Override
@@ -31,15 +30,15 @@ public class TextVisitor extends DSLParserBaseVisitor {
     @Override
     public TextName visitTextName(DSLParser.TextNameContext ctx){
 
-        textName = new TextName();
+        textBodyAttribute.setTextName(new TextName());
 
         if(ctx.NAME() != null)
-            textName.setNAME(ctx.NAME().getText());
+            textBodyAttribute.getTextName().setNAME(ctx.NAME().getText());
         if(ctx.ASSIGN() != null)
-            textName.setASSIGN(ctx.ASSIGN().getText());
+            textBodyAttribute.getTextName().setASSIGN(ctx.ASSIGN().getText());
         if(ctx.TEXT() != null)
-            textName.setTEXT(ctx.TEXT().getText());
+            textBodyAttribute.getTextName().setTEXT(ctx.TEXT().getText());
 
-        return textName;
+        return textBodyAttribute.getTextName();
     }
 }

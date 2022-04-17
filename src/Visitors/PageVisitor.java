@@ -8,7 +8,6 @@ import gen.DSLParserBaseVisitor;
 public class PageVisitor extends DSLParserBaseVisitor {
 
     PageStructure pageStructure;
-    HeaderStructure headerStructure;
     BodyVisitor bodyVisitor;
     ValueVisitor valueVisitor;
 
@@ -34,15 +33,15 @@ public class PageVisitor extends DSLParserBaseVisitor {
     @Override
     public HeaderStructure visitHeaderStructure(DSLParser.HeaderStructureContext ctx){
 
-        headerStructure = new HeaderStructure();
+        pageStructure.setHeaderStructure(new HeaderStructure());
 
         if(ctx.HEADER() != null)
-            headerStructure.setHEADER(ctx.HEADER().getText());
+            pageStructure.getHeaderStructure().setHEADER(ctx.HEADER().getText());
         if(ctx.value() != null)
-            headerStructure.setValue(valueVisitor.visitValue(ctx.value()));
+            pageStructure.getHeaderStructure().setValue(valueVisitor.visitValue(ctx.value()));
         if(ctx.ENDHEADER() != null)
-            headerStructure.setEND_HEADER(ctx.ENDHEADER().getText());
+            pageStructure.getHeaderStructure().setEND_HEADER(ctx.ENDHEADER().getText());
 
-        return headerStructure;
+        return pageStructure.getHeaderStructure();
     }
 }
