@@ -10,7 +10,6 @@ import gen.DSLParserBaseVisitor;
 public class BodyVisitor extends DSLParserBaseVisitor {
 
     BodyStructure bodyStructure;
-    BodyAttribute bodyAttribute;
     TextVisitor textVisitor;
     // FormVisitor formVisitor;
 
@@ -33,7 +32,7 @@ public class BodyVisitor extends DSLParserBaseVisitor {
     @Override
     public BodyAttribute visitBodyAttribute(DSLParser.BodyAttributeContext ctx){
 
-        bodyAttribute = new BodyAttribute();
+        BodyAttribute bodyAttribute = new BodyAttribute();
 
         if(ctx.text() != null)
             bodyAttribute.setTextBodyAttribute(textVisitor.visitText(ctx.text()));
