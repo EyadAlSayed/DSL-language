@@ -149,17 +149,17 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBundle(DSLParser.BundleContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#ifCondition}.
+	 * Visit a parse tree produced by {@link DSLParser#singleCondition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIfCondition(DSLParser.IfConditionContext ctx);
+	T visitSingleCondition(DSLParser.SingleConditionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#condition}.
+	 * Visit a parse tree produced by {@link DSLParser#doubleCondition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCondition(DSLParser.ConditionContext ctx);
+	T visitDoubleCondition(DSLParser.DoubleConditionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#var}.
 	 * @param ctx the parse tree
@@ -178,12 +178,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAction(DSLParser.ActionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#textValue}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextValue(DSLParser.TextValueContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#space}.
 	 * @param ctx the parse tree
