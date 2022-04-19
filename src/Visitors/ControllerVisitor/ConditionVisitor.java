@@ -1,9 +1,11 @@
 package Visitors.ControllerVisitor;
 
-import Models.ControllerModels.DoubleCondition;
-import Models.ControllerModels.SingleCondition;
-import gen.DSLParser;
 
+import Models.ControllerModels.Condition;
+import Models.ControllerModels.IFCondition;
+import Models.ControllerModels.TextValue;
+import Models.ControllerModels.Var;
+import gen.DSLParser;
 
 // EYAD
 public class ConditionVisitor extends ControllerVisitor{
@@ -18,60 +20,64 @@ public class ConditionVisitor extends ControllerVisitor{
     }
 
     @Override
-    public SingleCondition visitSingleCondition(DSLParser.SingleConditionContext ctx) {
-        SingleCondition singleCondition = new SingleCondition();
-
-        if (ctx.IF_ID() != null)
-            singleCondition.setIfId(ctx.IF_ID().getText());
+    public IFCondition visitIfCondition(DSLParser.IfConditionContext ctx) {
+        IFCondition ifCondition = new IFCondition();
 
         if (ctx.OPEN_PAR_BRACKT_ID() != null)
-            singleCondition.setOpenParBracktId(ctx.OPEN_PAR_BRACKT_ID().getText());
+            ifCondition.setOpenParBrackt(ctx.OPEN_PAR_BRACKT_ID().getText());
 
-        singleCondition.setVar(BundleVisitor.getInstance().visitVar(ctx.var()));
-
-        singleCondition.setLogicalOp(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp()));
-
-        if (ctx.TEXT() != null)
-            singleCondition.setText(ctx.getText());
+        for (int i = 0; i < ctx.condition().size(); i++) {
+            ifCondition.getConditions().add(visitCondition(ctx.condition(i)));
+        }
 
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
-            singleCondition.setCloseParBracktId(ctx.CLOSE_PAR_BRACKT_ID().getText());
+            ifCondition.setCloseParBrackt(ctx.CLOSE_PAR_BRACKT_ID().getText());
 
-        return singleCondition;
+
+
+        return ifCondition;
     }
 
     @Override
-    public DoubleCondition visitDoubleCondition(DSLParser.DoubleConditionContext ctx) {
-        DoubleCondition doubleCondition = new DoubleCondition();
+    public Condition visitCondition(DSLParser.ConditionContext ctx) {
+        Condition condition = new Condition();
 
-        if (ctx.IF_ID() != null)
-            doubleCondition.setIfId(ctx.IF_ID().getText());
+        if (ctx.var() != null)
+            condition.setVar(visitVar(ctx.var()));
 
-        if (ctx.OPEN_PAR_BRACKT_ID() != null)
-            doubleCondition.setOpenParBracktId(ctx.OPEN_PAR_BRACKT_ID().getText());
+        if (ctx.logicalOp(0) != null)
+            condition.setLogicalOp1(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp(0)));
 
-        doubleCondition.setVar1(BundleVisitor.getInstance().visitVar(ctx.var(0)));
+        if (ctx.textValue() != null)
+            condition.setTextValue(visitTextValue(ctx.textValue()));
 
-        doubleCondition.setLogicalOp1(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp(0)));
+        if (ctx.logicalOp(1) != null)
+            condition.setLogicalOp2(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp(1)));
 
-        if (ctx.TEXT(0) != null)
-            doubleCondition.setText1(ctx.TEXT(0).getText());
+        return condition;
+    }
 
+    @Override
+    public Var visitVar(DSLParser.VarContext ctx) {
+        Var var = new Var();
 
+        if (ctx.VAR_NAME_ID() != null)
+            var.setVarNameId(ctx.VAR_NAME_ID().getText());
 
-        doubleCondition.setLogicalOp2(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp(1)));
+        return var;
 
-        doubleCondition.setVar2(BundleVisitor.getInstance().visitVar(ctx.var(1)));
+    }
 
-        doubleCondition.setLogicalOp3(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp(2)));
+    @Override
+    public TextValue visitTextValue(DSLParser.TextValueContext ctx) {
+        TextValue textValue = new TextValue();
 
-        if (ctx.TEXT(1) != null)
-            doubleCondition.setText2(ctx.TEXT(1).getText());
+        if (ctx.TEXT() != null)
+            textValue.setText(ctx.TEXT().getText());
 
-        if (ctx.CLOSE_PAR_BRACKT_ID() != null)
-            doubleCondition.setCloseParBracktId(ctx.CLOSE_PAR_BRACKT_ID().getText());
+        if (ctx.TEXTNUM() != null)
+            textValue.setTextNum(ctx.TEXTNUM().getText());
 
-
-        return doubleCondition;
+        return textValue;
     }
 }

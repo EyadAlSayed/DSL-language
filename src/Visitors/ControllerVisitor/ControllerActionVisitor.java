@@ -22,10 +22,6 @@ public class ControllerActionVisitor extends ControllerVisitor{
         if (ctx.PRINT_ACTION() != null)
             action.setPrintAction(ctx.PRINT_ACTION().getText());
 
-        for (int i = 0; i < ctx.TEXT().size(); i++) {
-            action.getText().add(ctx.TEXT(i).getText());
-        }
-
         return action;
     }
 

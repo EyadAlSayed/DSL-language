@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Action {
     String printAction;
-    List<String> text = new ArrayList<>();
+    final List<String> text = new ArrayList<>();
 
     public String getPrintAction() {
         return printAction;
@@ -19,7 +19,4 @@ public class Action {
         return text;
     }
 
-    public void setText(List<String> text) {
-        this.text = text;
-    }
 }

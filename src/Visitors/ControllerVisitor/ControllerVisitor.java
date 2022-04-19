@@ -42,8 +42,7 @@ public class ControllerVisitor extends BaseVisitor {
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
         ControllerTokens controllerTokens = new ControllerTokens();
         controllerTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle()));
-        controllerTokens.setSingleCondition(ConditionVisitor.getInstance().visitSingleCondition(ctx.singleCondition()));
-        controllerTokens.setDoubleCondition(ConditionVisitor.getInstance().visitDoubleCondition(ctx.doubleCondition()));
+        controllerTokens.setIfCondition(ConditionVisitor.getInstance().visitIfCondition(ctx.ifCondition()));
         controllerTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
         return controllerTokens;
     }

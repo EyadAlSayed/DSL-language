@@ -6,7 +6,7 @@ import java.util.List;
 public class ControllerDef {
      String controllerDefId;
      String fileNameId;
-     List<ControllerTokens> controllerTokens = new ArrayList<>();
+     final List<ControllerTokens> controllerTokens = new ArrayList<>();
      String controllerDefEndId;
 
      public String getControllerDefId() {
@@ -27,10 +27,6 @@ public class ControllerDef {
 
      public List<ControllerTokens> getControllerTokens() {
           return controllerTokens;
-     }
-
-     public void setControllerTokens(List<ControllerTokens> controllerTokens) {
-          this.controllerTokens = controllerTokens;
      }
 
      public String getControllerDefEndId() {
