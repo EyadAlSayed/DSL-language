@@ -2,7 +2,7 @@ package Visitors.ControllerVisitor;
 
 import Models.ControllerModels.ControllerDef;
 import Models.ControllerModels.ControllerTokens;
-import Visitors.BaseVisitor;
+import Visitors.PageVisitors.BaseVisitor;
 import gen.DSLParser;
 
 

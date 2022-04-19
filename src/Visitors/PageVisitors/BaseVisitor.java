@@ -1,4 +1,4 @@
-package Visitors;
+package Visitors.PageVisitors;
 
 import Models.ControllerModels.*;
 import Models.DSLDocument;

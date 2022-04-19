@@ -1,4 +1,4 @@
-package Visitors;
+package Visitors.PageVisitors;
 
 import Models.PageModels.BodyAttribute;
 import Models.PageModels.BodyStructure;
