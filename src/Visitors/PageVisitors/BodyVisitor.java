@@ -6,12 +6,11 @@ import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
 
-// TODO: Uncomment comments when 'FormVisitor' class is complete.
 public class BodyVisitor extends DSLParserBaseVisitor {
 
-    BodyStructure bodyStructure;
-    TextVisitor textVisitor;
-    // FormVisitor formVisitor;
+    BodyStructure bodyStructure = new BodyStructure();
+    TextVisitor textVisitor = new TextVisitor();
+     FormVisitor formVisitor = new FormVisitor();
 
     @Override
     public BodyStructure visitBody(DSLParser.BodyContext ctx){
@@ -36,8 +35,8 @@ public class BodyVisitor extends DSLParserBaseVisitor {
 
         if(ctx.text() != null)
             bodyAttribute.setTextBodyAttribute(textVisitor.visitText(ctx.text()));
-//        if(ctx.form() != null)
-//            bodyAttribute.setFormBodyAttribute(/*formVisitor.visitForm(ctx.form())*/);
+       if(ctx.form() != null)
+            bodyAttribute.setFormBodyAttribute(formVisitor.visitForm(ctx.form()));
 
         return bodyAttribute;
 

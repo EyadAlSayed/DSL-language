@@ -7,8 +7,8 @@ import gen.DSLParserBaseVisitor;
 
 public class TextVisitor extends DSLParserBaseVisitor {
 
-    TextBodyAttribute textBodyAttribute;
-    ValueVisitor valueVisitor;
+    TextBodyAttribute textBodyAttribute = new TextBodyAttribute();
+    ValueVisitor valueVisitor = new ValueVisitor();
 
     @Override
     public TextBodyAttribute visitText(DSLParser.TextContext ctx){

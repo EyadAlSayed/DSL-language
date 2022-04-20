@@ -1,6 +1,11 @@
 package Models.PageModels;
 
-public class TextBodyAttribute {
+import Models.Printer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class TextBodyAttribute extends Printer {
 
     String TEXT;
     TextName textName;
@@ -37,5 +42,28 @@ public class TextBodyAttribute {
 
     public void setEND_TEXT(String END_TEXT) {
         this.END_TEXT = END_TEXT;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("TextBodyAttribute", toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","TextBodyAttribute");
+        if(TEXT != null)
+            map.put("Text",TEXT);
+        if(textName != null)
+            map.put("textName",textName.toMap());
+        if(value != null)
+            map.put("value",value.toMap());
+        if(END_TEXT != null)
+            map.put("EndText",END_TEXT);
+
+        return map;
     }
 }

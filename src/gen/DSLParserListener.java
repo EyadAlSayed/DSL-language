@@ -238,25 +238,25 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitBundle(DSLParser.BundleContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#singleCondition}.
+	 * Enter a parse tree produced by {@link DSLParser#ifCondition}.
 	 * @param ctx the parse tree
 	 */
-	void enterSingleCondition(DSLParser.SingleConditionContext ctx);
+	void enterIfCondition(DSLParser.IfConditionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#singleCondition}.
+	 * Exit a parse tree produced by {@link DSLParser#ifCondition}.
 	 * @param ctx the parse tree
 	 */
-	void exitSingleCondition(DSLParser.SingleConditionContext ctx);
+	void exitIfCondition(DSLParser.IfConditionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#doubleCondition}.
+	 * Enter a parse tree produced by {@link DSLParser#condition}.
 	 * @param ctx the parse tree
 	 */
-	void enterDoubleCondition(DSLParser.DoubleConditionContext ctx);
+	void enterCondition(DSLParser.ConditionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#doubleCondition}.
+	 * Exit a parse tree produced by {@link DSLParser#condition}.
 	 * @param ctx the parse tree
 	 */
-	void exitDoubleCondition(DSLParser.DoubleConditionContext ctx);
+	void exitCondition(DSLParser.ConditionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#var}.
 	 * @param ctx the parse tree
@@ -287,6 +287,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitAction(DSLParser.ActionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#textValue}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextValue(DSLParser.TextValueContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#textValue}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextValue(DSLParser.TextValueContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#space}.
 	 * @param ctx the parse tree

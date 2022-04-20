@@ -1,6 +1,11 @@
 package Models.ControllerModels;
 
-public class Condition {
+import Models.Printer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Condition extends Printer {
 
     Var var;
     LogicalOp logicalOp1;
@@ -37,5 +42,27 @@ public class Condition {
 
     public void setLogicalOp2(LogicalOp logicalOp2) {
         this.logicalOp2 = logicalOp2;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("Condition", toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","Condition");
+        if(var != null)
+            map.put("Var",var.toMap());
+        if(logicalOp1 != null)
+            map.put("logicalOp1",logicalOp1.toMap());
+        if(textValue != null)
+            map.put("textValue",textValue.toMap());
+        if(logicalOp2 != null)
+            map.put("logicalOp2",logicalOp2.toMap());
+
+        return map;
     }
 }

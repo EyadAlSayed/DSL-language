@@ -2,7 +2,7 @@ package Visitors.ControllerVisitor;
 
 import Models.ControllerModels.ControllerDef;
 import Models.ControllerModels.ControllerTokens;
-import Visitors.PageVisitors.BaseVisitor;
+import Visitors.BaseVisitor;
 import gen.DSLParser;
 
 
@@ -41,8 +41,11 @@ public class ControllerVisitor extends BaseVisitor {
     @Override
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
         ControllerTokens controllerTokens = new ControllerTokens();
+        if(ctx.bundle()!=null)
         controllerTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle()));
+        if(ctx.ifCondition()!=null)
         controllerTokens.setIfCondition(ConditionVisitor.getInstance().visitIfCondition(ctx.ifCondition()));
+        if(ctx.action()!=null)
         controllerTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
         return controllerTokens;
     }

@@ -31,9 +31,7 @@ text = 'salem'
 
 endPasswordField
 
-RadioGroup
-
-name = 'salem'
+RadioGroup name = 'salem'
 
 RadioField
 

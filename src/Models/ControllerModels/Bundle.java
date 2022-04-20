@@ -1,6 +1,11 @@
 package Models.ControllerModels;
 
-public class Bundle {
+import Models.Printer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Bundle extends Printer {
     Var var;
     String Assign;
     String bundleId;
@@ -54,5 +59,31 @@ public class Bundle {
 
     public void setCloseSqrBracktId(String closeSqrBracktId) {
         this.closeSqrBracktId = closeSqrBracktId;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("Bundle", toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","Bundle");
+        if(var != null)
+            map.put("Var",var.toMap());
+        if(Assign != null)
+            map.put("Assign",Assign);
+        if(bundleId != null)
+            map.put("bundleId",bundleId);
+        if(openSqrBracktId != null)
+            map.put("openSqrBracktId",openSqrBracktId);
+        if(Text != null)
+            map.put("Text",Text);
+        if(closeSqrBracktId != null)
+            map.put("closeSqrBracktId",closeSqrBracktId);
+        return map;
     }
 }

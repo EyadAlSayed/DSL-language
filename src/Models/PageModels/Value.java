@@ -1,6 +1,11 @@
 package Models.PageModels;
 
-public class Value {
+import Models.Printer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class Value extends Printer {
 
     String VALUE;
     String ASSIGN;
@@ -28,5 +33,25 @@ public class Value {
 
     public void setTEXT(String TEXT) {
         this.TEXT = TEXT;
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("Value", toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","Value");
+        if(VALUE != null)
+            map.put("Value",VALUE);
+        if(ASSIGN != null)
+            map.put("Assign",ASSIGN);
+        if(TEXT!=null)
+            map.put("Text",TEXT);
+        return map;
     }
 }

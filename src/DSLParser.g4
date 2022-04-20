@@ -9,7 +9,7 @@ dslDocument:
 
 
 //CAESAR
-pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* NEWLINE space headerStructure space body? NEWLINE space END_PAGE;
+pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space headerStructure space body?  space END_PAGE;
 headerStructure: HEADER space value space NEWLINE space ENDHEADER;
 
 //SALEM
@@ -30,64 +30,64 @@ value : VALUE WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT;
 //ABD
 
 form:
-    (POST_FORM | GET_FORM) WHITE_SPACE* NEWLINE+ form_attribute* children*  END_FORM
+    (POST_FORM | GET_FORM) space form_attribute* children*  END_FORM
     ;
 
 form_attribute:
-    (NAME|ACTION) WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT WHITE_SPACE* NEWLINE+
+    (NAME|ACTION) WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT space
     ;
 
 children:
-     (WHITE_SPACE | NEWLINE)* text_input (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* email_input (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* password_input (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* radio_group (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* radio_input (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* checkbox_input (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* submit_button (WHITE_SPACE | NEWLINE)*
-    | (WHITE_SPACE | NEWLINE)* text  (WHITE_SPACE | NEWLINE)*
+     space text_input space
+    | space email_input space
+    | space password_input space
+    | space radio_group space
+    | space radio_input space
+    | space checkbox_input space
+    | space submit_button space
+    | space text  space
     ;
 
 
 text_input:
-    TEXT_FIELD WHITE_SPACE* NEWLINE+ attribute* END_TEXT_FIELD WHITE_SPACE* NEWLINE+
+    TEXT_FIELD space attribute* END_TEXT_FIELD space
     ;
 
 email_input:
-    EMAIL_FIELD WHITE_SPACE* NEWLINE+ attribute* END_EMAIL_FIELD WHITE_SPACE* NEWLINE+
+    EMAIL_FIELD space attribute* END_EMAIL_FIELD space
     ;
 
 password_input:
-    PASSWORD_FIELD WHITE_SPACE* NEWLINE+ attribute* END_PASSWORD_FIELD WHITE_SPACE* NEWLINE+
+    PASSWORD_FIELD space attribute* END_PASSWORD_FIELD space
     ;
 
 radio_input
-    :RADIO_FIELD WHITE_SPACE* NEWLINE+ attribute*  END_RADIO_FIELD WHITE_SPACE* NEWLINE+
+    :RADIO_FIELD space attribute*  END_RADIO_FIELD space
     ;
 
 radio_group:
-    RADIO_GROUP WHITE_SPACE* NEWLINE+  NAME WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT (WHITE_SPACE | NEWLINE)* NEWLINE+ radio_input* (WHITE_SPACE | NEWLINE)* END_RADIO_GROUP WHITE_SPACE* NEWLINE+
+    RADIO_GROUP space  NAME WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT space radio_input* space END_RADIO_GROUP space
     ;
 
 checkbox_input
-    :CHECKBOX_FIELD WHITE_SPACE* NEWLINE+ attribute*  END_CHECKBOX_FIELD WHITE_SPACE* NEWLINE+
+    :CHECKBOX_FIELD space attribute*  END_CHECKBOX_FIELD space
     ;
 
 
 submit_button:
-   SUBMIT_BUTTON WHITE_SPACE* NEWLINE+ attribute* END_SUBMIT_BUTTON WHITE_SPACE* NEWLINE+
+   SUBMIT_BUTTON space attribute* END_SUBMIT_BUTTON space
     ;
 
 
 
 attribute:
- (WHITE_SPACE | NEWLINE)*   (NAME|VALUE|TEXT_DEF) WHITE_SPACE* WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT (WHITE_SPACE | NEWLINE)* NEWLINE+
+ space   (NAME|VALUE|TEXT_DEF) WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT space
     ;
 
 //EYAD
 
 controllerElement:  controllerDef;
-controllerDef: CONTROLLER_DEF_ID WHITE_SPACE* FILE_NAME_ID NEWLINE+  (controllerTokens | NEWLINE)+  WHITE_SPACE*  CONTROLLER_DEF_END_ID;
+controllerDef: CONTROLLER_DEF_ID WHITE_SPACE* FILE_NAME_ID space  (controllerTokens | NEWLINE)+  WHITE_SPACE*  CONTROLLER_DEF_END_ID;
 
 controllerTokens:
     bundle
@@ -95,13 +95,13 @@ controllerTokens:
     |action
     ;
 
-bundle : var WHITE_SPACE* ASSIGN  WHITE_SPACE* BUNDLE_ID WHITE_SPACE* OPEN_SQR_BRACKT_ID WHITE_SPACE* TEXT WHITE_SPACE* CLOSE_SQR_BRACKT_ID;
-ifCondition : IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+bundle : var WHITE_SPACE* ASSIGN  WHITE_SPACE* BUNDLE_ID WHITE_SPACE* OPEN_SQR_BRACKT_ID WHITE_SPACE* TEXT WHITE_SPACE* CLOSE_SQR_BRACKT_ID space;
+ifCondition : IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space;
 
 condition : var WHITE_SPACE* logicalOp WHITE_SPACE* textValue WHITE_SPACE* logicalOp? WHITE_SPACE*;
 var: VAR_NAME_ID;
 logicalOp: AND_OP_ID|OR_OP_ID|EQUAL_OP_ID;
-action: PRINT_ACTION WHITE_SPACE* textValue;
+action: PRINT_ACTION WHITE_SPACE* textValue space;
 textValue :  (TEXT |TEXTNUM) ;
 
 space: (NEWLINE+ | WHITE_SPACE)*;

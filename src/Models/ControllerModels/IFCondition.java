@@ -1,9 +1,13 @@
 package Models.ControllerModels;
 
-import java.util.ArrayList;
-import java.util.List;
+import Models.Printer;
 
-public class IFCondition {
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+public class IFCondition extends Printer {
 
     String IfId;
     String openParBrackt;
@@ -37,5 +41,35 @@ public class IFCondition {
 
     public void setCloseParBrackt(String closeParBrackt) {
         this.closeParBrackt = closeParBrackt;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("IfId", toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","IfId");
+        if(IfId != null)
+            map.put("IfId",IfId);
+        if(openParBrackt != null)
+            map.put("openParBracket",openParBrackt);
+        if(conditions.size()>0)
+        {
+            ArrayList<Map<String,Object>> attributes = new ArrayList<>();
+            for (Condition attribute :
+                    conditions) {
+                attributes.add(attribute.toMap());
+            }
+            map.put("Condition",attributes);
+        }
+
+        if(closeParBrackt != null)
+            map.put("closeParBracket",closeParBrackt);
+
+        return map;
     }
 }

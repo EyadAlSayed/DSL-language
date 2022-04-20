@@ -6,7 +6,7 @@ import gen.*;
 
 public class FormChildrenVisitor {
 
-    private AttributeVisitor attributeVisitor;
+    private AttributeVisitor attributeVisitor = new AttributeVisitor();
 
     public FormChildrenVisitor() {
         this.attributeVisitor = new AttributeVisitor();
@@ -78,7 +78,10 @@ public class FormChildrenVisitor {
     public RadioGroup visitRadio_group(DSLParser.Radio_groupContext ctx) {
         RadioGroup radioGroup = new RadioGroup();
         if (ctx.NAME() != null)
-            radioGroup.setName(ctx.TEXT().getText());
+           radioGroup.setName(ctx.NAME().getText());
+
+        if(ctx.TEXT() != null)
+            radioGroup.setNameValue(ctx.TEXT().getText());
 
         if (ctx.radio_input() != null)
             for (DSLParser.Radio_inputContext radio : ctx.radio_input()) {

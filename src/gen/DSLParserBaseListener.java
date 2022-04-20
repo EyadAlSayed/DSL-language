@@ -292,25 +292,25 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSingleCondition(DSLParser.SingleConditionContext ctx) { }
+	@Override public void enterIfCondition(DSLParser.IfConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSingleCondition(DSLParser.SingleConditionContext ctx) { }
+	@Override public void exitIfCondition(DSLParser.IfConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterDoubleCondition(DSLParser.DoubleConditionContext ctx) { }
+	@Override public void enterCondition(DSLParser.ConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitDoubleCondition(DSLParser.DoubleConditionContext ctx) { }
+	@Override public void exitCondition(DSLParser.ConditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -347,6 +347,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitAction(DSLParser.ActionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTextValue(DSLParser.TextValueContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextValue(DSLParser.TextValueContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
