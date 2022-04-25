@@ -16,3 +16,15 @@ if(_username EQUAL 'salem' OR _password EQUAL 'eyad')
 print 'hi salem'
 
 endController
+
+
+----------------------
+if(_username AND 'salem')
+ifBody
+_username = Bundle['eyad']
+if(_username AND 'salem')
+ifBody
+print 333
+endIfBody
+print 22
+endIfBody
