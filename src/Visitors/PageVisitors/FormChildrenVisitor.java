@@ -1,10 +1,11 @@
 package Visitors.PageVisitors;
 
 import Models.PageModels.*;
+import Visitors.BaseVisitor;
 import gen.*;
 
 
-public class FormChildrenVisitor {
+public class FormChildrenVisitor extends BaseVisitor {
 
     private AttributeVisitor attributeVisitor = new AttributeVisitor();
 
@@ -12,7 +13,7 @@ public class FormChildrenVisitor {
         this.attributeVisitor = new AttributeVisitor();
     }
 
-    // @Override
+     @Override
     public Node visitChildren(DSLParser.ChildrenContext ctx) {
 
         if (ctx.text_input() != null)
