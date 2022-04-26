@@ -1,10 +1,11 @@
 package Visitors.PageVisitors;
 
 import Models.PageModels.Form;
+import Visitors.BaseVisitor;
 import gen.DSLParser;
 
 
-public class FormVisitor {
+public class FormVisitor extends BaseVisitor {
     private Form form;
     private FormChildrenVisitor childrenVisitor;
 
@@ -12,7 +13,7 @@ public class FormVisitor {
         this.childrenVisitor = new FormChildrenVisitor();
     }
 
-    // @Override
+     @Override
     public Form visitForm(DSLParser.FormContext ctx) {
         Form form = new Form();
         if (ctx.POST_FORM() != null)
