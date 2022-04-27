@@ -19,6 +19,8 @@ public class ProjectMain {
     static String controllerPath = "src/Sample/ControllerSyntax";
     static String ASTPath = "AST.txt";
    public static ArrayList<Pair<String,Object>> symbolTableController = new ArrayList<>();
+    public static ArrayList<Pair<String,Object>> symbolTablePage = new ArrayList<>();
+
 
     protected static void showGUI(ParseTree pt, DSLParser parser) {
         Trees.inspect(pt, parser);
