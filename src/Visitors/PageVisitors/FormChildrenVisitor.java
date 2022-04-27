@@ -1,11 +1,10 @@
 package Visitors.PageVisitors;
 
 import Models.PageModels.*;
-import Visitors.BaseVisitor;
 import gen.*;
 
 
-public class FormChildrenVisitor extends BaseVisitor {
+public class FormChildrenVisitor extends DSLParserBaseVisitor {
 
     private AttributeVisitor attributeVisitor = new AttributeVisitor();
 
@@ -42,7 +41,7 @@ public class FormChildrenVisitor extends BaseVisitor {
 
 
 
-    // @Override
+    @Override
     public TextField visitText_input(DSLParser.Text_inputContext ctx) {
         TextField textField = new TextField();
         if (ctx.attribute() != null)
@@ -55,7 +54,7 @@ public class FormChildrenVisitor extends BaseVisitor {
     }
 
 
-    // @Override
+     @Override
     public EmailField visitEmail_input(DSLParser.Email_inputContext ctx) {
         EmailField emailField = new EmailField();
         if (ctx.attribute() != null)
@@ -65,7 +64,7 @@ public class FormChildrenVisitor extends BaseVisitor {
         return emailField;
     }
 
-    // @Override
+     @Override
     public PasswordField visitPassword_input(DSLParser.Password_inputContext ctx) {
         PasswordField passwordField = new PasswordField();
         if (ctx.attribute() != null)
@@ -75,7 +74,7 @@ public class FormChildrenVisitor extends BaseVisitor {
         return passwordField;
     }
 
-    //   @Override
+       @Override
     public RadioGroup visitRadio_group(DSLParser.Radio_groupContext ctx) {
         RadioGroup radioGroup = new RadioGroup();
         if (ctx.NAME() != null)
@@ -91,7 +90,7 @@ public class FormChildrenVisitor extends BaseVisitor {
         return radioGroup;
     }
 
-    //   @Override
+       @Override
     public RadioField visitRadio_input(DSLParser.Radio_inputContext ctx) {
         RadioField radioField = new RadioField();
         if (ctx.attribute() != null)
@@ -101,7 +100,7 @@ public class FormChildrenVisitor extends BaseVisitor {
         return radioField;
     }
 
-    //  @Override
+      @Override
     public CheckBoxField visitCheckbox_input(DSLParser.Checkbox_inputContext ctx) {
         CheckBoxField checkBoxField = new CheckBoxField();
         if (ctx.attribute() != null)
@@ -111,7 +110,7 @@ public class FormChildrenVisitor extends BaseVisitor {
         return checkBoxField;
     }
 
-    // @Override
+     @Override
     public SubmitButton visitSubmit_button(DSLParser.Submit_buttonContext ctx) {
         SubmitButton submitButton = new SubmitButton();
         if (ctx.attribute() != null)

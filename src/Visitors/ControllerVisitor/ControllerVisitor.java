@@ -9,10 +9,10 @@ import gen.DSLParser;
 // EYAD
 public class ControllerVisitor extends BaseVisitor {
 
-   private static ControllerVisitor controllerVisitor;
+    private static ControllerVisitor controllerVisitor;
 
-    public static ControllerVisitor getInstance(){
-        if (controllerVisitor == null){
+    public static ControllerVisitor getInstance() {
+        if (controllerVisitor == null) {
             controllerVisitor = new ControllerVisitor();
         }
         return controllerVisitor;
@@ -41,12 +41,13 @@ public class ControllerVisitor extends BaseVisitor {
     @Override
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
         ControllerTokens controllerTokens = new ControllerTokens();
-        if(ctx.bundle()!=null)
-        controllerTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle()));
-        if(ctx.ifCondition()!=null)
-        controllerTokens.setIfCondition(ConditionVisitor.getInstance().visitIfCondition(ctx.ifCondition()));
-        if(ctx.action()!=null)
-        controllerTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
+        if (ctx.bundle() != null) {
+            controllerTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle()));
+        }
+        if (ctx.ifCondition() != null)
+            controllerTokens.setIfCondition(ConditionVisitor.getInstance().visitIfCondition(ctx.ifCondition()));
+        if (ctx.action() != null)
+            controllerTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
         return controllerTokens;
     }
 }

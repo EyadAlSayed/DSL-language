@@ -10,7 +10,7 @@ dslDocument:
 
 //CAESAR
 pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space headerStructure space body?  space END_PAGE;
-headerStructure: HEADER space value space NEWLINE space ENDHEADER;
+headerStructure: HEADER space value space  ENDHEADER;
 
 //SALEM
 

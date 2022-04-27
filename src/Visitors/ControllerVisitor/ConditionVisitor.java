@@ -77,7 +77,6 @@ public class ConditionVisitor extends ControllerVisitor {
 
         ifBodyTokens.setIfCondition(visitIfCondition(ctx.ifCondition()));
 
-        ifBodyTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle()));
 
         ifBodyTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
 

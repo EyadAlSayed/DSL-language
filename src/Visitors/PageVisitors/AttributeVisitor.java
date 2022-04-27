@@ -2,9 +2,10 @@ package Visitors.PageVisitors;
 
 import Models.PageModels.Attribute;
 import gen.DSLParser;
+import gen.DSLParserBaseVisitor;
 
-public class AttributeVisitor {
-    //  @Override
+public class AttributeVisitor extends DSLParserBaseVisitor {
+      @Override
     public Attribute visitAttribute(DSLParser.AttributeContext ctx) {
         Attribute attribute = new Attribute();
 
