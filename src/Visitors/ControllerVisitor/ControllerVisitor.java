@@ -39,7 +39,7 @@ public class ControllerVisitor extends BaseVisitor {
     }
 
 
-    public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx,ControllerDef controllerDef) {
+    public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx, ControllerDef controllerDef) {
         ControllerTokens controllerTokens = new ControllerTokens();
         if (ctx.bundle() != null) {
             controllerTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle(),controllerDef));

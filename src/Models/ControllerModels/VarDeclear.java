@@ -1,6 +1,11 @@
 package Models.ControllerModels;
 
-public class VarDeclear {
+import Models.Printer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class VarDeclear extends Printer {
 
     String varNameId;
     String assign;
@@ -28,5 +33,20 @@ public class VarDeclear {
 
     public void setTextValue(TextValue textValue) {
         this.textValue = textValue;
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+         Map<String, Object> map = new LinkedHashMap<>();
+
+         if (varNameId != null)
+             map.put("VarNameId",varNameId);
+
+         if (assign != null)
+             map.put("Assign",assign);
+         if (textValue != null)
+             map.put("textValue",textValue.toMap());
+
+         return map;
     }
 }

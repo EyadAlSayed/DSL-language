@@ -16,12 +16,12 @@ public class ConditionVisitor extends ControllerVisitor {
         return conditionVisitor;
     }
 
-   // @Override
+     @Override
     public IFCondition visitIfCondition(DSLParser.IfConditionContext ctx) {
         IFCondition ifCondition = new IFCondition();
 
-        if (ctx.IF_ID() != null)
-            ifCondition.setIfId(ctx.IF_ID().getText());
+            if (ctx.IF_ID() != null)
+                ifCondition.setIfId(ctx.IF_ID().getText());
 
         if (ctx.OPEN_PAR_BRACKT_ID() != null)
             ifCondition.setOpenParBrackt(ctx.OPEN_PAR_BRACKT_ID().getText());
@@ -33,7 +33,7 @@ public class ConditionVisitor extends ControllerVisitor {
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
             ifCondition.setCloseParBrackt(ctx.CLOSE_PAR_BRACKT_ID().getText());
 
-        ifCondition.setIfBody(visitIfBody(ctx.ifBody(),ifCondition));
+        ifCondition.setIfBody(visitIfBody(ctx.ifBody(), ifCondition));
 
         return ifCondition;
     }
@@ -58,14 +58,14 @@ public class ConditionVisitor extends ControllerVisitor {
     }
 
     //@Override
-    public IfBody visitIfBody(DSLParser.IfBodyContext ctx,Object father) {
+    public IfBody visitIfBody(DSLParser.IfBodyContext ctx, Object father) {
         IfBody ifBody = new IfBody();
 
         if (ctx.IFBODY_DEF_ID() != null)
             ifBody.setIfBodyDefId(ctx.IFBODY_DEF_ID().getText());
 
         for (int i = 0; i < ctx.ifBodyTokens().size(); i++) {
-            ifBody.getIfBodyTokens().add(visitIfBodyTokens(ctx.ifBodyTokens(i),father));
+            ifBody.getIfBodyTokens().add(visitIfBodyTokens(ctx.ifBodyTokens(i), father));
         }
 
         if (ctx.IFBODY_DEF_END_ID() != null)
@@ -74,17 +74,21 @@ public class ConditionVisitor extends ControllerVisitor {
         return ifBody;
     }
 
-   // @Override
-    public IfBodyTokens visitIfBodyTokens(DSLParser.IfBodyTokensContext ctx,Object father) {
+    // @Override
+    public IfBodyTokens visitIfBodyTokens(DSLParser.IfBodyTokensContext ctx, Object father) {
         IfBodyTokens ifBodyTokens = new IfBodyTokens();
 
-        ifBodyTokens.setIfCondition(visitIfCondition(ctx.ifCondition()));
+        if (ctx.ifCondition() != null)
+            ifBodyTokens.setIfCondition(visitIfCondition(ctx.ifCondition()));
 
-        ifBodyTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle(),father));
+        if (ctx.bundle() != null)
+            ifBodyTokens.setBundle(BundleVisitor.getInstance().visitBundle(ctx.bundle(), father));
 
-        ifBodyTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
+        if (ctx.action() != null)
+            ifBodyTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
 
-        ifBodyTokens.setVarDeclear(visitVarDeclear(ctx.varDeclear()));
+        if (ctx.varDeclear() != null)
+            ifBodyTokens.setVarDeclear(visitVarDeclear(ctx.varDeclear()));
 
         return ifBodyTokens;
     }

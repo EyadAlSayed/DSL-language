@@ -25,7 +25,7 @@ public class BaseVisitor extends DSLParserBaseVisitor {
             pageVisitor = new PageVisitor();
             dslDocument.setPageStructure(pageVisitor.visitPageStructure(ctx.pageStructure()));
         }
-        else if(ctx.controllerElement()!=null)
+         if(ctx.controllerElement()!=null)
         {
             controllerVisitor = ControllerVisitor.getInstance();
             dslDocument.setControllerElement(controllerVisitor.visitControllerDef(ctx.controllerElement().controllerDef()));

@@ -1,9 +1,10 @@
 package Models.ControllerModels;
 
-import java.util.ArrayList;
-import java.util.List;
+import Models.Printer;
 
-public class IfBody {
+import java.util.*;
+
+public class IfBody extends Printer {
 
     String ifBodyDefId;
     final List<IfBodyTokens> ifBodyTokens = new ArrayList<>();
@@ -27,5 +28,25 @@ public class IfBody {
 
     public void setIfBodyDefEndId(String ifBodyDefEndId) {
         this.ifBodyDefEndId = ifBodyDefEndId;
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("label","ifBody");
+        if (ifBodyDefId != null){
+            map.put("ifBody",ifBodyDefId);
+        }
+        if (ifBodyTokens.size() > 0){
+            ArrayList<Map<String,Object>> tokens = new ArrayList<>();
+            for (IfBodyTokens token: ifBodyTokens){
+                tokens.add(token.toMap());
+            }
+            map.put("ifBodyTokens",ifBodyTokens);
+        }
+        if (ifBodyDefEndId != null){
+            map.put("ifBodyEnd",ifBodyDefEndId);
+        }
+     return map;
     }
 }

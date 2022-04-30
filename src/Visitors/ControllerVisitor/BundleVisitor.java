@@ -23,22 +23,23 @@ public class BundleVisitor extends ControllerVisitor {
     public Bundle visitBundle(DSLParser.BundleContext ctx, Object father) {
         Bundle bundle = new Bundle();
 
-        bundle.setVar(visitVar(ctx.var(),father));
+            bundle.setVar(visitVar(ctx.var(), father));
 
-        if (ctx.ASSIGN() != null)
-            bundle.setAssign(ctx.ASSIGN().getText());
+            if (ctx.ASSIGN() != null)
+                bundle.setAssign(ctx.ASSIGN().getText());
 
-        if (ctx.BUNDLE_ID() != null)
-            bundle.setBundleId(ctx.BUNDLE_ID().getText());
+            if (ctx.BUNDLE_ID() != null)
+                bundle.setBundleId(ctx.BUNDLE_ID().getText());
 
-        if (ctx.OPEN_SQR_BRACKT_ID() != null)
-            bundle.setOpenSqrBracktId(ctx.OPEN_SQR_BRACKT_ID().getText());
+            if (ctx.OPEN_SQR_BRACKT_ID() != null)
+                bundle.setOpenSqrBracktId(ctx.OPEN_SQR_BRACKT_ID().getText());
 
-        if (ctx.TEXT() != null)
-            bundle.setText(ctx.TEXT().getText());
+            if (ctx.TEXT() != null)
+                bundle.setText(ctx.TEXT().getText());
 
-        if (ctx.CLOSE_SQR_BRACKT_ID() != null)
-            bundle.setCloseSqrBracktId(ctx.CLOSE_SQR_BRACKT_ID().getText());
+            if (ctx.CLOSE_SQR_BRACKT_ID() != null)
+                bundle.setCloseSqrBracktId(ctx.CLOSE_SQR_BRACKT_ID().getText());
+
         return bundle;
     }
 

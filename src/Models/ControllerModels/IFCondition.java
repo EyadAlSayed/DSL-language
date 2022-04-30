@@ -80,6 +80,9 @@ public class IFCondition extends Printer {
         if(closeParBrackt != null)
             map.put("closeParBracket",closeParBrackt);
 
+        if (ifBody != null)
+            map.put("ifBody",ifBody.toMap());
+
         return map;
     }
 }
