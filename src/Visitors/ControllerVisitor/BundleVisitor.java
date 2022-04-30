@@ -20,9 +20,9 @@ public class BundleVisitor extends ControllerVisitor {
     }
 
 
-    public Bundle visitBundle(DSLParser.BundleContext ctx) {
+    public Bundle visitBundle(DSLParser.BundleContext ctx,Object father) {
         Bundle bundle = new Bundle();
-        bundle.setVar(visitVar(ctx.var(),bundle));
+        bundle.setVar(visitVar(ctx.var(),father));
 
         if (ctx.ASSIGN() != null)
             bundle.setAssign(ctx.ASSIGN().getText());
@@ -42,13 +42,13 @@ public class BundleVisitor extends ControllerVisitor {
     }
 
 
-    public Var visitVar(DSLParser.VarContext ctx,Bundle bundle) {
+    public Var visitVar(DSLParser.VarContext ctx,Object father) {
         Var var = new Var();
         if (ctx.VAR_NAME_ID() != null) {
-            Pair<String, Object> pair = new Pair<>(ctx.VAR_NAME_ID().getText(),bundle);
+            Pair<String, Object> pair = new Pair<>(ctx.VAR_NAME_ID().getText(),father);
             if (!CustomPair.containPair(pair, ProjectMain.symbolTableController)) {
                 var.setVarNameId(ctx.VAR_NAME_ID().getText());
-                ProjectMain.symbolTableController.add(new Pair<>(var.getVarNameId(), bundle));
+                ProjectMain.symbolTableController.add(new Pair<>(var.getVarNameId(), father));
             }
         }
         return var;

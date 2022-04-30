@@ -41,7 +41,7 @@ public class BodyVisitor extends DSLParserBaseVisitor {
             Pair<String, Object> pair = new Pair<>(ctx.text().textName().TEXT().getText(), body);
             if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
                 bodyAttribute.setTextBodyAttribute(textVisitor.visitText(ctx.text()));
-                ProjectMain.symbolTablePage.add(new Pair<>(bodyAttribute.getTextBodyAttribute().getTEXT(), body));
+                ProjectMain.symbolTablePage.add(new Pair<>(ctx.text().textName().TEXT().getText(), body));
             }
         } //endCaesar
             if (ctx.form() != null)
