@@ -20,8 +20,9 @@ public class BundleVisitor extends ControllerVisitor {
     }
 
 
-    public Bundle visitBundle(DSLParser.BundleContext ctx,Object father) {
+    public Bundle visitBundle(DSLParser.BundleContext ctx, Object father) {
         Bundle bundle = new Bundle();
+
         bundle.setVar(visitVar(ctx.var(),father));
 
         if (ctx.ASSIGN() != null)

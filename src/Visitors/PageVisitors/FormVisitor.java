@@ -1,7 +1,6 @@
 package Visitors.PageVisitors;
 
 import Models.PageModels.Form;
-import Visitors.BaseVisitor;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
