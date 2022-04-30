@@ -29,9 +29,9 @@ public class ProjectMain {
 
     public static void main(String[] args) {
 
-        symbolTableController.add(new Pair<>("salem",pagePath));
+
         try {
-            String source = pagePath;
+            String source = controllerPath;
             CharStream cs = fromFileName(source);
             DSLLexer dslLexer = new DSLLexer(cs);
             CommonTokenStream token = new CommonTokenStream(dslLexer);
