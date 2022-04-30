@@ -16,7 +16,7 @@ public class ValueVisitor extends DSLParserBaseVisitor {
         if(ctx.VALUE() != null)
             value.setVALUE(ctx.VALUE().getText());
         if(ctx.ASSIGN() != null)
-            value.setVALUE(ctx.ASSIGN().getText());
+            value.setASSIGN(ctx.ASSIGN().getText());
         if(ctx.TEXT() != null)
             value.setTEXT(ctx.TEXT().getText());
 

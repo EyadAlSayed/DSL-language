@@ -10,6 +10,7 @@ public class TextVisitor extends DSLParserBaseVisitor {
     TextBodyAttribute textBodyAttribute = new TextBodyAttribute();
     ValueVisitor valueVisitor = new ValueVisitor();
 
+
     @Override
     public TextBodyAttribute visitText(DSLParser.TextContext ctx){
 

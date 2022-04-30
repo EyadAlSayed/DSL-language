@@ -1,4 +1,4 @@
-// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
+// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
 package gen;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -299,6 +299,42 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitIfCondition(DSLParser.IfConditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfBody(DSLParser.IfBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfBody(DSLParser.IfBodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIfBodyTokens(DSLParser.IfBodyTokensContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIfBodyTokens(DSLParser.IfBodyTokensContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterVarDeclear(DSLParser.VarDeclearContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitVarDeclear(DSLParser.VarDeclearContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -76,6 +76,10 @@ BUNDLE_ID:'Bundle';
 
 IF_ID:'if';
 
+IFBODY_DEF_ID:'ifBody';
+
+IFBODY_DEF_END_ID : 'endIfBody';
+
 AND_OP_ID : 'AND';
 
 OR_OP_ID : 'OR';

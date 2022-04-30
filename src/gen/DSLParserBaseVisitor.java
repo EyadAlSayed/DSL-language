@@ -1,4 +1,4 @@
-// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
+// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
 package gen;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
@@ -179,6 +179,27 @@ public class DSLParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitIfCondition(DSLParser.IfConditionContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIfBody(DSLParser.IfBodyContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitIfBodyTokens(DSLParser.IfBodyTokensContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitVarDeclear(DSLParser.VarDeclearContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

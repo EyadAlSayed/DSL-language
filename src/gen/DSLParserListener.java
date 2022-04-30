@@ -1,4 +1,4 @@
-// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
+// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -247,6 +247,36 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitIfCondition(DSLParser.IfConditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#ifBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfBody(DSLParser.IfBodyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#ifBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfBody(DSLParser.IfBodyContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#ifBodyTokens}.
+	 * @param ctx the parse tree
+	 */
+	void enterIfBodyTokens(DSLParser.IfBodyTokensContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#ifBodyTokens}.
+	 * @param ctx the parse tree
+	 */
+	void exitIfBodyTokens(DSLParser.IfBodyTokensContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#varDeclear}.
+	 * @param ctx the parse tree
+	 */
+	void enterVarDeclear(DSLParser.VarDeclearContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#varDeclear}.
+	 * @param ctx the parse tree
+	 */
+	void exitVarDeclear(DSLParser.VarDeclearContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#condition}.
 	 * @param ctx the parse tree

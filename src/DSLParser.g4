@@ -10,7 +10,7 @@ dslDocument:
 
 //CAESAR
 pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space headerStructure space body?  space END_PAGE;
-headerStructure: HEADER space value space NEWLINE space ENDHEADER;
+headerStructure: HEADER space value space  ENDHEADER;
 
 //SALEM
 
@@ -96,8 +96,16 @@ controllerTokens:
     ;
 
 bundle : var WHITE_SPACE* ASSIGN  WHITE_SPACE* BUNDLE_ID WHITE_SPACE* OPEN_SQR_BRACKT_ID WHITE_SPACE* TEXT WHITE_SPACE* CLOSE_SQR_BRACKT_ID space;
-ifCondition : IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space;
+ifCondition : IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space ifBody;
 
+ifBody: IFBODY_DEF_ID space ifBodyTokens+ WHITE_SPACE* IFBODY_DEF_END_ID space ;
+ifBodyTokens:
+    ifCondition
+    |bundle
+    |action
+    |varDeclear;
+
+varDeclear: VAR_NAME_ID WHITE_SPACE* ASSIGN WHITE_SPACE* textValue ;
 condition : var WHITE_SPACE* logicalOp WHITE_SPACE* textValue WHITE_SPACE* logicalOp? WHITE_SPACE*;
 var: VAR_NAME_ID;
 logicalOp: AND_OP_ID|OR_OP_ID|EQUAL_OP_ID;

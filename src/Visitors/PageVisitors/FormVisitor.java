@@ -3,9 +3,10 @@ package Visitors.PageVisitors;
 import Models.PageModels.Form;
 import Visitors.BaseVisitor;
 import gen.DSLParser;
+import gen.DSLParserBaseVisitor;
 
 
-public class FormVisitor extends BaseVisitor {
+public class FormVisitor extends DSLParserBaseVisitor {
     private Form form;
     private FormChildrenVisitor childrenVisitor;
 

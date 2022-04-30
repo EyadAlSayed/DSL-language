@@ -1,19 +1,16 @@
 package Visitors.ControllerVisitor;
 
 
-import Models.ControllerModels.Condition;
-import Models.ControllerModels.IFCondition;
-import Models.ControllerModels.TextValue;
-import Models.ControllerModels.Var;
+import Models.ControllerModels.*;
 import gen.DSLParser;
 
 // EYAD
-public class ConditionVisitor extends ControllerVisitor{
+public class ConditionVisitor extends ControllerVisitor {
 
     private static ConditionVisitor conditionVisitor;
 
-    public static ConditionVisitor getInstance(){
-        if (conditionVisitor == null){
+    public static ConditionVisitor getInstance() {
+        if (conditionVisitor == null) {
             conditionVisitor = new ConditionVisitor();
         }
         return conditionVisitor;
@@ -33,7 +30,7 @@ public class ConditionVisitor extends ControllerVisitor{
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
             ifCondition.setCloseParBrackt(ctx.CLOSE_PAR_BRACKT_ID().getText());
 
-
+        ifCondition.setIfBody(visitIfBody(ctx.ifBody()));
 
         return ifCondition;
     }
@@ -55,6 +52,52 @@ public class ConditionVisitor extends ControllerVisitor{
             condition.setLogicalOp2(LogicalOpVisitor.getInstance().visitLogicalOp(ctx.logicalOp(1)));
 
         return condition;
+    }
+
+    @Override
+    public IfBody visitIfBody(DSLParser.IfBodyContext ctx) {
+        IfBody ifBody = new IfBody();
+
+        if (ctx.IFBODY_DEF_ID() != null)
+            ifBody.setIfBodyDefId(ctx.IFBODY_DEF_ID().getText());
+
+        for (int i = 0; i < ctx.ifBodyTokens().size(); i++) {
+            ifBody.getIfBodyTokens().add(visitIfBodyTokens(ctx.ifBodyTokens(i)));
+        }
+
+        if (ctx.IFBODY_DEF_END_ID() != null)
+            ifBody.setIfBodyDefEndId(ctx.IFBODY_DEF_END_ID().getText());
+
+        return ifBody;
+    }
+
+    @Override
+    public IfBodyTokens visitIfBodyTokens(DSLParser.IfBodyTokensContext ctx) {
+        IfBodyTokens ifBodyTokens = new IfBodyTokens();
+
+        ifBodyTokens.setIfCondition(visitIfCondition(ctx.ifCondition()));
+
+
+        ifBodyTokens.setAction(ControllerActionVisitor.getInstance().visitAction(ctx.action()));
+
+        ifBodyTokens.setVarDeclear(visitVarDeclear(ctx.varDeclear()));
+
+        return ifBodyTokens;
+    }
+
+    @Override
+    public VarDeclear visitVarDeclear(DSLParser.VarDeclearContext ctx) {
+        VarDeclear varDeclear = new VarDeclear();
+
+        if (ctx.VAR_NAME_ID() != null)
+            varDeclear.setVarNameId(ctx.VAR_NAME_ID().getText());
+
+        if (ctx.ASSIGN() != null)
+            varDeclear.setAssign(ctx.ASSIGN().getText());
+
+        varDeclear.setTextValue(visitTextValue(ctx.textValue()));
+
+        return varDeclear;
     }
 
     @Override

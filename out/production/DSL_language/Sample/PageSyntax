@@ -1,6 +1,8 @@
 Page p1
 Head
+
 value = 'salem'
+
 endHead
 
 Body
@@ -8,6 +10,15 @@ Body
 Text
 
 name = 'salem'
+
+value = 'salem'
+
+endText
+
+Text
+
+name = 'salem'
+
 value = 'salem'
 
 endText

@@ -1,4 +1,4 @@
-// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
+// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -154,6 +154,24 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitIfCondition(DSLParser.IfConditionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#ifBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfBody(DSLParser.IfBodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#ifBodyTokens}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfBodyTokens(DSLParser.IfBodyTokensContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#varDeclear}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitVarDeclear(DSLParser.VarDeclearContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#condition}.
 	 * @param ctx the parse tree

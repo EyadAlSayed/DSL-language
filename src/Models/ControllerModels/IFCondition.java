@@ -13,6 +13,16 @@ public class IFCondition extends Printer {
     String openParBrackt;
     final List<Condition> conditions = new ArrayList<>();
     String closeParBrackt;
+    IfBody ifBody;
+
+
+    public IfBody getIfBody() {
+        return ifBody;
+    }
+
+    public void setIfBody(IfBody ifBody) {
+        this.ifBody = ifBody;
+    }
 
     public String getIfId() {
         return IfId;

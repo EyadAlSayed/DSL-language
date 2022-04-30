@@ -1,24 +1,19 @@
 package Models;
 
 
-import org.apache.commons.collections.ArrayStack;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public abstract class Printer {
 
     protected StringBuilder getPrettyString(String label, Map map) {
         if (!map.isEmpty())
-            return verbosePrintInternal(label, map, new ArrayStack(), false);
+            return verbosePrintInternal(label, map, new Stack<>(), false);
         else return new StringBuilder();
 
     }
 
-    private static StringBuilder verbosePrintInternal(Object label, Map map, ArrayStack lineage, boolean isItemOfList) {
+    private static StringBuilder verbosePrintInternal(Object label, Map map, Stack lineage, boolean isItemOfList) {
         StringBuilder str = new StringBuilder();
 
         str.append(printIndent(lineage.size()));
@@ -87,7 +82,7 @@ public abstract class Printer {
         return str;
     }
 
-    private static StringBuilder list(List<ArrayList<Map<String, Object>>> list, ArrayStack lineage) {
+    private static StringBuilder list(List<ArrayList<Map<String, Object>>> list, Stack lineage) {
         StringBuilder str = new StringBuilder();
         if (list.size() > 0) {
             str.append(printIndent(lineage.size()));
