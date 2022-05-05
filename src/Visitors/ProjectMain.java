@@ -41,9 +41,6 @@ public class ProjectMain {
             DSLDocument doc = (DSLDocument) new BaseVisitor().visit(tree);
             System.out.println(doc);
 
-
-
-
         } catch (IOException e) {
             e.printStackTrace();
         }

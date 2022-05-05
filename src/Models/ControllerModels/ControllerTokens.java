@@ -51,9 +51,6 @@ public class ControllerTokens extends Printer {
             map.put("Action",action.toMap());
         if(ifCondition != null)
             map.put("ifCondition",ifCondition.toMap());
-
-
-
         return map;
     }
 }

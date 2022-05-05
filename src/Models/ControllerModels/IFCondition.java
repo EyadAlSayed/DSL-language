@@ -70,8 +70,7 @@ public class IFCondition extends Printer {
         if(conditions.size()>0)
         {
             ArrayList<Map<String,Object>> attributes = new ArrayList<>();
-            for (Condition attribute :
-                    conditions) {
+            for (Condition attribute : conditions) {
                 attributes.add(attribute.toMap());
             }
             map.put("Condition",attributes);

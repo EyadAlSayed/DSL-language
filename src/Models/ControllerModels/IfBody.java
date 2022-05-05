@@ -42,7 +42,7 @@ public class IfBody extends Printer {
             for (IfBodyTokens token: ifBodyTokens){
                 tokens.add(token.toMap());
             }
-            map.put("ifBodyTokens",ifBodyTokens);
+            map.put("ifBodyTokens",tokens);
         }
         if (ifBodyDefEndId != null){
             map.put("ifBodyEnd",ifBodyDefEndId);
