@@ -31,7 +31,7 @@ public class FormVisitor extends DSLParserBaseVisitor {
 
         if (ctx.children() != null) {
             for (DSLParser.ChildrenContext child : ctx.children())
-                form.getNodes().add(childrenVisitor.visitChildren(child));
+                form.getNodes().add(childrenVisitor.visitChildren(child,form));
         }
         return form;
     }

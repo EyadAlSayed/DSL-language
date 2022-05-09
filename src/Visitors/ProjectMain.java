@@ -39,7 +39,11 @@ public class ProjectMain {
             //showGUI(parser.dslDocument(),parser);
             ParseTree tree = parser.dslDocument();
             DSLDocument doc = (DSLDocument) new BaseVisitor().visit(tree);
-            System.out.println(doc);
+            //System.out.println(doc);
+
+            for (Pair<String, Object> pair : symbolTablePage) {
+                System.out.println(pair.a +"    "+pair.b.getClass().getName());
+            }
 
 
 

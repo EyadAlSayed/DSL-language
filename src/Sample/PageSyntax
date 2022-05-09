@@ -19,7 +19,7 @@ PostForm
 
 TextField
 
-name = 'salem'
+name = 'text'
 value = 'salem'
 text = 'salem'
 
@@ -28,13 +28,14 @@ endTextField
 
 PasswordField
 
-name = 'salem'
+name = 'pass'
 value = 'salem'
 text = 'salem'
 
 endPasswordField
 
-RadioGroup name = 'salem'
+RadioGroup
+name = 'radio'
 
 RadioField
 
@@ -59,7 +60,7 @@ endCheckBoxField
 
 SubmitButton
 
-name = 'salem'
+name = 'submit'
 value = 'salem'
 text = 'salem'
 
