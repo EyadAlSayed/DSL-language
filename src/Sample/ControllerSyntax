@@ -1,14 +1,13 @@
-Controller cc
+Controller c1 controls p1
+{
+   if(username == "salem" and password == "123")
+     {
+         text1 = "success";
+     }
+    print "text1";
+    print text1;
+    text2 = "salem";
+    print text2;
+    sum = number1 + number2;
 
-_username = Bundle [ 'username' ]
-
-_password = Bundle [ 'password' ]
-
-if ( _username EQUAL 'salem')
-ifBody
-print 44
-endIfBody
-
-endController
-
-
+}

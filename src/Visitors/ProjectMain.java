@@ -31,7 +31,7 @@ public class ProjectMain {
 
 
         try {
-            String source = controllerPath;
+            String source = pagePath;
             CharStream cs = fromFileName(source);
             DSLLexer dslLexer = new DSLLexer(cs);
             CommonTokenStream token = new CommonTokenStream(dslLexer);
