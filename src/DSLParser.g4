@@ -9,20 +9,23 @@ dslDocument:
 
 
 //CAESAR
-pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space headerStructure space body?  space END_PAGE;
-headerStructure: HEADER space value space  ENDHEADER;
+pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space OPEN_CURLY_BRACES space body? CLOSE_CURLY_BRACES;
+headerStructure: TITLE OPEN_PAR_BRACKT_ID TEXT CLOSE_PAR_BRACKT_ID;
 
 //SALEM
 
-body : BODY_DEF_ID space bodyAttribute*  BODY_DEF_END_ID;
-bodyAttribute :
-          text space
-        | form space
-        ;
+body : bodyAttributes WHITE_SPACE*;
+bodyAttributes :(
+        WHITE_SPACE* headerStructure WHITE_SPACE* NEWLINE
+        | WHITE_SPACE* text WHITE_SPACE* NEWLINE
+        | WHITE_SPACE* textField WHITE_SPACE* NEWLINE
+        )*;
 
-text : TEXT_DEF_ID space textName space value space TEXT_DEF_END_ID; // it was 'value*'
-textName : NAME space ASSIGN space TEXT;
+text : TEXT_DEF_ID OPEN_PAR_BRACKT_ID FILE_NAME_ID WHITE_SPACE* (COMMA WHITE_SPACE* TEXT)? WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
 
+textField: TEXT_FIELD OPEN_PAR_BRACKT_ID FILE_NAME_ID WHITE_SPACE* (COMMA WHITE_SPACE* TEXT)? (COMMA WHITE_SPACE* textFieldAttribute)? WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+
+textFieldAttribute: TEXT_AS_PARAMETER | EMAIL_AS_PARAMETER | PASSWORD_AS_PARAMETER | DATE_AS_PARAMETER;
 
 value : VALUE WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT;
 
@@ -113,12 +116,3 @@ action: PRINT_ACTION WHITE_SPACE* textValue space;
 textValue :  (TEXT |TEXTNUM) ;
 
 space: (NEWLINE+ | WHITE_SPACE)*;
-
-
-
-
-
-
-
-
-

@@ -1,4 +1,4 @@
-// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -27,16 +27,6 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitPageStructure(DSLParser.PageStructureContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#headerStructure}.
-	 * @param ctx the parse tree
-	 */
-	void enterHeaderStructure(DSLParser.HeaderStructureContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#headerStructure}.
-	 * @param ctx the parse tree
-	 */
-	void exitHeaderStructure(DSLParser.HeaderStructureContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#body}.
 	 * @param ctx the parse tree

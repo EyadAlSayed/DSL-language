@@ -1,4 +1,4 @@
-// Generated from C:/Users/Lenovo/ForGitHub/DSL-language/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
 package gen;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -35,18 +35,6 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitPageStructure(DSLParser.PageStructureContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterHeaderStructure(DSLParser.HeaderStructureContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitHeaderStructure(DSLParser.HeaderStructureContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
