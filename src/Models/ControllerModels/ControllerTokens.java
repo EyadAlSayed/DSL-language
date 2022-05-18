@@ -4,13 +4,19 @@ import Models.ControllerModels.Action.Assign;
 import Models.ControllerModels.Action.MathEquation;
 import Models.ControllerModels.Action.Print;
 import Models.ControllerModels.If.IFStatement;
+import Models.Printer;
 
-public class ControllerTokens {
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class ControllerTokens extends Printer {
 
     IFStatement ifStatement;
+    Loop loop;
     Print print;
     Assign assign;
     MathEquation mathEquation;
+
 
     public IFStatement getIfStatement() {
         return ifStatement;
@@ -42,5 +48,40 @@ public class ControllerTokens {
 
     public void setMathEquation(MathEquation mathEquation) {
         this.mathEquation = mathEquation;
+    }
+
+    public Loop getLoop() {
+        return loop;
+    }
+
+    public void setLoop(Loop loop) {
+        this.loop = loop;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("ControllerTokens", toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label", "ControllerTokens");
+
+        if (ifStatement != null)
+            map.put("ifStatement", ifStatement);
+        if (loop != null)
+            map.put("Loop",loop);
+
+        if (print != null)
+            map.put("Print", print);
+
+        if (assign != null)
+            map.put("Assign", assign);
+        if (mathEquation != null)
+            map.put("MathEquation", mathEquation);
+
+        return map;
     }
 }

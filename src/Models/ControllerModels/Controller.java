@@ -1,9 +1,16 @@
 package Models.ControllerModels;
 
-import java.util.ArrayList;
-import java.util.List;
+import Models.Printer;
 
-public class Controller {
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
+ *  this class has controller Def name in parser file
+ */
+public class Controller extends Printer {
 
     String controllerDef;
     String fileNameId1;
@@ -63,5 +70,45 @@ public class Controller {
 
     public void setCloseCurlyBrackt(String closeCurlyBrackt) {
         this.closeCurlyBrackt = closeCurlyBrackt;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("Controller",toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("label","Controller");
+
+        if (controllerDef != null)
+            map.put("ControllerDef",controllerDef);
+        if (fileNameId1 != null)
+            map.put("fileNameId1",fileNameId1);
+        if (controllerMethod != null)
+            map.put("ControllerMethod",controllerMethod);
+
+        if (fileNameId2 != null)
+            map.put("fileNameId2",fileNameId2);
+
+        if (openCurlyBrackt != null)
+            map.put("OpenCurlyBrackt",openCurlyBrackt);
+
+        if (controllerTokens.size() > 0){
+            ArrayList<Map<String,Object>> list = new ArrayList<>();
+            for (ControllerTokens ct:
+                 controllerTokens) {
+                list.add(ct.toMap());
+            }
+            map.put("ControllerTokens",list);
+        }
+
+        if (closeCurlyBrackt != null)
+            map.put("CloseCurlyBrackt",closeCurlyBrackt);
+
+        return map;
+
     }
 }
