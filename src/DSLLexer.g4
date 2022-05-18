@@ -49,7 +49,6 @@ NEWLINE: '\n';
 WHITE_SPACE:  (' '|'\t'|'\r');
 
 DOUBLE_QUOTE: '"';
-DOUBLE_QUOTE: '"';
 
 OPEN_BRACES : '(';
 
@@ -74,7 +73,6 @@ VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 FILE_NAME_ID: [a-zA-Z]+ [1-9]* | [a-zA-Z]+  [1-9]+ ;
 
 TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [1-9]+)+ | WHITE_SPACE)* DOUBLE_QUOTE;
-TEXT: (SINGLE_QUOTE|DOUBLE_QUOTE) (([a-zA-Z]+ | [1-9]+)+ WHITE_SPACE*)+ (SINGLE_QUOTE|DOUBLE_QUOTE);
 TEXTNUM: [1-9]+;
 //TEXTCHAR: ([a-zA-Z] | [1-9])+;
 

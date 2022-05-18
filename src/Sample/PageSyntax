@@ -1,8 +1,8 @@
 Page p1
 {
     Title("title")
-    Text(text1,"salem")  (value is optional default is space)
-    Text(text2,"test")   (value is optional default is space)
+    Text(text1,"salem")
+    Text(text2,"test")
     TextField(textfield1,"textfield1",email)
     TextField(textfield2,"textfield2",date)
     Button(button1)

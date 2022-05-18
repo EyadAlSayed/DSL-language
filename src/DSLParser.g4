@@ -9,7 +9,7 @@ dslDocument:
 
 
 //CAESAR
-pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space OPEN_CURLY_BRACES space body? CLOSE_CURLY_BRACES;
+pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space OPEN_CURLY_BRACKT_ID space body? CLOSE_CURLY_BRACKT_ID;
 headerStructure: TITLE OPEN_BRACES TEXT CLOSE_BRACES;
 
 body : bodyAttributes WHITE_SPACE*;
