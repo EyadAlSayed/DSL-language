@@ -19,19 +19,22 @@ END_STATMENT_ID:';';
 
 // KEY TOKENS
 
+
+
+
 TEXT_DEF_ID : 'Text';
 
 TITLE : 'Title';
 
 PAGE: 'Page';
 
-EMAIL_AS_PARAMETER: 'email';
+EMAIL_AS_PARAMETER: 'Email';
 
-TEXT_AS_PARAMETER: 'text';
+TEXT_AS_PARAMETER: 'Text';
 
-PASSWORD_AS_PARAMETER: 'password';
+PASSWORD_AS_PARAMETER: 'Password';
 
-DATE_AS_PARAMETER: 'date';
+DATE_AS_PARAMETER: 'Date';
 
 TEXT_FIELD:'TextField';
 
@@ -40,7 +43,9 @@ AND_OP_ID : 'AND';
 OR_OP_ID : 'OR';
 EQUAL_OP_ID : 'EQUAL';
 PRINT_ACTION:'print';
-
+RADIO_GROUP_ID : 'Radiogroup';
+BUTTON_ID : 'Button';
+FORM_ID : 'Form';
 
 //SYMBOL TOKENS
 
@@ -50,19 +55,16 @@ WHITE_SPACE:  (' '|'\t'|'\r');
 
 DOUBLE_QUOTE: '"';
 
-OPEN_BRACES : '(';
 
 ASSIGN_OP_ID : '=';
-
-CLOSE_BRACES : ')';
-
-OPEN_CURLY_BRACES: '{';
-
-CLOSE_CURLY_BRACES: '}';
+OPEN_SQR_BRACKT_ID: '[';
+CLOSE_SQR_BRACKT_ID : ']';
 
 COMMA: ',';
-
+OPEN_PAR_BRACKT_ID : '(';
 CLOSE_PAR_BRACKT_ID : ')';
+
+
 
 //FRAGMENT TOKENS
 
@@ -70,7 +72,7 @@ VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 
 //VAR_ID: [a-zA-Z]+ ([1-9]+ | [a-zA-Z]+ | '_')*;
 
-FILE_NAME_ID: [a-zA-Z]+ [1-9]* | [a-zA-Z]+  [1-9]+ ;
+FILE_NAME_ID: [a-z]+ [1-9]* | [a-z]+  [1-9]+ ;
 
 TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [1-9]+)+ | WHITE_SPACE)* DOUBLE_QUOTE;
 TEXTNUM: [1-9]+;
