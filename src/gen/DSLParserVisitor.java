@@ -1,4 +1,4 @@
-// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -17,17 +17,77 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDslDocument(DSLParser.DslDocumentContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#pageStructure}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPageStructure(DSLParser.PageStructureContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#headerStructure}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitHeaderStructure(DSLParser.HeaderStructureContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#body}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBody(DSLParser.BodyContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#bodyAttributes}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBodyAttributes(DSLParser.BodyAttributesContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#text}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitText(DSLParser.TextContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#radioGroup}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRadioGroup(DSLParser.RadioGroupContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#button}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitButton(DSLParser.ButtonContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#form}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitForm(DSLParser.FormContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitControllerDef(DSLParser.ControllerDefContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#textField}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextField(DSLParser.TextFieldContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerTokens}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitControllerTokens(DSLParser.ControllerTokensContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#textFieldAttribute}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree

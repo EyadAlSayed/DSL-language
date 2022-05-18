@@ -30,8 +30,6 @@ PAGE: 'Page';
 
 EMAIL_AS_PARAMETER: 'Email';
 
-TEXT_AS_PARAMETER: 'Text';
-
 PASSWORD_AS_PARAMETER: 'Password';
 
 DATE_AS_PARAMETER: 'Date';
