@@ -1,80 +1,12 @@
 Page p1
-Head
+{
+    Title("title")
+    Text(text1,"salem")  (value is optional default is space)
+    Text(text2,"test")   (value is optional default is space)
+    TextField(textfield1,"textfield1",email)
+    TextField(textfield2,"textfield2",date)
+    Button(button1)
+    Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3],3)
+    Form(text1,textfield1,textfield2,button1,radiogroup1)
 
-value = 'salem'
-
-endHead
-
-Body
-
-Text
-
-name = 'salem'
-
-value = 'salem'
-
-endText
-
-Text
-
-name = 'salem'
-
-value = 'salem'
-
-endText
-
-PostForm
-
-TextField
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-endTextField
-
-
-PasswordField
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-endPasswordField
-
-RadioGroup name = 'salem'
-
-RadioField
-
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-
-endRadioField
-
-endRadioGroup
-
-CheckBoxField
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-
-endCheckBoxField
-
-SubmitButton
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-endSubmitButton
-
-endForm
-
-endBody
-
-endPage
+}
