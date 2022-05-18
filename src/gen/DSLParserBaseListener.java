@@ -1,4 +1,4 @@
-// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
 package gen;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -28,6 +28,102 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterPageStructure(DSLParser.PageStructureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPageStructure(DSLParser.PageStructureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterHeaderStructure(DSLParser.HeaderStructureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitHeaderStructure(DSLParser.HeaderStructureContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBody(DSLParser.BodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBody(DSLParser.BodyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBodyAttributes(DSLParser.BodyAttributesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBodyAttributes(DSLParser.BodyAttributesContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterText(DSLParser.TextContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitText(DSLParser.TextContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRadioGroup(DSLParser.RadioGroupContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRadioGroup(DSLParser.RadioGroupContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterButton(DSLParser.ButtonContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitButton(DSLParser.ButtonContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterForm(DSLParser.FormContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitForm(DSLParser.FormContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterControllerDef(DSLParser.ControllerDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -40,6 +136,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTextField(DSLParser.TextFieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextField(DSLParser.TextFieldContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterControllerTokens(DSLParser.ControllerTokensContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -47,6 +155,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitControllerTokens(DSLParser.ControllerTokensContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

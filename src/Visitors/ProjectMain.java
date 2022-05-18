@@ -1,6 +1,8 @@
 package Visitors;
 
 import Models.DSLDocument;
+import gen.DSLLexer;
+import gen.DSLParser;
 import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
