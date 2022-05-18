@@ -12,7 +12,7 @@ public class BaseVisitor extends DSLParserBaseVisitor {
 
     PageVisitor pageVisitor;
 
-    DSLDocument dslDocument;
+    DSLDocument dslDocument  = new DSLDocument();
 
     @Override
     public DSLDocument visitDslDocument(DSLParser.DslDocumentContext ctx) {

@@ -2,6 +2,7 @@ package Models.PageModels;
 
 import Models.Printer;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class TextField extends Printer {
@@ -51,6 +52,16 @@ public class TextField extends Printer {
 
     @Override
     public Map<String, Object> toMap() {
-        return null;
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","TextField");
+        if (TEXT_FIELD != null)
+            map.put("TextField",TEXT_FIELD);
+        if (NAME != null)
+            map.put("Name",NAME);
+        if (TEXT != null)
+            map.put("Text",TEXT);
+        if (ATTRIBUTE != null)
+            map.put("Attribute",ATTRIBUTE.toMap());
+        return map;
     }
 }

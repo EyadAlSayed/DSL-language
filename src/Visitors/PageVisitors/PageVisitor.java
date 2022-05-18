@@ -6,9 +6,9 @@ import gen.DSLParserBaseVisitor;
 
 public class PageVisitor extends DSLParserBaseVisitor {
 
-    PageStructure pageStructure;
+    PageStructure pageStructure = new PageStructure();
 
-    BodyVisitor bodyVisitor;
+    BodyVisitor bodyVisitor = new BodyVisitor();
 
     @Override
     public PageStructure visitPageStructure(DSLParser.PageStructureContext ctx){
