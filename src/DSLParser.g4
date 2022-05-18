@@ -3,11 +3,23 @@ parser grammar DSLParser;
 options { tokenVocab=DSLLexer; }
 
 dslDocument:
-   // pageStructure NEWLINE*
+    pageStructure space
    |controllerDef
    ;
 
 
+//CAESAR
+pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space OPEN_CURLY_BRACKT_ID space body? CLOSE_CURLY_BRACKT_ID;
+headerStructure: TITLE OPEN_BRACES TEXT CLOSE_BRACES;
+
+body : bodyAttributes WHITE_SPACE*;
+bodyAttributes :(
+        WHITE_SPACE* headerStructure WHITE_SPACE* NEWLINE
+        | WHITE_SPACE* text WHITE_SPACE* NEWLINE
+        | WHITE_SPACE* textField WHITE_SPACE* NEWLINE
+        )*;
+
+text : TEXT_DEF_ID OPEN_BRACES FILE_NAME_ID WHITE_SPACE* (COMMA WHITE_SPACE* TEXT)? WHITE_SPACE* CLOSE_BRACES;
 //pageStructure: PAGE WHITE_SPACE** FILE_NAME_ID space headerStructure space body?  space END_PAGE;
 
 
@@ -15,11 +27,14 @@ dslDocument:
 controllerDef:  CONTROLLER_DEF WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* CONTROLLER_METHOD WHITE_SPACE* FILE_NAME_ID space
                 OPEN_CURLY_BRACKT_ID space controllerTokens+ space CLOSE_CURLY_BRACKT_ID;
 
+textField: TEXT_FIELD OPEN_BRACES FILE_NAME_ID WHITE_SPACE* (COMMA WHITE_SPACE* TEXT)? (COMMA WHITE_SPACE* textFieldAttribute)? WHITE_SPACE* CLOSE_BRACES;
 controllerTokens:
           ifStatment
           |print
           |assign
           |mathEquation;
+
+textFieldAttribute: TEXT_AS_PARAMETER | EMAIL_AS_PARAMETER | PASSWORD_AS_PARAMETER | DATE_AS_PARAMETER;
 
 ifStatment:IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space
             OPEN_CURLY_BRACKT_ID space controllerTokens+ space CLOSE_CURLY_BRACKT_ID space;
