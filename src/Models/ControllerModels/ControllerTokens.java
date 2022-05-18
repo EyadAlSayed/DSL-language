@@ -1,57 +1,46 @@
 package Models.ControllerModels;
 
-import Models.Printer;
+import Models.ControllerModels.Action.Assign;
+import Models.ControllerModels.Action.MathEquation;
+import Models.ControllerModels.Action.Print;
+import Models.ControllerModels.If.IFStatement;
 
-import java.util.LinkedHashMap;
-import java.util.Map;
+public class ControllerTokens {
 
-public class ControllerTokens extends Printer {
-    Bundle bundle;
-    Action action;
-    IFCondition ifCondition;
+    IFStatement ifStatement;
+    Print print;
+    Assign assign;
+    MathEquation mathEquation;
 
-    public Bundle getBundle() {
-        return bundle;
+    public IFStatement getIfStatement() {
+        return ifStatement;
     }
 
-    public void setBundle(Bundle bundle) {
-        this.bundle = bundle;
+    public void setIfStatement(IFStatement ifStatement) {
+        this.ifStatement = ifStatement;
     }
 
-    public Action getAction() {
-        return action;
+    public Print getPrint() {
+        return print;
     }
 
-    public void setAction(Action action) {
-        this.action = action;
+    public void setPrint(Print print) {
+        this.print = print;
     }
 
-    public IFCondition getIfCondition() {
-        return ifCondition;
+    public Assign getAssign() {
+        return assign;
     }
 
-    public void setIfCondition(IFCondition ifCondition) {
-        this.ifCondition = ifCondition;
+    public void setAssign(Assign assign) {
+        this.assign = assign;
     }
 
-
-    @Override
-    public String toString() {
-        StringBuilder stringBuilder = getPrettyString("ControllerToken", toMap());
-        return stringBuilder.toString();
+    public MathEquation getMathEquation() {
+        return mathEquation;
     }
 
-    @Override
-    public Map<String, Object> toMap() {
-        Map<String, Object> map = new LinkedHashMap<>();
-        map.put("label","ControllerToken");
-        if(bundle != null)
-            map.put("Bundle",bundle.toMap());
-        if(action != null)
-            map.put("Action",action.toMap());
-        if(ifCondition != null)
-            map.put("ifCondition",ifCondition.toMap());
-
-        return map;
+    public void setMathEquation(MathEquation mathEquation) {
+        this.mathEquation = mathEquation;
     }
 }

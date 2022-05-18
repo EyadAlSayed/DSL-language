@@ -1,8 +1,6 @@
 package Visitors;
 
 import Models.DSLDocument;
-import gen.DSLLexer;
-import gen.DSLParser;
 import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -29,7 +27,7 @@ public class ProjectMain {
 
     public static void main(String[] args) {
 
-        symbolTableController.add(new Pair<>("salem",pagePath));
+
         try {
             String source = pagePath;
             CharStream cs = fromFileName(source);
