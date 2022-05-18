@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -17,120 +17,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitDslDocument(DSLParser.DslDocumentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#pageStructure}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPageStructure(DSLParser.PageStructureContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#headerStructure}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitHeaderStructure(DSLParser.HeaderStructureContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#body}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBody(DSLParser.BodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#bodyAttribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBodyAttribute(DSLParser.BodyAttributeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#text}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitText(DSLParser.TextContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#textName}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitTextName(DSLParser.TextNameContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#value}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitValue(DSLParser.ValueContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#form}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForm(DSLParser.FormContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#form_attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitForm_attribute(DSLParser.Form_attributeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#children}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitChildren(DSLParser.ChildrenContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#text_input}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitText_input(DSLParser.Text_inputContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#email_input}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEmail_input(DSLParser.Email_inputContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#password_input}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitPassword_input(DSLParser.Password_inputContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#radio_input}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRadio_input(DSLParser.Radio_inputContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#radio_group}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRadio_group(DSLParser.Radio_groupContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#checkbox_input}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitCheckbox_input(DSLParser.Checkbox_inputContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#submit_button}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSubmit_button(DSLParser.Submit_buttonContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#attribute}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAttribute(DSLParser.AttributeContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#controllerElement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitControllerElement(DSLParser.ControllerElementContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -143,59 +29,23 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitControllerTokens(DSLParser.ControllerTokensContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#bundle}.
+	 * Visit a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitBundle(DSLParser.BundleContext ctx);
+	T visitIfStatment(DSLParser.IfStatmentContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#ifCondition}.
+	 * Visit a parse tree produced by {@link DSLParser#logicalOperation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIfCondition(DSLParser.IfConditionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#ifBody}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIfBody(DSLParser.IfBodyContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#ifBodyTokens}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitIfBodyTokens(DSLParser.IfBodyTokensContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#varDeclear}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVarDeclear(DSLParser.VarDeclearContext ctx);
+	T visitLogicalOperation(DSLParser.LogicalOperationContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#condition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitCondition(DSLParser.ConditionContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#var}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitVar(DSLParser.VarContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#logicalOp}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLogicalOp(DSLParser.LogicalOpContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#action}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitAction(DSLParser.ActionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#textValue}.
 	 * @param ctx the parse tree
@@ -208,4 +58,52 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSpace(DSLParser.SpaceContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#print}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitPrint(DSLParser.PrintContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#assign}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAssign(DSLParser.AssignContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#mathEquation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMathEquation(DSLParser.MathEquationContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#sum}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSum(DSLParser.SumContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#mult}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMult(DSLParser.MultContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#minus}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinus(DSLParser.MinusContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#div}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDiv(DSLParser.DivContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#mod}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMod(DSLParser.ModContext ctx);
 }
