@@ -2,7 +2,6 @@ package Visitors;
 
 
 import Models.DSLDocument;
-import gen.DSLParserBaseVisitor;
 
 
 /* This is the main visitor */
