@@ -12,7 +12,9 @@ IF_ID:'if';
 AND_OP_ID : 'AND';
 OR_OP_ID : 'OR';
 PRINT_ACTION:'print';
-
+RADIO_GROUP_ID : 'Radiogroup';
+BUTTON_ID : 'Button';
+FORM_ID : 'Form';
 
 //SYMBOL TOKENS
 
@@ -31,6 +33,8 @@ CLOSE_SQR_BRACKT_ID : ']';
 OPEN_PAR_BRACKT_ID : '(';
 
 CLOSE_PAR_BRACKT_ID : ')';
+
+COMMA : ',';
 
 
 //FRAGMENT TOKENS
