@@ -11,6 +11,9 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
     HeaderVisitor headerVisitor;
     TextVisitor textVisitor;
     TextFieldVisitor textFieldVisitor;
+    ButtonVisitor buttonVisitor;
+    RadioGroupVisitor radioGroupVisitor;
+    FormVisitor formVisitor;
 
     @Override
     public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx){
@@ -28,6 +31,21 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
         if(ctx.textField() != null){
             textFieldVisitor = new TextFieldVisitor();
             bodyAttribute.setTextField(textFieldVisitor.visitTextField(ctx.textField()));
+        }
+
+        if(ctx.button() != null) {
+            buttonVisitor = new ButtonVisitor();
+            bodyAttribute.setButton(buttonVisitor.visitButton(ctx.button()));
+        }
+
+        if(ctx.radioGroup() != null){
+            radioGroupVisitor = new RadioGroupVisitor();
+            bodyAttribute.setRadioGroup(radioGroupVisitor.visitRadioGroup(ctx.radioGroup()));
+        }
+
+        if(ctx.form() != null){
+            formVisitor = new FormVisitor();
+            bodyAttribute.setForm(formVisitor.visitForm(ctx.form()));
         }
 
         return bodyAttribute;

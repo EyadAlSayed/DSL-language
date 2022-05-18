@@ -8,7 +8,7 @@ public class BodyVisitor extends DSLParserBaseVisitor {
 
     Body body;
 
-    BodyAttributeVisitor bodyAttributeVisitor;
+    BodyAttributeVisitor bodyAttributeVisitor = new BodyAttributeVisitor();
 
     @Override
     public Body visitBody(DSLParser.BodyContext ctx){
