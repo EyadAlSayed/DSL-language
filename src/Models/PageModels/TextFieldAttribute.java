@@ -1,4 +1,4 @@
-package Models.ControllerModels.PageModels;
+package Models.PageModels;
 
 import Models.Printer;
 
