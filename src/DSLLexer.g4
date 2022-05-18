@@ -22,7 +22,22 @@ END_STATMENT_ID:';';
 
 
 
+TEXT_DEF_ID : 'Text';
+
+TITLE : 'Title';
+
 PAGE: 'Page';
+
+EMAIL_AS_PARAMETER: 'email';
+
+TEXT_AS_PARAMETER: 'text';
+
+PASSWORD_AS_PARAMETER: 'password';
+
+DATE_AS_PARAMETER: 'date';
+
+TEXT_FIELD:'TextField';
+
 IF_ID:'if';
 AND_OP_ID : 'AND';
 OR_OP_ID : 'OR';
@@ -38,30 +53,33 @@ NEWLINE: '\n';
 
 WHITE_SPACE:  (' '|'\t'|'\r');
 
-SINGLE_QUOTE: '\'';
 DOUBLE_QUOTE: '"';
 
+OPEN_BRACES : '(';
 
 ASSIGN_OP_ID : '=';
 
-OPEN_SQR_BRACKT_ID : '[';
+CLOSE_BRACES : ')';
 
-CLOSE_SQR_BRACKT_ID : ']';
+OPEN_CURLY_BRACES: '{';
 
-OPEN_PAR_BRACKT_ID : '(';
+CLOSE_CURLY_BRACES: '}';
+
+COMMA: ',';
 
 CLOSE_PAR_BRACKT_ID : ')';
 
-COMMA : ',';
 
 
 //FRAGMENT TOKENS
 
 VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 
+//VAR_ID: [a-zA-Z]+ ([1-9]+ | [a-zA-Z]+ | '_')*;
+
 FILE_NAME_ID: [a-zA-Z]+ [1-9]* | [a-zA-Z]+  [1-9]+ ;
 
-TEXT: (SINGLE_QUOTE|DOUBLE_QUOTE) (([a-zA-Z]+ | [1-9]+)+ WHITE_SPACE*)+ (SINGLE_QUOTE|DOUBLE_QUOTE);
+TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [1-9]+)+ | WHITE_SPACE)* DOUBLE_QUOTE;
 TEXTNUM: [1-9]+;
 //TEXTCHAR: ([a-zA-Z] | [1-9])+;
 
