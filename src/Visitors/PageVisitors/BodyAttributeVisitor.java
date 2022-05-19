@@ -1,7 +1,7 @@
 package Visitors.PageVisitors;
 
-import Models.ControllerModels.PageModels.Body;
-import Models.ControllerModels.PageModels.BodyAttribute;
+import Models.PageModels.Body;
+import Models.PageModels.BodyAttribute;
 import Visitors.CustomPair;
 import Visitors.ProjectMain;
 import gen.DSLParser;
