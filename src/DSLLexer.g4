@@ -36,6 +36,9 @@ DATE_AS_PARAMETER: 'Date';
 
 TEXT_FIELD:'TextField';
 
+
+SEND_ID:'send';
+
 FOR_ID:'for';
 IF_ID:'if';
 AND_OP_ID : 'AND';
