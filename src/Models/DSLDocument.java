@@ -1,6 +1,6 @@
 package Models;
 
-import Models.ControllerModels.PageModels.PageStructure;
+import Models.PageModels.PageStructure;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

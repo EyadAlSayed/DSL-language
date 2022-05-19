@@ -1,6 +1,6 @@
 package Visitors.PageVisitors;
 
-import Models.ControllerModels.PageModels.Text;
+import Models.PageModels.Text;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 

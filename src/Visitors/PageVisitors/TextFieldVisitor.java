@@ -1,7 +1,7 @@
 package Visitors.PageVisitors;
 
-import Models.ControllerModels.PageModels.TextField;
-import Models.ControllerModels.PageModels.TextFieldAttribute;
+import Models.PageModels.TextField;
+import Models.PageModels.TextFieldAttribute;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
