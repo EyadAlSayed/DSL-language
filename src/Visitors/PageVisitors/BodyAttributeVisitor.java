@@ -1,8 +1,12 @@
 package Visitors.PageVisitors;
 
+import Models.PageModels.Body;
 import Models.PageModels.BodyAttribute;
+import Visitors.CustomPair;
+import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
+import org.antlr.v4.runtime.misc.Pair;
 
 public class BodyAttributeVisitor extends DSLParserBaseVisitor {
 
@@ -15,8 +19,8 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
     RadioGroupVisitor radioGroupVisitor;
     FormVisitor formVisitor;
 
-    @Override
-    public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx){
+
+    public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx, Body body){
 
         bodyAttribute = new BodyAttribute();
 
@@ -24,13 +28,21 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             headerVisitor = new HeaderVisitor();
             bodyAttribute.setHeader(headerVisitor.visitHeaderStructure(ctx.headerStructure()));
         }
-        if(ctx.text() != null){
-            textVisitor = new TextVisitor();
-            bodyAttribute.setText(textVisitor.visitText(ctx.text()));
+        if(ctx.text() != null) {
+            Pair<String, Object> pair = new Pair<>(ctx.text().FILE_NAME_ID().getText(), body);
+            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+                textVisitor = new TextVisitor();
+                bodyAttribute.setText(textVisitor.visitText(ctx.text()));
+                ProjectMain.symbolTablePage.add(pair);
+            }
         }
-        if(ctx.textField() != null){
-            textFieldVisitor = new TextFieldVisitor();
-            bodyAttribute.setTextField(textFieldVisitor.visitTextField(ctx.textField()));
+        if(ctx.textField() != null) {
+            Pair<String, Object> pair = new Pair<>(ctx.textField().FILE_NAME_ID().getText(), body);
+            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+                textFieldVisitor = new TextFieldVisitor();
+                bodyAttribute.setTextField(textFieldVisitor.visitTextField(ctx.textField()));
+                ProjectMain.symbolTablePage.add(pair);
+            }
         }
 
         if(ctx.button() != null) {
