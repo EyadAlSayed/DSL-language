@@ -16,7 +16,7 @@ public class BodyVisitor extends DSLParserBaseVisitor {
 
         if(ctx.bodyAttributes() != null){
             for (int i = 0; i < ctx.bodyAttributes().size(); i++) {
-                body.getBodyAttributes().add(bodyAttributeVisitor.visitBodyAttributes(ctx.bodyAttributes(i)));
+                body.getBodyAttributes().add(bodyAttributeVisitor.visitBodyAttributes(ctx.bodyAttributes(i), body));
             }
         }
 
