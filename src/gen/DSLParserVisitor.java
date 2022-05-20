@@ -89,6 +89,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#send}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSend(DSLParser.SendContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#loop}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
