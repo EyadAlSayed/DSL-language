@@ -36,6 +36,7 @@ DATE_AS_PARAMETER: 'Date';
 
 TEXT_FIELD:'TextField';
 
+FOR_ID:'for';
 IF_ID:'if';
 AND_OP_ID : 'AND';
 OR_OP_ID : 'OR';
@@ -61,6 +62,8 @@ CLOSE_SQR_BRACKT_ID : ']';
 COMMA: ',';
 OPEN_PAR_BRACKT_ID : '(';
 CLOSE_PAR_BRACKT_ID : ')';
+
+RANG:':';
 
 
 

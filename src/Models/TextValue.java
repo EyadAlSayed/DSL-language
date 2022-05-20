@@ -1,6 +1,8 @@
 package Models;
 
-public class TextValue {
+import java.util.Map;
+
+public class TextValue  extends Printer{
     String text;
     String textNum;
 
@@ -18,5 +20,10 @@ public class TextValue {
 
     public void setTextNum(String textNum) {
         this.textNum = textNum;
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        return null;
     }
 }

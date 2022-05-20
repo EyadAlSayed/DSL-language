@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -88,6 +88,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#loop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoop(DSLParser.LoopContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree
