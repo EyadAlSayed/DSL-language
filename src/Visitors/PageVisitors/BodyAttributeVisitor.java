@@ -20,15 +20,15 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
     FormVisitor formVisitor;
 
 
-    public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx, Body body){
+    public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx, Body body) {
 
         bodyAttribute = new BodyAttribute();
 
-        if(ctx.headerStructure() != null) {
+        if (ctx.headerStructure() != null) {
             headerVisitor = new HeaderVisitor();
             bodyAttribute.setHeader(headerVisitor.visitHeaderStructure(ctx.headerStructure()));
         }
-        if(ctx.text() != null) {
+        if (ctx.text() != null) {
             Pair<String, Object> pair = new Pair<>(ctx.text().FILE_NAME_ID().getText(), body);
             if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
                 textVisitor = new TextVisitor();
@@ -36,7 +36,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 ProjectMain.symbolTablePage.add(pair);
             }
         }
-        if(ctx.textField() != null) {
+        if (ctx.textField() != null) {
             Pair<String, Object> pair = new Pair<>(ctx.textField().FILE_NAME_ID().getText(), body);
             if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
                 textFieldVisitor = new TextFieldVisitor();
@@ -45,17 +45,25 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             }
         }
 
-        if(ctx.button() != null) {
-            buttonVisitor = new ButtonVisitor();
-            bodyAttribute.setButton(buttonVisitor.visitButton(ctx.button()));
+        if (ctx.button() != null) {
+            Pair<String, Object> pair = new Pair<>(ctx.button().FILE_NAME_ID().getText(), body);
+            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+                buttonVisitor = new ButtonVisitor();
+                bodyAttribute.setButton(buttonVisitor.visitButton(ctx.button()));
+                ProjectMain.symbolTablePage.add(pair);
+            }
         }
 
-        if(ctx.radioGroup() != null){
-            radioGroupVisitor = new RadioGroupVisitor();
-            bodyAttribute.setRadioGroup(radioGroupVisitor.visitRadioGroup(ctx.radioGroup()));
+        if (ctx.radioGroup() != null) {
+            Pair<String, Object> pair = new Pair<>(ctx.radioGroup().FILE_NAME_ID().get(0).getText(), body);
+            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+                radioGroupVisitor = new RadioGroupVisitor();
+                bodyAttribute.setRadioGroup(radioGroupVisitor.visitRadioGroup(ctx.radioGroup()));
+                ProjectMain.symbolTablePage.add(pair);
+            }
         }
 
-        if(ctx.form() != null){
+        if (ctx.form() != null) {
             formVisitor = new FormVisitor();
             bodyAttribute.setForm(formVisitor.visitForm(ctx.form()));
         }
