@@ -2,6 +2,7 @@ package Models.PageModels;
 
 import Models.Printer;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Text extends Printer {
@@ -42,6 +43,16 @@ public class Text extends Printer {
 
     @Override
     public Map<String, Object> toMap() {
-        return null;
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","Text");
+        if (TEXT != null)
+            map.put("Text",TEXT);
+        if (NAME != null)
+            map.put("Name",NAME);
+        if (VALUE != null)
+            map.put("Value",VALUE);
+
+        return map;
+
     }
 }

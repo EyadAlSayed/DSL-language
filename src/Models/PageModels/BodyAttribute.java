@@ -2,6 +2,7 @@ package Models.PageModels;
 
 import Models.Printer;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class BodyAttribute extends Printer {
@@ -69,6 +70,20 @@ public class BodyAttribute extends Printer {
 
     @Override
     public Map<String, Object> toMap() {
-        return null;
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("label","BodyAttribute");
+        if(header != null)
+            map.put("Header",header.toMap());
+        if(text != null)
+            map.put("Text",text.toMap());
+        if (textField != null)
+            map.put("TextField",textField.toMap());
+        if (radioGroup != null)
+            map.put("RadioGroup",radioGroup.toMap());
+        if (button != null)
+            map.put("Button",button.toMap());
+        if (form != null)
+            map.put("Form",form.toMap());
+        return map;
     }
 }

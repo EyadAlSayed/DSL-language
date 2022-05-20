@@ -1,6 +1,11 @@
 package Models.ControllerModels.Action;
 
-public class MathEquation {
+import Models.Printer;
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+public class MathEquation extends Printer {
 
     Sum sum;
     Mult mult;
@@ -46,5 +51,33 @@ public class MathEquation {
 
     public void setMod(Mod mod) {
         this.mod = mod;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder stringBuilder = getPrettyString("MathEquation",toMap());
+        return stringBuilder.toString();
+    }
+
+    @Override
+    public Map<String, Object> toMap() {
+        Map<String,Object> map = new LinkedHashMap<>();
+
+        map.put("label","MathEquation");
+        if (sum != null)
+            map.put("sum",sum.toMap());
+
+        if (minus != null)
+            map.put("minus",minus.toMap());
+
+        if (mult != null)
+            map.put("mult",mult.toMap());
+
+        if (div != null)
+            map.put("div",div.toMap());
+
+        if (mod != null)
+            map.put("mod",mod.toMap());
+        return map;
     }
 }

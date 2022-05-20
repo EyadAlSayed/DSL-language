@@ -2,6 +2,7 @@ package Models.PageModels;
 
 import Models.Printer;
 
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class PageStructure extends Printer {
@@ -42,6 +43,14 @@ public class PageStructure extends Printer {
 
     @Override
     public Map<String, Object> toMap() {
-        return null;
+        Map<String,Object> map = new LinkedHashMap<>();
+        map.put("label","PageStructure");
+        if(PAGE != null)
+            map.put("Page",PAGE);
+        if(PAGE_NAME != null)
+            map.put("Page_name",PAGE_NAME);
+        if(body != null)
+            map.put("Page_Body",body.toMap());
+        return map;
     }
 }

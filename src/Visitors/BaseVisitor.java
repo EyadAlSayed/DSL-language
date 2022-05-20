@@ -2,6 +2,7 @@ package Visitors;
 
 
 import Models.DSLDocument;
+import Visitors.Controller.ControllerVisitor;
 import Visitors.PageVisitors.PageVisitor;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
@@ -11,8 +12,10 @@ import gen.DSLParserBaseVisitor;
 public class BaseVisitor extends DSLParserBaseVisitor {
 
     PageVisitor pageVisitor;
+    ControllerVisitor controllerVisitor;
 
-    DSLDocument dslDocument;
+
+    DSLDocument dslDocument  = new DSLDocument();
 
     @Override
     public DSLDocument visitDslDocument(DSLParser.DslDocumentContext ctx) {
@@ -20,6 +23,11 @@ public class BaseVisitor extends DSLParserBaseVisitor {
         if (ctx.pageStructure() != null) {
             pageVisitor = new PageVisitor();
             dslDocument.setPageStructure(pageVisitor.visitPageStructure(ctx.pageStructure()));
+        }
+
+        if (ctx.controllerDef() != null){
+            controllerVisitor = new ControllerVisitor();
+            dslDocument.setController(controllerVisitor.visitControllerDef(ctx.controllerDef()));
         }
 
         return dslDocument;
