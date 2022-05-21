@@ -12,6 +12,7 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
 
     LogicalOperationVisitor logicalOperationVisitor = new LogicalOperationVisitor();
     TextValueVisitor textValueVisitor = new TextValueVisitor();
+
     @Override
     public Condition visitCondition(DSLParser.ConditionContext ctx) {
 

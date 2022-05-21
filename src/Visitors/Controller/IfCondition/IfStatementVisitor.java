@@ -9,12 +9,14 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
 
     IFStatement ifStatement = new IFStatement();
 
-    ConditionVisitor conditionVisitor = new ConditionVisitor();
+    ConditionVisitor conditionVisitor;
 
-    ControllerTokensVisitor controllerTokensVisitor = new ControllerTokensVisitor();
+    ControllerTokensVisitor controllerTokensVisitor;
 
     @Override
     public IFStatement visitIfStatment(DSLParser.IfStatmentContext ctx) {
+        conditionVisitor = new ConditionVisitor();
+        controllerTokensVisitor = new ControllerTokensVisitor();
 
 
         if (ctx.IF_ID() != null)
