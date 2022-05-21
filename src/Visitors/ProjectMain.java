@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class ProjectMain {
-    static String pagePath = "src/Sample/PageSyntax";
+//    static String pagePath = "src/Sample/PageSyntax";
     static String controllerPath = "src/Sample/ControllerSyntax";
     static String ASTPath = "AST.txt";
    public static ArrayList<Pair<String,Object>> symbolTableController = new ArrayList<>();

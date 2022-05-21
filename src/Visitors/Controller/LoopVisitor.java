@@ -8,10 +8,11 @@ public class LoopVisitor extends DSLParserBaseVisitor {
 
     Loop loop = new Loop();
 
-    ControllerTokensVisitor controllerTokensVisitor = new ControllerTokensVisitor();
+    ControllerTokensVisitor controllerTokensVisitor;
+
     @Override
     public Loop visitLoop(DSLParser.LoopContext ctx) {
-
+        controllerTokensVisitor = new ControllerTokensVisitor();
         if (ctx.FOR_ID() != null)
             loop.setForId(ctx.FOR_ID().getText());
 
@@ -21,7 +22,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(0) != null)
             loop.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
 
-        if (ctx.TEXTNUM(0)  != null)
+        if (ctx.TEXTNUM(0) != null)
             loop.setTextNum1(ctx.TEXTNUM(0).getText());
 
         if (ctx.RANG() != null)
@@ -30,7 +31,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(1) != null)
             loop.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
 
-        if (ctx.TEXTNUM(1)  != null)
+        if (ctx.TEXTNUM(1) != null)
             loop.setTextNum2(ctx.TEXTNUM(1).getText());
 
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
@@ -43,7 +44,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
             loop.getControllerTokens().add(controllerTokensVisitor.visitControllerTokens(ctx.controllerTokens(i)));
         }
 
-        if(ctx.CLOSE_CURLY_BRACKT_ID() != null)
+        if (ctx.CLOSE_CURLY_BRACKT_ID() != null)
             loop.setCloseCurlyBracktId(ctx.CLOSE_CURLY_BRACKT_ID().getText());
 
         return loop;

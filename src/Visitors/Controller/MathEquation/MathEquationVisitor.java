@@ -6,7 +6,7 @@ import gen.DSLParserBaseVisitor;
 
 public class MathEquationVisitor extends DSLParserBaseVisitor {
 
-    MathEquation mathEquation;
+    MathEquation mathEquation = new MathEquation();
 
     SumVisitor sumVisitor = new SumVisitor();
     MinusVisitor minusVisitor = new MinusVisitor();

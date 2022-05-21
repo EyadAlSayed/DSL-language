@@ -11,6 +11,7 @@ public class ControllerTokensVisitor extends DSLParserBaseVisitor {
     ControllerTokens controllerTokens = new ControllerTokens();
 
     IfStatementVisitor ifStatementVisitor = new IfStatementVisitor();
+
     AssignVisitor assignVisitor = new AssignVisitor();
     PrintVisitor printVisitor = new PrintVisitor();
     MathEquationVisitor mathEquationVisitor  = new MathEquationVisitor();
@@ -18,6 +19,8 @@ public class ControllerTokensVisitor extends DSLParserBaseVisitor {
 
     @Override
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
+
+
 
         if (ctx.ifStatment() != null)
             controllerTokens.setIfStatement(ifStatementVisitor.visitIfStatment(ctx.ifStatment()));
