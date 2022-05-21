@@ -16,8 +16,8 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/DSLLexer.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="D:\DSL-language\src" />
-          <option name="libDir" value="D:\DSL-language\src" />
+          <option name="outputDir" value="D:\Documents\GitHub\DSL-language2\src" />
+          <option name="libDir" value="D:\Documents\GitHub\DSL-language2\src" />
           <option name="encoding" value="" />
           <option name="pkg" value="gen" />
           <option name="language" value="Java" />
@@ -26,8 +26,8 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/DSLParser.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="D:\DSL-language\src" />
-          <option name="libDir" value="D:\DSL-language\src" />
+          <option name="outputDir" value="D:\Documents\GitHub\DSL-language2\src" />
+          <option name="libDir" value="D:\Documents\GitHub\DSL-language2\src" />
           <option name="encoding" value="" />
           <option name="pkg" value="gen" />
           <option name="language" value="Java" />
