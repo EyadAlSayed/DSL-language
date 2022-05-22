@@ -17,15 +17,17 @@ public class ControllerTokensVisitor extends DSLParserBaseVisitor {
     MathEquationVisitor mathEquationVisitor  = new MathEquationVisitor();
     LoopVisitor loopVisitor  = new LoopVisitor();
 
-    @Override
+
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
 
 
 
         if (ctx.ifStatment() != null)
+
             controllerTokens.setIfStatement(ifStatementVisitor.visitIfStatment(ctx.ifStatment()));
 
         if (ctx.loop() != null)
+
             controllerTokens.setLoop(loopVisitor.visitLoop(ctx.loop()));
 
         if (ctx.assign() != null)

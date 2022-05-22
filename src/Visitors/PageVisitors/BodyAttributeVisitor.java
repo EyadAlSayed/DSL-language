@@ -8,6 +8,9 @@ import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 import org.antlr.v4.runtime.misc.Pair;
 
+import java.io.IOException;
+import java.nio.file.Files;
+
 public class BodyAttributeVisitor extends DSLParserBaseVisitor {
 
     BodyAttribute bodyAttribute;
@@ -51,6 +54,15 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 buttonVisitor = new ButtonVisitor();
                 bodyAttribute.setButton(buttonVisitor.visitButton(ctx.button()));
                 ProjectMain.symbolTablePage.add(pair);
+            }
+        }else
+        {
+            String s = "SYNTAX ERROR: BUTTON ";
+            //  ProjectMain.FILEOUTPUTSTREAM.write(s);
+            try {
+                Files.writeString(ProjectMain.FILE.toPath(),s);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
 

@@ -18,4 +18,16 @@ public class CustomPair{
         }
         return false;
     }
+
+    public static boolean containVariable(String variable , ArrayList<Pair<String,Object>> pairs)
+    {
+        for (int i = 0 ; i<pairs.size() ; i++)
+        {
+            if(variable == pairs.get(i).b)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
