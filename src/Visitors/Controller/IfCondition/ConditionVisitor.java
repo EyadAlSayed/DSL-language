@@ -15,7 +15,7 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
     TextValueVisitor textValueVisitor = new TextValueVisitor();
 
 
-    public Condition visitCondition(DSLParser.ConditionContext ctx,Object father) {
+    public Condition visitCondition(DSLParser.ConditionContext ctx, Object father) {
 
         if (ctx.FILE_NAME_ID() != null)
         {
