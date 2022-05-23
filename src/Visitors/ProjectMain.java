@@ -25,7 +25,7 @@ public class ProjectMain {
     public static ArrayList<Pair<String,Object>> symbolTablePage = new ArrayList<>();
     public static File FILE;
     public static FileOutputStream FILEOUTPUTSTREAM;
-    public static DSLParser parser;
+    public static boolean ERROR = false;
 
 
     protected static void showGUI(ParseTree pt, DSLParser parser) {
@@ -40,13 +40,20 @@ public class ProjectMain {
             String source = pagePath;
             CharStream cs = fromFileName(source);
             DSLLexer dslLexer = new DSLLexer(cs);
+            dslLexer.removeErrorListeners();
+            dslLexer.addErrorListener(ThrowingErrorListener.INSTANCE);
             CommonTokenStream token = new CommonTokenStream(dslLexer);
-                parser = new DSLParser(token);
+            DSLParser  parser = new DSLParser(token);
+            parser.removeErrorListeners();
+            parser.addErrorListener(ThrowingErrorListener.INSTANCE);
 
             //showGUI(parser.dslDocument(),parser);
+            DSLDocument doc = null;
             ParseTree tree = parser.dslDocument();
-            DSLDocument doc = (DSLDocument) new BaseVisitor().visit(tree);
-            System.out.println(doc);
+
+                doc = (DSLDocument) new BaseVisitor().visit(tree);
+               // if(!ERROR)
+                 System.out.println(doc);
 
 
 

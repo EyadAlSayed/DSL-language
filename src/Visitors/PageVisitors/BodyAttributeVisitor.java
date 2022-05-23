@@ -54,16 +54,17 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 buttonVisitor = new ButtonVisitor();
                 bodyAttribute.setButton(buttonVisitor.visitButton(ctx.button()));
                 ProjectMain.symbolTablePage.add(pair);
+            }else {
+                ProjectMain.ERROR = true;
+                try {
+                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.button().FILE_NAME_ID().getText()+" ALREADY EXIST!");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }else
         {
-            String s = "SYNTAX ERROR: BUTTON ";
-            //  ProjectMain.FILEOUTPUTSTREAM.write(s);
-            try {
-                Files.writeString(ProjectMain.FILE.toPath(),s);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            ProjectMain.ERROR=true;
         }
 
         if (ctx.radioGroup() != null) {
