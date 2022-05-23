@@ -6,8 +6,7 @@ Page p1
     TextField(textfield1,"textfield1",Email)
     TextField(textfield2,"textfield2",Date)
     TextField(textfield3,"textfield2",Password)
-    button(button1)
+    Button(button2)
     Button(button1)
     Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3])
-    Form(text1,textfield1,textfield2,button1,radiogroup1)
 }

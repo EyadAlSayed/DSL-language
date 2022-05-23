@@ -6,7 +6,6 @@ import gen.DSLParser;
 import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ParseTree;
 
 import java.io.File;
@@ -21,8 +20,8 @@ public class ProjectMain {
     static String pagePath = "src/Sample/PageSyntax";
     static String controllerPath = "src/Sample/ControllerSyntax";
     static String ASTPath = "AST.txt";
-   public static ArrayList<Pair<String,Object>> symbolTableController = new ArrayList<>();
-    public static ArrayList<Pair<String,Object>> symbolTablePage = new ArrayList<>();
+   public static ArrayList<Object> symbolTableController = new ArrayList<>();
+    public static ArrayList<Object> symbolTablePage = new ArrayList<>();
     public static File FILE;
     public static FileOutputStream FILEOUTPUTSTREAM;
     public static boolean ERROR = false;
