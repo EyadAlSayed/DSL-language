@@ -1,2 +1,2 @@
-line 9:4 mismatched input 'button' expecting {'}', 'Text', 'Title', 'TextField', 'Radiogroup', 'Button', 'Form', '
-', WHITE_SPACE}
+line 9:18 mismatched input ')' expecting {'
+', WHITE_SPACE, FILE_NAME_ID}
