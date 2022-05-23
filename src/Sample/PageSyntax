@@ -2,12 +2,12 @@ Page p1
 {
     Title("title")
     Text(text1,"salem")
-    Text(text1,"test")
+    Text(text2,"test")
     TextField(textfield1,"textfield1",Email)
     TextField(textfield2,"textfield2",Date)
     TextField(textfield3,"textfield2",Password)
     Button(button1)
-    Button(button1)
     Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3])
-    button3.send("p2")
+    Checkbox(checkbox1,[checkbutton1,checkbutton2])
+    button1.send("p2")
 }

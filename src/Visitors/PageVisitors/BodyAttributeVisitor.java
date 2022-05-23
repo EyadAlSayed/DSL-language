@@ -116,14 +116,14 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
         }
 
         if(ctx.checkbox() != null){
-            if(!CustomPair.containVariable(ctx.checkbox().FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage)){
+            if(CustomPair.containVariable(ctx.checkbox().FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage)== null){
                 checkboxVisitor = new CheckboxVisitor();
                 bodyAttribute.setCheckbox(checkboxVisitor.visitCheckbox(ctx.checkbox()));
                 ProjectMain.symbolTablePage.add(bodyAttribute.getCheckbox());
             } else{
                 ProjectMain.ERROR = true;
                 try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE "+ctx.radioGroup().FILE_NAME_ID(0).getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE "+ctx.checkbox().FILE_NAME_ID(0).getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
