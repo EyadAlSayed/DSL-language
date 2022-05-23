@@ -23,24 +23,26 @@ public class CustomPair{
         return false;
     }
 
-    public static boolean containVariable(String variable , ArrayList<Object> pairs)
+    public static Object containVariable(String variable , ArrayList<Object> pairs)
     {
         for (int i = 0 ; i<pairs.size() ; i++)
         {
             if (pairs.get(i) instanceof Button)
             if(Objects.equals(variable, ((Button) pairs.get(i)).getVariableName()))
-                return true;
+                return pairs.get(i);
             if (pairs.get(i) instanceof RadioGroup)
                 if(Objects.equals(variable, ((RadioGroup) pairs.get(i)).getVariableName()))
-                    return true;
+                    return pairs.get(i);
             if (pairs.get(i) instanceof Text)
                 if(Objects.equals(variable, ((Text) pairs.get(i)).getNAME()))
-                    return true;
+                    return pairs.get(i);
             if (pairs.get(i) instanceof TextField)
                 if(Objects.equals(variable, ((TextField) pairs.get(i)).getNAME()))
-                    return true;
+                    return pairs.get(i);
 
         }
-        return false;
+        return null;
     }
+
+
 }
