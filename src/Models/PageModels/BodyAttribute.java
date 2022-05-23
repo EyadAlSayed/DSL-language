@@ -84,6 +84,7 @@ public class BodyAttribute extends Printer {
             map.put("Button",button.toMap());
         if (form != null)
             map.put("Form",form.toMap());
+
         return map;
     }
 }
