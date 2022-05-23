@@ -1,5 +1,6 @@
 package Visitors;
 
+
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.Recognizer;
@@ -16,8 +17,9 @@ public class ThrowingErrorListener extends BaseErrorListener {
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e)
             throws ParseCancellationException {
         //throw new ParseCancellationException("line " + line + ":" + charPositionInLine + " " + msg);
+        ProjectMain.ERROR=true;
         try {
-            Files.writeString(ProjectMain.FILE.toPath(),"line " + line + ":" + charPositionInLine + " " + msg);
+            Files.writeString(ProjectMain.FILE.toPath(),"line " + line + ":" + charPositionInLine + " " + msg+"\n");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

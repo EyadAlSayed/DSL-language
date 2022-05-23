@@ -78,6 +78,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitRadioGroup(DSLParser.RadioGroupContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#checkbox}.
+	 * @param ctx the parse tree
+	 */
+	void enterCheckbox(DSLParser.CheckboxContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#checkbox}.
+	 * @param ctx the parse tree
+	 */
+	void exitCheckbox(DSLParser.CheckboxContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree
 	 */
