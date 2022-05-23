@@ -17,6 +17,7 @@ public class ThrowingErrorListener extends BaseErrorListener {
     public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e)
             throws ParseCancellationException {
         //throw new ParseCancellationException("line " + line + ":" + charPositionInLine + " " + msg);
+        ProjectMain.ERROR=true;
         try {
             Files.writeString(ProjectMain.FILE.toPath(),"line " + line + ":" + charPositionInLine + " " + msg+"\n");
         } catch (IOException ex) {

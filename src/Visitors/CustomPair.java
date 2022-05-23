@@ -1,9 +1,6 @@
 package Visitors;
 
-import Models.PageModels.Button;
-import Models.PageModels.RadioGroup;
-import Models.PageModels.Text;
-import Models.PageModels.TextField;
+import Models.PageModels.*;
 import org.antlr.v4.runtime.misc.Pair;
 
 import java.util.ArrayList;
@@ -38,6 +35,9 @@ public class CustomPair{
                     return pairs.get(i);
             if (pairs.get(i) instanceof TextField)
                 if(Objects.equals(variable, ((TextField) pairs.get(i)).getNAME()))
+                    return pairs.get(i);
+            if (pairs.get(i) instanceof Checkbox)
+                if(Objects.equals(variable, ((Checkbox) pairs.get(i)).getNAME()))
                     return pairs.get(i);
 
         }
