@@ -9,17 +9,23 @@ import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.misc.Pair;
 import org.antlr.v4.runtime.tree.ParseTree;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class ProjectMain {
-//    static String pagePath = "src/Sample/PageSyntax";
+    static String pagePath = "src/Sample/PageSyntax";
     static String controllerPath = "src/Sample/ControllerSyntax";
     static String ASTPath = "AST.txt";
    public static ArrayList<Pair<String,Object>> symbolTableController = new ArrayList<>();
     public static ArrayList<Pair<String,Object>> symbolTablePage = new ArrayList<>();
+    public static File FILE;
+    public static FileOutputStream FILEOUTPUTSTREAM;
+    public static boolean ERROR = false;
 
 
     protected static void showGUI(ParseTree pt, DSLParser parser) {
@@ -27,19 +33,27 @@ public class ProjectMain {
     }
 
 
-    public static void main(String[] args) {
-
-
+    public static void main(String[] args) throws FileNotFoundException {
+                FILE =  new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
+                FILEOUTPUTSTREAM = new FileOutputStream(FILE,true);
         try {
-            String source = controllerPath;
+            String source = pagePath;
             CharStream cs = fromFileName(source);
             DSLLexer dslLexer = new DSLLexer(cs);
+            dslLexer.removeErrorListeners();
+            dslLexer.addErrorListener(ThrowingErrorListener.INSTANCE);
             CommonTokenStream token = new CommonTokenStream(dslLexer);
-            DSLParser parser = new DSLParser(token);
+            DSLParser  parser = new DSLParser(token);
+            parser.removeErrorListeners();
+            parser.addErrorListener(ThrowingErrorListener.INSTANCE);
+
             //showGUI(parser.dslDocument(),parser);
+            DSLDocument doc = null;
             ParseTree tree = parser.dslDocument();
-            DSLDocument doc = (DSLDocument) new BaseVisitor().visit(tree);
-            System.out.println(doc);
+
+                doc = (DSLDocument) new BaseVisitor().visit(tree);
+               // if(!ERROR)
+                 System.out.println(doc);
 
 
 
