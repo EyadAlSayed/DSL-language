@@ -9,5 +9,6 @@ Page p1
     Button(button2)
     Button(button1)
     Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3])
+    Checkbox(checkboxgroup1,[checkbox1,checkbox2])
     button1.send("p2")
 }

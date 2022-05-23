@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -52,6 +52,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitRadioGroup(DSLParser.RadioGroupContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#checkbox}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCheckbox(DSLParser.CheckboxContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree

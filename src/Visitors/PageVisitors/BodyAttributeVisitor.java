@@ -20,6 +20,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
     ButtonVisitor buttonVisitor;
     RadioGroupVisitor radioGroupVisitor;
     FormVisitor formVisitor;
+    CheckboxVisitor checkboxVisitor;
 
     @Override
     public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx) {
@@ -88,6 +89,21 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 try {
                     Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.radioGroup().FILE_NAME_ID(0).getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        if(ctx.checkbox() != null){
+            if(!CustomPair.containVariable(ctx.checkbox().FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage)){
+                checkboxVisitor = new CheckboxVisitor();
+                bodyAttribute.setCheckbox(checkboxVisitor.visitCheckbox(ctx.checkbox()));
+                ProjectMain.symbolTablePage.add(bodyAttribute.getCheckbox());
+            } else{
+                ProjectMain.ERROR = true;
+                try{
+                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE "+ctx.radioGroup().FILE_NAME_ID(0).getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                } catch (IOException e){
                     e.printStackTrace();
                 }
             }

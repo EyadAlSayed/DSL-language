@@ -14,6 +14,16 @@ public class BodyAttribute extends Printer {
     Button button;
     Form form;
 
+    public Checkbox getCheckbox() {
+        return checkbox;
+    }
+
+    public void setCheckbox(Checkbox checkbox) {
+        this.checkbox = checkbox;
+    }
+
+    Checkbox checkbox;
+
     public Header getHeader() {
         return header;
     }
@@ -84,6 +94,8 @@ public class BodyAttribute extends Printer {
             map.put("Button",button.toMap());
         if (form != null)
             map.put("Form",form.toMap());
+        if(checkbox != null)
+            map.put("Checkbox", checkbox.toMap());
         return map;
     }
 }
