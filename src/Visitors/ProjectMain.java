@@ -42,6 +42,11 @@ public class ProjectMain {
         }
         FILEOUTPUTSTREAM = new FileOutputStream(FILE,true);
         try {
+            Files.writeString(FILE.toPath(),"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
             String source = pagePath;
             CharStream cs = fromFileName(source);
             DSLLexer dslLexer = new DSLLexer(cs);
