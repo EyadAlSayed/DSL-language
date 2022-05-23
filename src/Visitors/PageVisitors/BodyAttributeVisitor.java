@@ -1,6 +1,5 @@
 package Visitors.PageVisitors;
 
-import Models.PageModels.Body;
 import Models.PageModels.BodyAttribute;
 import Models.PageModels.Button;
 import Visitors.CustomPair;
@@ -23,8 +22,8 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
     RadioGroupVisitor radioGroupVisitor;
     FormVisitor formVisitor;
 
-
-    public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx, Body body) {
+    @Override
+    public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx) {
 
         bodyAttribute = new BodyAttribute();
 
@@ -37,13 +36,28 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 textVisitor = new TextVisitor();
                 bodyAttribute.setText(textVisitor.visitText(ctx.text()));
                 ProjectMain.symbolTablePage.add(bodyAttribute.getText());
+            } else{
+                ProjectMain.ERROR = true;
+                try{
+                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.text().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
+
         if (ctx.textField() != null) {
             if (CustomPair.containVariable(ctx.textField().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage) == null) {
                 textFieldVisitor = new TextFieldVisitor();
                 bodyAttribute.setTextField(textFieldVisitor.visitTextField(ctx.textField()));
                 ProjectMain.symbolTablePage.add(bodyAttribute.getTextField());
+            } else{
+                ProjectMain.ERROR = true;
+                try{
+                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.textField().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
             }
         }
 
@@ -55,7 +69,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             }else {
                 ProjectMain.ERROR = true;
                 try {
-                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.button().FILE_NAME_ID().getText()+" ALREADY EXIST!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.button().FILE_NAME_ID().getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

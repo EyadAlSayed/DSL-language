@@ -2,8 +2,8 @@ Page p1
 {
     Title("title")
     Text(text1,"salem")
-    Text(text2,"test")
-    TextField(textfield1,"textfield1",Email)
+    Text(text1,"test")
+    TextField(textfield2,"textfield1",Email)
     TextField(textfield2,"textfield2",Date)
     TextField(textfield3,"textfield2",Password)
     Button(button2)

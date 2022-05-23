@@ -35,7 +35,12 @@ public class ProjectMain {
 
     public static void main(String[] args) throws FileNotFoundException {
                 FILE =  new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
-                FILEOUTPUTSTREAM = new FileOutputStream(FILE,true);
+        try {
+            Files.writeString(FILE.toPath(),"");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        FILEOUTPUTSTREAM = new FileOutputStream(FILE,true);
         try {
             Files.writeString(FILE.toPath(),"");
         } catch (IOException e) {
