@@ -33,7 +33,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-                FILE =  new File("C:\\Users\\Lenovo\\FromGitHub\\New Compiler Project\\DSL-language\\src\\Errors");
+                FILE =  new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
                 FILEOUTPUTSTREAM = new FileOutputStream(FILE,true);
         try {
             String source = pagePath;
