@@ -68,6 +68,13 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 radioGroupVisitor = new RadioGroupVisitor();
                 bodyAttribute.setRadioGroup(radioGroupVisitor.visitRadioGroup(ctx.radioGroup()));
                 ProjectMain.symbolTablePage.add(bodyAttribute.getRadioGroup());
+            }else {
+                ProjectMain.ERROR = true;
+                try {
+                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.radioGroup().FILE_NAME_ID(0).getText()+" ALREADY EXIST!");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         }
 

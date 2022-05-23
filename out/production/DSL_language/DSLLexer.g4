@@ -45,6 +45,8 @@ PRINT_ACTION:'print';
 RADIO_GROUP_ID : 'Radiogroup';
 BUTTON_ID : 'Button';
 FORM_ID : 'Form';
+DOT : '.';
+SEND : 'send';
 
 //SYMBOL TOKENS
 
