@@ -6,7 +6,6 @@ import Visitors.CustomPair;
 import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
-import org.antlr.v4.runtime.misc.Pair;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -32,28 +31,25 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             bodyAttribute.setHeader(headerVisitor.visitHeaderStructure(ctx.headerStructure()));
         }
         if (ctx.text() != null) {
-            Pair<String, Object> pair = new Pair<>(ctx.text().FILE_NAME_ID().getText(), body);
-            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+            if (!CustomPair.containVariable(ctx.text().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage)) {
                 textVisitor = new TextVisitor();
                 bodyAttribute.setText(textVisitor.visitText(ctx.text()));
-                ProjectMain.symbolTablePage.add(pair);
+                ProjectMain.symbolTablePage.add(bodyAttribute.getText());
             }
         }
         if (ctx.textField() != null) {
-            Pair<String, Object> pair = new Pair<>(ctx.textField().FILE_NAME_ID().getText(), body);
-            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+            if (!CustomPair.containVariable(ctx.textField().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage)) {
                 textFieldVisitor = new TextFieldVisitor();
                 bodyAttribute.setTextField(textFieldVisitor.visitTextField(ctx.textField()));
-                ProjectMain.symbolTablePage.add(pair);
+                ProjectMain.symbolTablePage.add(bodyAttribute.getTextField());
             }
         }
 
         if (ctx.button() != null) {
-            Pair<String, Object> pair = new Pair<>(ctx.button().FILE_NAME_ID().getText(), body);
-            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+            if (!CustomPair.containVariable(ctx.button().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage)) {
                 buttonVisitor = new ButtonVisitor();
                 bodyAttribute.setButton(buttonVisitor.visitButton(ctx.button()));
-                ProjectMain.symbolTablePage.add(pair);
+                ProjectMain.symbolTablePage.add(bodyAttribute.getButton());
             }else {
                 ProjectMain.ERROR = true;
                 try {
@@ -68,11 +64,10 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
         }
 
         if (ctx.radioGroup() != null) {
-            Pair<String, Object> pair = new Pair<>(ctx.radioGroup().FILE_NAME_ID().get(0).getText(), body);
-            if (!CustomPair.containPair(pair, ProjectMain.symbolTablePage)) {
+            if (!CustomPair.containVariable(ctx.radioGroup().FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage)) {
                 radioGroupVisitor = new RadioGroupVisitor();
                 bodyAttribute.setRadioGroup(radioGroupVisitor.visitRadioGroup(ctx.radioGroup()));
-                ProjectMain.symbolTablePage.add(pair);
+                ProjectMain.symbolTablePage.add(bodyAttribute.getRadioGroup());
             }
         }
 
