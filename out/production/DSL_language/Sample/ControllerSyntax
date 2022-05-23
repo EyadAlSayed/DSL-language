@@ -4,6 +4,7 @@ Controller c1 controls p1
      {
          text1 = "success";
            button1.send
+
      }
     print "text1";
     print text1;
