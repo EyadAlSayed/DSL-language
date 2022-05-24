@@ -1,10 +1,19 @@
 package Visitors.Controller.IfCondition;
 
 import Models.ControllerModels.If.Condition;
+import Models.PageModels.Checkbox;
+import Models.PageModels.RadioGroup;
+import Models.PageModels.Text;
+import Models.PageModels.TextField;
 import Visitors.Controller.TextValueVisitor;
+import Visitors.CustomPair;
+import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
-import org.antlr.v4.runtime.misc.Pair;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 
 public class ConditionVisitor extends DSLParserBaseVisitor {
 
@@ -15,18 +24,21 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
     TextValueVisitor textValueVisitor = new TextValueVisitor();
 
 
-    public Condition visitCondition(DSLParser.ConditionContext ctx, Object father) {
+    public Condition visitCondition(DSLParser.ConditionContext ctx) {
 
         if (ctx.FILE_NAME_ID() != null)
         {
-            Pair<String, Object> pair = new Pair<>(ctx.FILE_NAME_ID().getText(), father);
-            /*if(!CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage))
-            {
-               // if(!CustomPair.containPair(pair,ProjectMain.symbolTableController)) {
-                    //TODO: ERROR HANDLING HERE
-                }
-            }*/
+            Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
+            if(text instanceof Text || text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
             condition.setFileNameId(ctx.FILE_NAME_ID().getText());
+            else{
+                ProjectMain.ERROR=true;
+                try{
+                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON} OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
+            }
         }
 
         if (ctx.logicalOperation(0) != null)
