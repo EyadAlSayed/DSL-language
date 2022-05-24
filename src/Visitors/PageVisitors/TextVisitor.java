@@ -1,45 +1,27 @@
 package Visitors.PageVisitors;
 
-import Models.PageModels.TextBodyAttribute;
-import Models.PageModels.TextName;
+import Models.PageModels.Text;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
 public class TextVisitor extends DSLParserBaseVisitor {
 
-    TextBodyAttribute textBodyAttribute = new TextBodyAttribute();
-    ValueVisitor valueVisitor = new ValueVisitor();
-
+    Text text;
 
     @Override
-    public TextBodyAttribute visitText(DSLParser.TextContext ctx){
+    public Text visitText(DSLParser.TextContext ctx){
 
-        textBodyAttribute = new TextBodyAttribute();
+        text = new Text();
 
         if(ctx.TEXT_DEF_ID() != null)
-            textBodyAttribute.setTEXT(ctx.TEXT_DEF_ID().getText());
-        if(ctx.textName() != null)
-            textBodyAttribute.setTextName(visitTextName(ctx.textName()));
-        if(ctx.value() != null)
-            textBodyAttribute.setValue(valueVisitor.visitValue(ctx.value()));
-        if(ctx.value() != null)
-            textBodyAttribute.setEND_TEXT(ctx.TEXT_DEF_END_ID().getText());
-
-        return textBodyAttribute;
-    }
-
-    @Override
-    public TextName visitTextName(DSLParser.TextNameContext ctx){
-
-        textBodyAttribute.setTextName(new TextName());
-
-        if(ctx.NAME() != null)
-            textBodyAttribute.getTextName().setNAME(ctx.NAME().getText());
-        if(ctx.ASSIGN() != null)
-            textBodyAttribute.getTextName().setASSIGN(ctx.ASSIGN().getText());
+            text.setTEXT(ctx.TEXT_DEF_ID().getText());
+        if(ctx.FILE_NAME_ID() != null)
+            text.setNAME(ctx.FILE_NAME_ID().getText());
         if(ctx.TEXT() != null)
-            textBodyAttribute.getTextName().setTEXT(ctx.TEXT().getText());
+            text.setVALUE(ctx.TEXT().getText());
+        else
+            text.setVALUE("");
 
-        return textBodyAttribute.getTextName();
+        return text;
     }
 }

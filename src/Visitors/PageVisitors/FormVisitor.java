@@ -1,39 +1,23 @@
 package Visitors.PageVisitors;
 
 import Models.PageModels.Form;
-import Visitors.BaseVisitor;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
-
 public class FormVisitor extends DSLParserBaseVisitor {
-    private Form form;
-    private FormChildrenVisitor childrenVisitor;
 
-    public FormVisitor() {
-        this.childrenVisitor = new FormChildrenVisitor();
-    }
+    Form form = new Form();
 
-     @Override
+    @Override
     public Form visitForm(DSLParser.FormContext ctx) {
-        Form form = new Form();
-        if (ctx.POST_FORM() != null)
-            form.setMethod("POST");
-        else if (ctx.GET_FORM() != null)
-            form.setMethod("GET");
 
-        if (ctx.form_attribute() != null) {
-            for (DSLParser.Form_attributeContext form_attribute : ctx.form_attribute()) {
-                if (form_attribute.ACTION() != null)
-                    form.setAction(form_attribute.TEXT().getText());
+        if (ctx.FORM_ID() != null)
+            form.setFormID(ctx.FORM_ID().getText());
+        if (ctx.FILE_NAME_ID().size() > 0) {
+            for (int i = 0; i < ctx.FILE_NAME_ID().size(); i++) {
+                form.getComponents().add(ctx.FILE_NAME_ID().get(i).getText());
             }
-        }
-
-        if (ctx.children() != null) {
-            for (DSLParser.ChildrenContext child : ctx.children())
-                form.getNodes().add(childrenVisitor.visitChildren(child,form));
         }
         return form;
     }
-
- }
+}

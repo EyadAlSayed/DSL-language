@@ -1,56 +1,97 @@
 package Models.ControllerModels;
 
+import Models.ControllerModels.Action.Assign;
+import Models.ControllerModels.Action.MathEquation;
+import Models.ControllerModels.Action.Print;
+import Models.ControllerModels.If.IFStatement;
 import Models.Printer;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ControllerTokens extends Printer {
-    Bundle bundle;
-    Action action;
-    IFCondition ifCondition;
 
-    public Bundle getBundle() {
-        return bundle;
+    IFStatement ifStatement;
+    Loop loop;
+    Print print;
+    Assign assign;
+    MathEquation mathEquation;
+    Send send;
+
+
+    public IFStatement getIfStatement() {
+        return ifStatement;
     }
 
-    public void setBundle(Bundle bundle) {
-        this.bundle = bundle;
+    public void setIfStatement(IFStatement ifStatement) {
+        this.ifStatement = ifStatement;
     }
 
-    public Action getAction() {
-        return action;
+    public Print getPrint() {
+        return print;
     }
 
-    public void setAction(Action action) {
-        this.action = action;
+    public void setPrint(Print print) {
+        this.print = print;
     }
 
-    public IFCondition getIfCondition() {
-        return ifCondition;
+    public Assign getAssign() {
+        return assign;
     }
 
-    public void setIfCondition(IFCondition ifCondition) {
-        this.ifCondition = ifCondition;
+    public void setAssign(Assign assign) {
+        this.assign = assign;
     }
 
+    public MathEquation getMathEquation() {
+        return mathEquation;
+    }
+
+    public void setMathEquation(MathEquation mathEquation) {
+        this.mathEquation = mathEquation;
+    }
+
+    public Loop getLoop() {
+        return loop;
+    }
+
+    public void setLoop(Loop loop) {
+        this.loop = loop;
+    }
+
+    public Send getSend() {
+        return send;
+    }
+
+    public void setSend(Send send) {
+        this.send = send;
+    }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = getPrettyString("ControllerToken", toMap());
+        StringBuilder stringBuilder = getPrettyString("ControllerTokens", toMap());
         return stringBuilder.toString();
     }
 
     @Override
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
-        map.put("label","ControllerToken");
-        if(bundle != null)
-            map.put("Bundle",bundle.toMap());
-        if(action != null)
-            map.put("Action",action.toMap());
-        if(ifCondition != null)
-            map.put("ifCondition",ifCondition.toMap());
+        map.put("label", "ControllerTokens");
+
+        if (ifStatement != null)
+            map.put("ifStatement", ifStatement);
+        if (loop != null)
+            map.put("Loop", loop);
+
+        if (print != null)
+            map.put("Print", print);
+
+        if (assign != null)
+            map.put("Assign", assign);
+        if (send != null)
+            map.put("send", send);
+        if (mathEquation != null)
+            map.put("MathEquation", mathEquation);
 
         return map;
     }

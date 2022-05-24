@@ -7,25 +7,69 @@ import java.util.Map;
 
 public class BodyAttribute extends Printer {
 
-    TextBodyAttribute textBodyAttribute;
-    Form formBodyAttribute;
+    Header header;
+    Text text;
+    TextField textField;
+    RadioGroup radioGroup;
+    Button button;
+    Form form;
+    Checkbox checkbox;
 
-    public TextBodyAttribute getTextBodyAttribute() {
-        return textBodyAttribute;
+    public Checkbox getCheckbox() {
+        return checkbox;
     }
 
-    public void setTextBodyAttribute(TextBodyAttribute textBodyAttribute) {
-        this.textBodyAttribute = textBodyAttribute;
+    public void setCheckbox(Checkbox checkbox) {
+        this.checkbox = checkbox;
     }
 
-    public Form getFormBodyAttribute() {
-        return formBodyAttribute;
+    public Header getHeader() {
+        return header;
     }
 
-    public void setFormBodyAttribute(Form formBodyAttribute) {
-        this.formBodyAttribute = formBodyAttribute;
+    public void setHeader(Header header) {
+        this.header = header;
     }
 
+    public Text getText() {
+        return text;
+    }
+
+    public void setText(Text text) {
+        this.text = text;
+    }
+
+    public TextField getTextField() {
+        return textField;
+    }
+
+    public void setTextField(TextField textField) {
+        this.textField = textField;
+    }
+
+    public RadioGroup getRadioGroup() {
+        return radioGroup;
+    }
+
+    public void setRadioGroup(RadioGroup radioGroup) {
+        this.radioGroup = radioGroup;
+    }
+
+    public Button getButton() {
+        return button;
+    }
+
+    public void setButton(Button button) {
+        this.button = button;
+    }
+
+    public Form getForm() {
+        return form;
+    }
+
+    public void setForm(Form form) {
+        this.form = form;
+    }
 
     @Override
     public String toString() {
@@ -37,10 +81,20 @@ public class BodyAttribute extends Printer {
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("label","BodyAttribute");
-        if(textBodyAttribute != null)
-            map.put("textBodyAttribute",textBodyAttribute.toMap());
-        if(formBodyAttribute != null)
-            map.put("formBodyAttribute",formBodyAttribute.toMap());
+        if(header != null)
+            map.put("Header",header.toMap());
+        if(text != null)
+            map.put("Text",text.toMap());
+        if (textField != null)
+            map.put("TextField",textField.toMap());
+        if (radioGroup != null)
+            map.put("RadioGroup",radioGroup.toMap());
+        if (button != null)
+            map.put("Button",button.toMap());
+        if (form != null)
+            map.put("Form",form.toMap());
+        if(checkbox != null)
+            map.put("CheckBox",checkbox.toMap());
 
         return map;
     }

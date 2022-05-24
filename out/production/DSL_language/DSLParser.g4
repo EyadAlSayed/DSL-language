@@ -3,116 +3,67 @@ parser grammar DSLParser;
 options { tokenVocab=DSLLexer; }
 
 dslDocument:
-    pageStructure NEWLINE*
-   |controllerElement NEWLINE*
+    pageStructure space
+   |controllerDef
    ;
 
+pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space OPEN_CURLY_BRACKT_ID space body? CLOSE_CURLY_BRACKT_ID;
+headerStructure: TITLE OPEN_PAR_BRACKT_ID TEXT CLOSE_PAR_BRACKT_ID;
 
-//CAESAR
-pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID space headerStructure space body?  space END_PAGE;
-headerStructure: HEADER space value space  ENDHEADER;
-
-//SALEM
-
-body : BODY_DEF_ID space bodyAttribute*  BODY_DEF_END_ID;
-bodyAttribute :
-          text space
-        | form space
+body : bodyAttributes* WHITE_SPACE*;
+bodyAttributes :
+        WHITE_SPACE* headerStructure (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* text (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* textField (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* radioGroup (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* checkbox (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* button (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* form (WHITE_SPACE| NEWLINE)*
+        | WHITE_SPACE* buttonSend (WHITE_SPACE| NEWLINE)*
         ;
 
-text : TEXT_DEF_ID space textName space value space TEXT_DEF_END_ID; // it was 'value*'
-textName : NAME space ASSIGN space TEXT;
+text : TEXT_DEF_ID OPEN_PAR_BRACKT_ID FILE_NAME_ID WHITE_SPACE* (COMMA WHITE_SPACE* TEXT)? WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+ radioGroup: space RADIO_GROUP_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* COMMA WHITE_SPACE* OPEN_SQR_BRACKT_ID WHITE_SPACE*  ( WHITE_SPACE* (FILE_NAME_ID | TEXTNUM) WHITE_SPACE* COMMA WHITE_SPACE*)*  WHITE_SPACE* (FILE_NAME_ID | TEXTNUM) WHITE_SPACE* CLOSE_SQR_BRACKT_ID WHITE_SPACE*  (COMMA WHITE_SPACE* (FILE_NAME_ID | TEXTNUM))? WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+ checkbox: CHECKBOX OPEN_PAR_BRACKT_ID WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* COMMA WHITE_SPACE* OPEN_SQR_BRACKT_ID (WHITE_SPACE* (FILE_NAME_ID | TEXTNUM) WHITE_SPACE*)? (COMMA WHITE_SPACE* (FILE_NAME_ID | TEXTNUM) WHITE_SPACE*)* CLOSE_SQR_BRACKT_ID WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+ button : space BUTTON_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+ form : space FORM_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* (FILE_NAME_ID WHITE_SPACE* COMMA WHITE_SPACE*)* WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
+ buttonSend : space FILE_NAME_ID DOT SEND OPEN_PAR_BRACKT_ID TEXT CLOSE_PAR_BRACKT_ID;
 
+controllerDef:  CONTROLLER_DEF WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* CONTROLLER_METHOD WHITE_SPACE* FILE_NAME_ID space
+                OPEN_CURLY_BRACKT_ID space controllerTokens+ space CLOSE_CURLY_BRACKT_ID;
 
-value : VALUE WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT;
-
-
-//ABD
-
-form:
-    (POST_FORM | GET_FORM) space form_attribute* children*  END_FORM
-    ;
-
-form_attribute:
-    (NAME|ACTION) WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT space
-    ;
-
-children:
-     space text_input space
-    | space email_input space
-    | space password_input space
-    | space radio_group space
-    | space radio_input space
-    | space checkbox_input space
-    | space submit_button space
-    | space text  space
-    ;
-
-
-text_input:
-    TEXT_FIELD space attribute* END_TEXT_FIELD space
-    ;
-
-email_input:
-    EMAIL_FIELD space attribute* END_EMAIL_FIELD space
-    ;
-
-password_input:
-    PASSWORD_FIELD space attribute* END_PASSWORD_FIELD space
-    ;
-
-radio_input
-    :RADIO_FIELD space attribute*  END_RADIO_FIELD space
-    ;
-
-radio_group:
-    RADIO_GROUP space  NAME WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT space radio_input* space END_RADIO_GROUP space
-    ;
-
-checkbox_input
-    :CHECKBOX_FIELD space attribute*  END_CHECKBOX_FIELD space
-    ;
-
-
-submit_button:
-   SUBMIT_BUTTON space attribute* END_SUBMIT_BUTTON space
-    ;
-
-
-
-attribute:
- space   (NAME|VALUE|TEXT_DEF) WHITE_SPACE* ASSIGN WHITE_SPACE* TEXT space
-    ;
-
-//EYAD
-
-controllerElement:  controllerDef;
-controllerDef: CONTROLLER_DEF_ID WHITE_SPACE* FILE_NAME_ID space  (controllerTokens | NEWLINE)+  WHITE_SPACE*  CONTROLLER_DEF_END_ID;
-
+textField: TEXT_FIELD OPEN_PAR_BRACKT_ID FILE_NAME_ID WHITE_SPACE* (COMMA WHITE_SPACE* TEXT)? (COMMA WHITE_SPACE* textFieldAttribute)? WHITE_SPACE* CLOSE_PAR_BRACKT_ID;
 controllerTokens:
-    bundle
-    |ifCondition
-    |action
-    ;
+          ifStatment
+          |loop
+          |print
+          |assign
+          |send
+          |mathEquation;
 
-bundle : var WHITE_SPACE* ASSIGN  WHITE_SPACE* BUNDLE_ID WHITE_SPACE* OPEN_SQR_BRACKT_ID WHITE_SPACE* TEXT WHITE_SPACE* CLOSE_SQR_BRACKT_ID space;
-ifCondition : IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space ifBody;
+send:FILE_NAME_ID WHITE_SPACE* DOT WHITE_SPACE* SEND WHITE_SPACE* END_STATMENT_ID space;
 
-ifBody: IFBODY_DEF_ID space ifBodyTokens+ WHITE_SPACE* IFBODY_DEF_END_ID space ;
-ifBodyTokens:
-    ifCondition
-    |bundle
-    |action
-    |varDeclear;
+textFieldAttribute: TEXT_DEF_ID | EMAIL_AS_PARAMETER | PASSWORD_AS_PARAMETER | DATE_AS_PARAMETER;
 
-varDeclear: VAR_NAME_ID WHITE_SPACE* ASSIGN WHITE_SPACE* textValue ;
-condition : var WHITE_SPACE* logicalOp WHITE_SPACE* textValue WHITE_SPACE* logicalOp? WHITE_SPACE*;
-var: VAR_NAME_ID;
-logicalOp: AND_OP_ID|OR_OP_ID|EQUAL_OP_ID;
-action: PRINT_ACTION WHITE_SPACE* textValue space;
+loop:FOR_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* (TEXTNUM|FILE_NAME_ID) WHITE_SPACE* RANG WHITE_SPACE* (TEXTNUM|FILE_NAME_ID) WHITE_SPACE* CLOSE_PAR_BRACKT_ID
+            OPEN_CURLY_BRACKT_ID space controllerTokens+ space CLOSE_CURLY_BRACKT_ID space;
+
+ifStatment:IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space
+            OPEN_CURLY_BRACKT_ID space controllerTokens+ space CLOSE_CURLY_BRACKT_ID space;
+
+
+logicalOperation:AND_OP_ID |OR_OP_ID|EQUAL_OP_ID;
+condition:FILE_NAME_ID WHITE_SPACE* logicalOperation WHITE_SPACE*  textValue  WHITE_SPACE* logicalOperation? WHITE_SPACE*;
 textValue :  (TEXT |TEXTNUM) ;
-
 space: (NEWLINE+ | WHITE_SPACE)*;
+print:PRINT_ACTION WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
+assign:FILE_NAME_ID WHITE_SPACE* ASSIGN_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
+mathEquation:sum|mult|minus|div|mod;
+sum:FILE_NAME_ID WHITE_SPACE* ASSIGN_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* SUM_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
+mult:FILE_NAME_ID WHITE_SPACE* ASSIGN_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* MULT_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
+minus:FILE_NAME_ID WHITE_SPACE* ASSIGN_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* MINUS_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
+div:FILE_NAME_ID WHITE_SPACE* ASSIGN_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* DIV_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
+mod:FILE_NAME_ID WHITE_SPACE* ASSIGN_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* MOD_OP_ID WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
 
 
 

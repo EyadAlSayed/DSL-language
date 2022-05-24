@@ -1,73 +1,13 @@
 Page p1
-Head
+{
+    Title("title")
+    Text(text1,"salem")
+    Text(text2,"test")
+    TextField(textfield1,"textfield1",Email)
+    TextField(textfield2,"textfield2",Date)
+    TextField(textfield3,"textfield2",Password)
+    Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3])
+    Checkbox(checkbox1,[checkbutton1,checkbutton2])
+    button1.send("p2")
 
-value = 'salem'
-
-endHead
-
-Body
-
-Text
-
-name = 'salem'
-
-value = 'salem'
-
-endText
-
-PostForm
-
-TextField
-
-name = 'text'
-value = 'salem'
-text = 'salem'
-
-endTextField
-
-
-PasswordField
-
-name = 'pass'
-value = 'salem'
-text = 'salem'
-
-endPasswordField
-
-RadioGroup
-name = 'radio'
-
-RadioField
-
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-
-endRadioField
-
-endRadioGroup
-
-CheckBoxField
-
-name = 'salem'
-value = 'salem'
-text = 'salem'
-
-
-endCheckBoxField
-
-SubmitButton
-
-name = 'submit'
-value = 'salem'
-text = 'salem'
-
-endSubmitButton
-
-endForm
-
-endBody
-
-endPage
+}

@@ -16,6 +16,7 @@ public abstract class Printer {
     private static StringBuilder verbosePrintInternal(Object label, Map map, Stack lineage, boolean isItemOfList) {
         StringBuilder str = new StringBuilder();
 
+
         str.append(printIndent(lineage.size()));
         if (map == null) {
             if (label != null && !isItemOfList) {

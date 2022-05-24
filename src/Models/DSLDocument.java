@@ -1,6 +1,6 @@
 package Models;
 
-import Models.ControllerModels.ControllerDef;
+import Models.ControllerModels.Controller;
 import Models.PageModels.PageStructure;
 
 import java.util.LinkedHashMap;
@@ -10,7 +10,8 @@ import java.util.Map;
 public class DSLDocument extends Printer {
 
     PageStructure pageStructure;
-    ControllerDef controllerElement;
+
+    Controller controller;
 
     public PageStructure getPageStructure() {
         return pageStructure;
@@ -20,12 +21,12 @@ public class DSLDocument extends Printer {
         this.pageStructure = pageStructure;
     }
 
-    public ControllerDef getControllerElement() {
-        return controllerElement;
+    public Controller getController() {
+        return controller;
     }
 
-    public void setControllerElement(ControllerDef controllerElement) {
-        this.controllerElement = controllerElement;
+    public void setController(Controller controller) {
+        this.controller = controller;
     }
 
     @Override
@@ -37,11 +38,11 @@ public class DSLDocument extends Printer {
     @Override
     public Map<String, Object> toMap() {
         Map<String, Object> map = new LinkedHashMap<>();
-        map.put("label","DSLDocument");
-        if(pageStructure != null)
-        map.put("pageStructure",pageStructure.toMap());
-        if(controllerElement != null)
-        map.put("controllerElement",controllerElement.toMap());
+        map.put("label", "DSLDocument");
+        if (pageStructure != null)
+            map.put("pageStructure", pageStructure.toMap());
+        if (controller != null)
+            map.put("controllerDef", controller.toMap());
 
         return map;
     }

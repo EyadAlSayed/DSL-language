@@ -1,30 +1,18 @@
-Controller cc
+Controller c1 controls p1
+{
+   if(username EQUAL "salem" AND password EQUAL "123")
+     {
+         text1 = "success";
+           button1.send;
 
-_username = Bundle [ 'username' ]
+     }
+     for(text1:5){
+     button1.send;
+     }
+    print "text1";
+    print text1;
+    text2 = "salem";
+    print text2;
+    sum = number1 + number2;
 
-_password = Bundle [ 'password' ]
-
-if(_username EQUAL 'eyad')
-print 'hi'
-
-
-
-if(_username EQUAL 'salem' AND _password EQUAL 'eyad')
-print 'hi salem'
-
-if(_username EQUAL 'salem' OR _password EQUAL 'eyad')
-print 'hi salem'
-
-endController
-
-
-----------------------
-if(_username AND 'salem')
-ifBody
-_username = Bundle['eyad']
-if(_username AND 'salem')
-ifBody
-print 333
-endIfBody
-print 22
-endIfBody
+}

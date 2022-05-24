@@ -2,92 +2,52 @@ lexer grammar  DSLLexer;
 
 
 
+//EYAD
+
+CONTROLLER_DEF:'Controller';
+CONTROLLER_METHOD:'controls';
+
+OPEN_CURLY_BRACKT_ID:'{';
+CLOSE_CURLY_BRACKT_ID:'}';
+
+SUM_OP_ID:'+';
+MINUS_OP_ID:'-';
+MULT_OP_ID:'*';
+DIV_OP_ID:'/';
+MOD_OP_ID:'%';
+END_STATMENT_ID:';';
+
 // KEY TOKENS
 
-NAME: 'name';
 
-VALUE : 'value';
 
-BODY_DEF_ID : 'Body';
-
-BODY_DEF_END_ID : 'endBody';
 
 TEXT_DEF_ID : 'Text';
 
-TEXT_DEF_END_ID : 'endText';
+TITLE : 'Title';
 
 PAGE: 'Page';
 
-END_PAGE: 'endPage';
+EMAIL_AS_PARAMETER: 'Email';
 
-HEADER: 'Head';
+PASSWORD_AS_PARAMETER: 'Password';
 
-ENDHEADER: 'endHead';
-
-TEXT_DEF:'text';
-
-ACTION:'action' ;
-
-METHOD:'method';
-
-POST_FORM:'PostForm';
-
-GET_FORM:'GetForm';
-
-END_FORM:'endForm';
-
-SUBMIT_BUTTON:'SubmitButton';
-
-END_SUBMIT_BUTTON:'endSubmitButton';
+DATE_AS_PARAMETER: 'Date';
 
 TEXT_FIELD:'TextField';
 
-END_TEXT_FIELD:'endTextField';
-
-EMAIL_FIELD:'EmailField';
-
-END_EMAIL_FIELD:'endEmailField';
-
-PASSWORD_FIELD:'PasswordField';
-
-END_PASSWORD_FIELD:'endPasswordField';
-
-CHECKBOX_FIELD:'CheckBoxField' ;
-
-END_CHECKBOX_FIELD:'endCheckBoxField' ;
-
-RADIO_FIELD:'RadioField';
-
-END_RADIO_FIELD:'endRadioField';
-
-CONTROLLER_DEF_ID: 'Controller';
-
-CONTROLLER_DEF_END_ID: 'endController';
-
-RADIO_GROUP
-    : 'RadioGroup'
-    ;
-
-END_RADIO_GROUP
-    : 'endRadioGroup'
-    ;
-
-BUNDLE_ID:'Bundle';
-
+FOR_ID:'for';
 IF_ID:'if';
-
-IFBODY_DEF_ID:'ifBody';
-
-IFBODY_DEF_END_ID : 'endIfBody';
-
 AND_OP_ID : 'AND';
-
 OR_OP_ID : 'OR';
-
 EQUAL_OP_ID : 'EQUAL';
-
 PRINT_ACTION:'print';
-
+RADIO_GROUP_ID : 'Radiogroup';
+CHECKBOX: 'Checkbox';
+BUTTON_ID : 'Button';
+FORM_ID : 'Form';
+DOT : '.';
+SEND : 'send';
 
 //SYMBOL TOKENS
 
@@ -95,25 +55,30 @@ NEWLINE: '\n';
 
 WHITE_SPACE:  (' '|'\t'|'\r');
 
-SINGLE_QUOTE: '\'';
+DOUBLE_QUOTE: '"';
 
-ASSIGN : '=';
 
-OPEN_SQR_BRACKT_ID : '[';
-
+ASSIGN_OP_ID : '=';
+OPEN_SQR_BRACKT_ID: '[';
 CLOSE_SQR_BRACKT_ID : ']';
 
+COMMA: ',';
 OPEN_PAR_BRACKT_ID : '(';
-
 CLOSE_PAR_BRACKT_ID : ')';
+
+RANG:':';
+
 
 
 //FRAGMENT TOKENS
 
 VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 
-FILE_NAME_ID: [a-zA-Z]+ [1-9]* | [a-zA-Z]+  [1-9]+ ;
+//VAR_ID: [a-zA-Z]+ ([1-9]+ | [a-zA-Z]+ | '_')*;
 
-TEXT: SINGLE_QUOTE (([a-zA-Z]+ | [1-9]+)+ WHITE_SPACE*)+ SINGLE_QUOTE;
+FILE_NAME_ID: [a-z]+ [1-9]* | [a-z]+  [1-9]+ ;
+
+TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [1-9]+)+ | WHITE_SPACE)* DOUBLE_QUOTE;
 TEXTNUM: [1-9]+;
 //TEXTCHAR: ([a-zA-Z] | [1-9])+;
+
