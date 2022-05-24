@@ -1,8 +1,11 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Action.Assign;
+import Visitors.CustomPair;
+import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
+import org.antlr.v4.runtime.misc.Pair;
 
 public class AssignVisitor extends DSLParserBaseVisitor {
 
@@ -12,10 +15,6 @@ public class AssignVisitor extends DSLParserBaseVisitor {
 
     @Override
     public Assign visitAssign(DSLParser.AssignContext ctx) {
-
-        if (ctx.FILE_NAME_ID(0) != null)
-            assign.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
-
         if (ctx.ASSIGN_OP_ID() != null)
             assign.setAssignOpId(ctx.ASSIGN_OP_ID().getText());
 

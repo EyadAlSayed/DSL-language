@@ -4,6 +4,7 @@ import Models.PageModels.Body;
 import Models.PageModels.BodyAttribute;
 import Visitors.CustomPair;
 import Visitors.ProjectMain;
+
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 import org.antlr.v4.runtime.misc.Pair;
@@ -14,7 +15,6 @@ import java.nio.file.Files;
 public class BodyAttributeVisitor extends DSLParserBaseVisitor {
 
     BodyAttribute bodyAttribute;
-
     HeaderVisitor headerVisitor;
     TextVisitor textVisitor;
     TextFieldVisitor textFieldVisitor;
