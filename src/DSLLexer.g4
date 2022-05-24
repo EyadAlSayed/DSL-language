@@ -43,8 +43,11 @@ OR_OP_ID : 'OR';
 EQUAL_OP_ID : 'EQUAL';
 PRINT_ACTION:'print';
 RADIO_GROUP_ID : 'Radiogroup';
+CHECKBOX: 'Checkbox';
 BUTTON_ID : 'Button';
 FORM_ID : 'Form';
+DOT : '.';
+SEND : 'send';
 
 //SYMBOL TOKENS
 

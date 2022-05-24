@@ -36,9 +36,6 @@ DATE_AS_PARAMETER: 'Date';
 
 TEXT_FIELD:'TextField';
 
-
-SEND_ID:'send';
-
 FOR_ID:'for';
 IF_ID:'if';
 AND_OP_ID : 'AND';
@@ -46,8 +43,11 @@ OR_OP_ID : 'OR';
 EQUAL_OP_ID : 'EQUAL';
 PRINT_ACTION:'print';
 RADIO_GROUP_ID : 'Radiogroup';
+CHECKBOX: 'Checkbox';
 BUTTON_ID : 'Button';
 FORM_ID : 'Form';
+DOT : '.';
+SEND : 'send';
 
 //SYMBOL TOKENS
 

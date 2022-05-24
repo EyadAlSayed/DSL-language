@@ -16,6 +16,7 @@ public class ControllerTokens extends Printer {
     Print print;
     Assign assign;
     MathEquation mathEquation;
+    Send send;
 
 
     public IFStatement getIfStatement() {
@@ -58,6 +59,14 @@ public class ControllerTokens extends Printer {
         this.loop = loop;
     }
 
+    public Send getSend() {
+        return send;
+    }
+
+    public void setSend(Send send) {
+        this.send = send;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = getPrettyString("ControllerTokens", toMap());
@@ -72,13 +81,15 @@ public class ControllerTokens extends Printer {
         if (ifStatement != null)
             map.put("ifStatement", ifStatement);
         if (loop != null)
-            map.put("Loop",loop);
+            map.put("Loop", loop);
 
         if (print != null)
             map.put("Print", print);
 
         if (assign != null)
             map.put("Assign", assign);
+        if (send != null)
+            map.put("send", send);
         if (mathEquation != null)
             map.put("MathEquation", mathEquation);
 

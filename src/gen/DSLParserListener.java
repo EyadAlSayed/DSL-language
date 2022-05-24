@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -78,6 +78,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitRadioGroup(DSLParser.RadioGroupContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#checkbox}.
+	 * @param ctx the parse tree
+	 */
+	void enterCheckbox(DSLParser.CheckboxContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#checkbox}.
+	 * @param ctx the parse tree
+	 */
+	void exitCheckbox(DSLParser.CheckboxContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree
 	 */
@@ -97,6 +107,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitForm(DSLParser.FormContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#buttonSend}.
+	 * @param ctx the parse tree
+	 */
+	void enterButtonSend(DSLParser.ButtonSendContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#buttonSend}.
+	 * @param ctx the parse tree
+	 */
+	void exitButtonSend(DSLParser.ButtonSendContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
@@ -127,6 +147,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitControllerTokens(DSLParser.ControllerTokensContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#send}.
+	 * @param ctx the parse tree
+	 */
+	void enterSend(DSLParser.SendContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#send}.
+	 * @param ctx the parse tree
+	 */
+	void exitSend(DSLParser.SendContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#textFieldAttribute}.
 	 * @param ctx the parse tree

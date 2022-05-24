@@ -12,10 +12,6 @@ public class AssignVisitor extends DSLParserBaseVisitor {
 
     @Override
     public Assign visitAssign(DSLParser.AssignContext ctx) {
-
-        if (ctx.FILE_NAME_ID(0) != null)
-            assign.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
-
         if (ctx.ASSIGN_OP_ID() != null)
             assign.setAssignOpId(ctx.ASSIGN_OP_ID().getText());
 

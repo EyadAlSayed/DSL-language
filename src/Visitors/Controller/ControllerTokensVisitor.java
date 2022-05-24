@@ -14,18 +14,19 @@ public class ControllerTokensVisitor extends DSLParserBaseVisitor {
 
     AssignVisitor assignVisitor = new AssignVisitor();
     PrintVisitor printVisitor = new PrintVisitor();
-    MathEquationVisitor mathEquationVisitor  = new MathEquationVisitor();
-    LoopVisitor loopVisitor  = new LoopVisitor();
+    MathEquationVisitor mathEquationVisitor = new MathEquationVisitor();
+    LoopVisitor loopVisitor = new LoopVisitor();
+    SendVisitor sendVisitor = new SendVisitor();
 
-    @Override
+
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
 
-
-
         if (ctx.ifStatment() != null)
+
             controllerTokens.setIfStatement(ifStatementVisitor.visitIfStatment(ctx.ifStatment()));
 
         if (ctx.loop() != null)
+
             controllerTokens.setLoop(loopVisitor.visitLoop(ctx.loop()));
 
         if (ctx.assign() != null)
@@ -34,11 +35,13 @@ public class ControllerTokensVisitor extends DSLParserBaseVisitor {
         if (ctx.print() != null)
             controllerTokens.setPrint(printVisitor.visitPrint(ctx.print()));
 
+        if (ctx.send() != null)
+            controllerTokens.setSend(sendVisitor.visitSend(ctx.send()));
+
         if (ctx.mathEquation() != null)
             controllerTokens.setMathEquation(mathEquationVisitor.visitMathEquation(ctx.mathEquation()));
 
 
-
-         return controllerTokens;
+        return controllerTokens;
     }
 }

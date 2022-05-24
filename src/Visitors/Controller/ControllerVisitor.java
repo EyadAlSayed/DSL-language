@@ -5,8 +5,6 @@ import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
 public class ControllerVisitor extends DSLParserBaseVisitor {
-
-
     Controller controller = new Controller();
     ControllerTokensVisitor controllerTokensVisitor = new ControllerTokensVisitor();
 
