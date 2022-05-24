@@ -1,8 +1,6 @@
 package Visitors;
 
 import Models.DSLDocument;
-import gen.DSLLexer;
-import gen.DSLParser;
 import org.antlr.v4.gui.Trees;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
@@ -34,7 +32,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-                FILE =  new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
+       FILE =  new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
         try {
             Files.writeString(FILE.toPath(),"");
         } catch (IOException e) {

@@ -148,6 +148,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitControllerTokens(DSLParser.ControllerTokensContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#send}.
+	 * @param ctx the parse tree
+	 */
+	void enterSend(DSLParser.SendContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#send}.
+	 * @param ctx the parse tree
+	 */
+	void exitSend(DSLParser.SendContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#textFieldAttribute}.
 	 * @param ctx the parse tree
 	 */

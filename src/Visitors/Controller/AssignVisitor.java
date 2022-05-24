@@ -1,11 +1,8 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Action.Assign;
-import Visitors.CustomPair;
-import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
-import org.antlr.v4.runtime.misc.Pair;
 
 public class AssignVisitor extends DSLParserBaseVisitor {
 
