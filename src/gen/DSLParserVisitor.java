@@ -53,6 +53,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRadioGroup(DSLParser.RadioGroupContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#checkbox}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitCheckbox(DSLParser.CheckboxContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -64,6 +70,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitForm(DSLParser.FormContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#buttonSend}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitButtonSend(DSLParser.ButtonSendContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree

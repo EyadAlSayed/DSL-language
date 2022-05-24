@@ -5,7 +5,6 @@ import Visitors.Controller.IfCondition.IfStatementVisitor;
 import Visitors.Controller.MathEquation.MathEquationVisitor;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
-import org.antlr.v4.runtime.misc.Pair;
 
 public class ControllerTokensVisitor extends DSLParserBaseVisitor {
 
@@ -18,13 +17,14 @@ public class ControllerTokensVisitor extends DSLParserBaseVisitor {
     MathEquationVisitor mathEquationVisitor  = new MathEquationVisitor();
     LoopVisitor loopVisitor  = new LoopVisitor();
 
-    @Override
+
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
 
 
-        if (ctx.ifStatment() != null){
+
+        if (ctx.ifStatment() != null)
+
             controllerTokens.setIfStatement(ifStatementVisitor.visitIfStatment(ctx.ifStatment()));
-        }
 
         if (ctx.loop() != null)
 

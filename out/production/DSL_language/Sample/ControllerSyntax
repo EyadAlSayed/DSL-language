@@ -3,6 +3,8 @@ Controller c1 controls p1
    if(username EQUAL "salem" AND password EQUAL "123")
      {
          text1 = "success";
+           button1.send
+
      }
     print "text1";
     print text1;
