@@ -3,7 +3,7 @@ Controller c1 controls p1
    if(username EQUAL "salem" AND password EQUAL "123")
      {
          text1 = "success";
-           button1.send;
+          send("filename");
 
      }
      for(text1:5){
