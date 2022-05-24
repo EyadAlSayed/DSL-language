@@ -25,18 +25,7 @@ public class PageVisitor extends DSLParserBaseVisitor {
         }
 
         if(ctx.FILE_NAME_ID() != null){
-            if (CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage) == null){
-                pageStructure.setPAGE_NAME(ctx.FILE_NAME_ID().getText());
-                ProjectMain.symbolTablePage.add(ctx.FILE_NAME_ID().getText());
-            }
-            else {
-                ProjectMain.ERROR = true;
-                try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
+            pageStructure.setPAGE_NAME(ctx.FILE_NAME_ID().getText());
         }
 
         if(ctx.body() != null)

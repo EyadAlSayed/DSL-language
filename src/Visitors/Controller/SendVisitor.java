@@ -27,7 +27,7 @@ public class SendVisitor extends DSLParserBaseVisitor {
 
         if (ctx.TEXT() != null){
             Object fileName = CustomPair.containVariable(ctx.TEXT().getText(), ProjectMain.symbolTablePage);
-            if (fileName instanceof PageStructure){
+            if (fileName != null){
                 send.setText(ctx.TEXT().getText());
             }
             else {
