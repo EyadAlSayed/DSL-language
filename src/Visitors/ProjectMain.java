@@ -34,7 +34,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-                FILE =  new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
+                FILE =  new File("C:\\Users\\Lenovo\\FromGitHub\\New Compiler Project\\DSL-language\\src\\Errors");
         try {
             Files.writeString(FILE.toPath(),"");
         } catch (IOException e) {

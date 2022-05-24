@@ -9,7 +9,16 @@ public class PageStructure extends Printer {
 
     String PAGE;
     String PAGE_NAME;
+    String CONTROLLER;
     Body body;
+
+    public String getCONTROLLER() {
+        return CONTROLLER;
+    }
+
+    public void setCONTROLLER(String CONTROLLER) {
+        this.CONTROLLER = CONTROLLER;
+    }
 
     public String getPAGE() {
         return PAGE;
@@ -51,6 +60,8 @@ public class PageStructure extends Printer {
             map.put("Page_name",PAGE_NAME);
         if(body != null)
             map.put("Page_Body",body.toMap());
+        if(CONTROLLER != null)
+            map.put("Page Controller", CONTROLLER);
         return map;
     }
 }

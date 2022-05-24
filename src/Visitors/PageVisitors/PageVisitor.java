@@ -17,9 +17,11 @@ public class PageVisitor extends DSLParserBaseVisitor {
         if(ctx.PAGE() != null)
             pageStructure.setPAGE(ctx.PAGE().getText());
         if(ctx.FILE_NAME_ID() != null)
-            pageStructure.setPAGE_NAME(ctx.FILE_NAME_ID().getText());
+            pageStructure.setPAGE_NAME(ctx.FILE_NAME_ID(0).getText());
         if(ctx.body() != null)
             pageStructure.setBody(bodyVisitor.visitBody(ctx.body()));
+        if(ctx.FILE_NAME_ID(1) != null)
+            pageStructure.setCONTROLLER(ctx.FILE_NAME_ID(1).getText());
 
         return pageStructure;
     }
