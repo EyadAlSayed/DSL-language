@@ -7,7 +7,7 @@ Controller c1 controls p1
 
      }
      for(text1:5){
-     button1.send;
+     send("filename");
      }
     print "text1";
     print text1;
