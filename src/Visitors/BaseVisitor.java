@@ -20,6 +20,10 @@ public class BaseVisitor extends DSLParserBaseVisitor {
     @Override
     public DSLDocument visitDslDocument(DSLParser.DslDocumentContext ctx) {
 
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("");
+
         if (ctx.pageStructure() != null) {
             pageVisitor = new PageVisitor();
             dslDocument.setPageStructure(pageVisitor.visitPageStructure(ctx.pageStructure()));
@@ -30,6 +34,18 @@ public class BaseVisitor extends DSLParserBaseVisitor {
             dslDocument.setController(controllerVisitor.visitControllerDef(ctx.controllerDef()));
         }
 
+
         return dslDocument;
     }
+    /**
+     * function(){
+     *     b.append("<html>");
+     *    x = function
+     *    b.app x
+     *     b.append("</html>");
+     * }
+     */
 }
+
+
+

@@ -7,8 +7,6 @@ dslDocument:
    |controllerDef
    ;
 
-
-//CAESAR
 pageStructure: PAGE WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* CONTROLLED_BY WHITE_SPACE* FILE_NAME_ID space OPEN_CURLY_BRACKT_ID space body? CLOSE_CURLY_BRACKT_ID;
 headerStructure: TITLE OPEN_PAR_BRACKT_ID TEXT CLOSE_PAR_BRACKT_ID;
 
@@ -40,7 +38,10 @@ controllerTokens:
           |loop
           |print
           |assign
+          |send
           |mathEquation;
+
+send:FILE_NAME_ID WHITE_SPACE* DOT WHITE_SPACE* SEND WHITE_SPACE* END_STATMENT_ID space;
 
 textFieldAttribute: TEXT_DEF_ID | EMAIL_AS_PARAMETER | PASSWORD_AS_PARAMETER | DATE_AS_PARAMETER;
 
