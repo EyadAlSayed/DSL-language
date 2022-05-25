@@ -58,10 +58,11 @@ public class PageStructure extends Printer {
             map.put("Page",PAGE);
         if(PAGE_NAME != null)
             map.put("Page_name",PAGE_NAME);
-        if(body != null)
-            map.put("Page_Body",body.toMap());
         if(CONTROLLER != null)
             map.put("Page Controller", CONTROLLER);
+        if(body != null)
+            map.put("Page_Body",body.toMap());
+
         return map;
     }
 }
