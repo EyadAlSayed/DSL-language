@@ -3,7 +3,7 @@ Page p1 controlled by c1
     Title("title")
     Text(text1,"salem")
     Text(text2,"test")
-    TextField(textfield1,"textfield1",Email)
+    TextField(username,"textfield1",Email)
     TextField(textfield2,"textfield2",Date)
     TextField(textfield3,"textfield2",Password)
     Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3])
