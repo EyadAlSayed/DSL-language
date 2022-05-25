@@ -1,16 +1,10 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Send;
-import Models.PageModels.Button;
-import Models.PageModels.PageStructure;
 import Visitors.CustomPair;
 import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 
 public class SendVisitor extends DSLParserBaseVisitor {
 
@@ -32,11 +26,7 @@ public class SendVisitor extends DSLParserBaseVisitor {
             }
             else {
                 ProjectMain.ERROR=true;
-                try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.TEXT().getText() + " IS NOT BUTTON OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
-                } catch (IOException e){
-                    e.printStackTrace();
-                }
+
             }
 
         }
