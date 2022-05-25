@@ -8,25 +8,34 @@ import java.util.Map;
 public class Send extends Printer {
 
 
-    String fileNameId;
-    String dot;
     String send;
+    String openParBracktId;
+    String text;
+    String closeParBracktId;
     String endStatement;
 
-    public String getFileNameId() {
-        return fileNameId;
+    public String getOpenParBracktId() {
+        return openParBracktId;
     }
 
-    public void setFileNameId(String fileNameId) {
-        this.fileNameId = fileNameId;
+    public void setOpenParBracktId(String openParBracktId) {
+        this.openParBracktId = openParBracktId;
     }
 
-    public String getDot() {
-        return dot;
+    public String getText() {
+        return text;
     }
 
-    public void setDot(String dot) {
-        this.dot = dot;
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public String getCloseParBracktId() {
+        return closeParBracktId;
+    }
+
+    public void setCloseParBracktId(String closeParBracktId) {
+        this.closeParBracktId = closeParBracktId;
     }
 
     public String getSend() {
@@ -56,14 +65,17 @@ public class Send extends Printer {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("label", "send");
 
-        if (fileNameId != null)
-            map.put("FileNameId", fileNameId);
-
-        if (dot != null)
-            map.put("dot", dot);
-
         if (send != null)
-            map.put("send", send);
+            map.put("Send", send);
+
+        if (openParBracktId != null)
+            map.put("OpenParBracktId", openParBracktId);
+
+        if (text != null)
+            map.put("Text", text);
+        if (closeParBracktId != null)
+            map.put("CloseParBracktId", closeParBracktId);
+
         if (endStatement != null)
             map.put("endStatement", endStatement);
 
