@@ -11,11 +11,13 @@ public class BodyAttributeGenerator {
     CheckboxGenerator checkboxGenerator;
     HeaderGenerator headerGenerator;
 
-    public void generateBodyAttributes(List<BodyAttribute> bodyAttributes){
+    StringBuilder stringBuilder = new StringBuilder();
+
+    public StringBuilder generateBodyAttributes(List<BodyAttribute> bodyAttributes){
         for (int i = bodyAttributes.size() - 1; i >= 0; i --){
             if (bodyAttributes.get(i).getHeader() != null){
                 headerGenerator = new HeaderGenerator();
-                headerGenerator.generateHeader(bodyAttributes.get(i).getHeader());
+                stringBuilder.append(headerGenerator.generateHeader(bodyAttributes.get(i).getHeader()));
                 break;
             }
         }
@@ -23,15 +25,16 @@ public class BodyAttributeGenerator {
         for (BodyAttribute attribute : bodyAttributes){
             if(attribute.getText() != null){
                 textGenerator = new TextGenerator();
-                textGenerator.generateText(attribute.getText());
+                stringBuilder.append(textGenerator.generateText(attribute.getText()));
             } else if(attribute.getTextField() != null){
                 textFieldGenerator = new TextFieldGenerator();
-                textFieldGenerator.generateTextField(attribute.getTextField());
+                stringBuilder.append(textFieldGenerator.generateTextField(attribute.getTextField()));
             } else if(attribute.getCheckbox() != null){
                 checkboxGenerator = new CheckboxGenerator();
-                checkboxGenerator.generateCheckbox(attribute.getCheckbox());
+                stringBuilder.append(checkboxGenerator.generateCheckbox(attribute.getCheckbox()));
             }
         }
 
+        return stringBuilder;
     }
 }
