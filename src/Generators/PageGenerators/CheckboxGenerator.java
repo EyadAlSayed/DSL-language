@@ -4,7 +4,11 @@ import Models.PageModels.Checkbox;
 
 public class CheckboxGenerator {
 
-    public void generateCheckbox(Checkbox checkbox) {
+    StringBuilder stringBuilder = new StringBuilder();
+
+    public StringBuilder generateCheckbox(Checkbox checkbox) {
         //append checkbox format.
+        // return stringBuilder;
+        return null;
     }
 }

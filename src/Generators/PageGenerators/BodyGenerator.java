@@ -1,19 +1,20 @@
 package Generators.PageGenerators;
 
-import Models.DSLDocument;
 import Models.PageModels.Body;
-import Models.PageModels.BodyAttribute;
 
 public class BodyGenerator {
 
     BodyAttributeGenerator bodyAttributeGenerator;
+    StringBuilder stringBuilder = new StringBuilder();
 
-    public void generateBody(Body body){
-        DocumentGenerator.code.append("<body>\n");
+    public StringBuilder generateBody(Body body){
+        stringBuilder.append("<body>\n");
         if(body.getBodyAttributes() != null){
             bodyAttributeGenerator = new BodyAttributeGenerator();
-            bodyAttributeGenerator.generateBodyAttributes(body.getBodyAttributes());
+            stringBuilder.append(bodyAttributeGenerator.generateBodyAttributes(body.getBodyAttributes()));
         }
-        DocumentGenerator.code.append("</body>\n");
+        stringBuilder.append("</body>\n");
+
+        return stringBuilder;
     }
 }
