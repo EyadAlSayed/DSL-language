@@ -1,8 +1,14 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Controller;
+import Visitors.CustomPair;
+import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 
 public class ControllerVisitor extends DSLParserBaseVisitor {
     Controller controller = new Controller();
@@ -14,8 +20,9 @@ public class ControllerVisitor extends DSLParserBaseVisitor {
         if (ctx.CONTROLLER_DEF() != null)
             controller.setControllerDef(ctx.CONTROLLER_DEF().getText());
 
-        if (ctx.FILE_NAME_ID(0) != null)
+        if (ctx.FILE_NAME_ID(0) != null){
             controller.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
+        }
 
         if (ctx.CONTROLLER_METHOD() != null)
             controller.setControllerMethod(ctx.CONTROLLER_METHOD().getText());

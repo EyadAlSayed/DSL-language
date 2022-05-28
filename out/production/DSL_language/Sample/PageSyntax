@@ -1,6 +1,6 @@
 Page p1 controlled by c1
 {
-    Title("title")
+    Title("title"
     Text(text1,"salem")
     Text(text2,"test")
     TextField(username,"textfield1",Email)

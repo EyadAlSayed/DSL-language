@@ -20,7 +20,6 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 //TODO: Generate error page
 
 public class ProjectMain {
-    public static ArrayList<Object> symbolTableController = new ArrayList<>();
     public static ArrayList<Object> symbolTablePage = new ArrayList<>();
     public static File FILE;
     public static FileOutputStream FILEOUTPUTSTREAM;
