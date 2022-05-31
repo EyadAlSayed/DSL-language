@@ -14,10 +14,11 @@ public class ControllerGenerator {
 
         if (controller.getControllerTokens().size() > 0) {
             for (int i = 0; i < controller.getControllerTokens().size(); i++) {
-               generateControllerToken(controller.getControllerTokens().get(i));
+               stringBuilder.append(generateControllerToken(controller.getControllerTokens().get(i)));
             }
         }
 
+      //  System.out.println(stringBuilder.toString());
         return stringBuilder.toString();
     }
 
@@ -32,6 +33,7 @@ public class ControllerGenerator {
             assignGenerator = new AssignGenerator();
             return assignGenerator.generateAssign(controllerTokens.getAssign());
         }
+        return "\n";
     }
 
 }

@@ -3,12 +3,12 @@ package Generators.Controller;
 import Models.ControllerModels.If.Condition;
 import Models.ControllerModels.If.IFStatement;
 import Models.ControllerModels.If.LogicalOperation;
-import Models.TextValue;
 
 public class IfStatementGenerator {
 
     StringBuilder stringBuilder = new StringBuilder();
     ControllerGenerator controllerGenerator;
+    TextValueGenerator textValueGenerator;
 
     public String ifStatementGenerate(IFStatement ifStatement) {
         stringBuilder.append("if(");
@@ -37,14 +37,17 @@ public class IfStatementGenerator {
 
 
     public void conditionGenerate(Condition condition) {
+       /// System.out.println(condition.getfileNameId());
         if (condition.getfileNameId() != null)
             stringBuilder.append(" $").append(condition.getfileNameId());
 
         if (condition.getLogicalOperation1() != null)
             logicalOperationGenerate(condition.getLogicalOperation1());
 
-        if (condition.getTextValue() != null)
-            generateTextValue(condition.getTextValue());
+        if (condition.getTextValue() != null) {
+            textValueGenerator = new TextValueGenerator();
+            stringBuilder.append(textValueGenerator.generateTextValue(condition.getTextValue()));
+        }
 
         if (condition.getLogicalOperation2() != null)
             logicalOperationGenerate(condition.getLogicalOperation2());
@@ -64,12 +67,5 @@ public class IfStatementGenerator {
 
     }
 
-    public void generateTextValue(TextValue textValue) {
-        if (textValue.getText() != null)
-            stringBuilder.append(" ").append(textValue.getText());
-
-        if (textValue.getTextNum() != null)
-            stringBuilder.append(" ").append(textValue.getTextNum());
-    }
 
 }

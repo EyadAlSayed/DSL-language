@@ -1,5 +1,6 @@
 package Visitors;
 
+import Generators.Controller.ControllerGenerator;
 import Models.DSLDocument;
 import gen.DSLLexer;
 import gen.DSLParser;
@@ -82,10 +83,17 @@ public class ProjectMain {
 //                // TODO Auto-generated catch block
 //                e.printStackTrace();
 //            }
-            if (ERROR) {
-                System.out.println("An error has acquired check error file");
+//            if (ERROR) {
+//                System.out.println("An error has acquired check error file");
+//                return;
+//            }
+            ControllerGenerator controllerGenerator = new ControllerGenerator();
+            File controllerFile = new File("D:\\Xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
+            try {
+                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController.getController()));
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-
 
         } catch (IOException e) {
             e.printStackTrace();

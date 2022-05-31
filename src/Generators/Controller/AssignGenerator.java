@@ -5,6 +5,7 @@ import Models.ControllerModels.Action.Assign;
 public class AssignGenerator {
 
   StringBuilder stringBuilder = new StringBuilder();
+  TextValueGenerator textValueGenerator;
 
   public String generateAssign(Assign assign)
   {
@@ -14,6 +15,11 @@ public class AssignGenerator {
           stringBuilder.append(" =");
       if (assign.getFileNameId2() != null)
           stringBuilder.append(" $").append(assign.getFileNameId2());
+      if (assign.getTextValue() != null)
+      {
+          textValueGenerator = new TextValueGenerator();
+          stringBuilder.append(textValueGenerator.generateTextValue(assign.getTextValue()));
+      }
      return stringBuilder.toString();
   }
 
