@@ -1,19 +1,9 @@
 package Visitors.Controller.IfCondition;
 
 import Models.ControllerModels.If.Condition;
-import Models.PageModels.Checkbox;
-import Models.PageModels.RadioGroup;
-import Models.PageModels.Text;
-import Models.PageModels.TextField;
 import Visitors.Controller.TextValueVisitor;
-import Visitors.CustomPair;
-import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.StandardOpenOption;
 
 public class ConditionVisitor extends DSLParserBaseVisitor {
 
@@ -28,17 +18,17 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
 
         if (ctx.FILE_NAME_ID() != null)
         {
-            Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
+           // Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
+           // if(text instanceof Text || text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
             condition.setFileNameId(ctx.FILE_NAME_ID().getText());
-            else{
+           /* else{
                 ProjectMain.ERROR=true;
                 try{
                     Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON} OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
-            }
+            }*/
         }
 
         if (ctx.logicalOperation(0) != null)
