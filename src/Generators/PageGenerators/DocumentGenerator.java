@@ -11,7 +11,7 @@ public class DocumentGenerator {
 
     private StringBuilder generateCode(DSLDocument document){
         if(document.getPageStructure() != null)
-            code.append(pageGenerator.generatePage(document.getPageStructure()));
+            code.append(pageGenerator.generatePage(document.getPageStructure())).append("\n");
         //if(document.getController() != null)
             //generate controller.
         return code;
