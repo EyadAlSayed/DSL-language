@@ -1,5 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
-package gen;
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/out/production/DSL_language\DSLParser.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
@@ -109,13 +108,6 @@ public class DSLParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
 	@Override public T visitControllerTokens(DSLParser.ControllerTokensContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitSend(DSLParser.SendContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

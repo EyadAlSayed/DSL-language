@@ -1,5 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
-package gen;
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/out/production/DSL_language\DSLParser.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -147,16 +146,6 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitControllerTokens(DSLParser.ControllerTokensContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#send}.
-	 * @param ctx the parse tree
-	 */
-	void enterSend(DSLParser.SendContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#send}.
-	 * @param ctx the parse tree
-	 */
-	void exitSend(DSLParser.SendContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#textFieldAttribute}.
 	 * @param ctx the parse tree

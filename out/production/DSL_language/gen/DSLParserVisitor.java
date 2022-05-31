@@ -1,5 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
-package gen;
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/out/production/DSL_language\DSLParser.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -94,12 +93,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitControllerTokens(DSLParser.ControllerTokensContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#send}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSend(DSLParser.SendContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#textFieldAttribute}.
 	 * @param ctx the parse tree
