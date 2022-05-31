@@ -7,7 +7,8 @@ public class TextGenerator {
     StringBuilder stringBuilder = new StringBuilder();
 
     public StringBuilder generateText(Text text) {
-        stringBuilder.append("<label>").append(text.getVALUE()).append("</label>\n");
+        String txt = text.getVALUE().replace('"', ' ');
+        stringBuilder.append("<label>").append(txt).append("</label>\n").append("<br>\n");
         return stringBuilder;
     }
 }
