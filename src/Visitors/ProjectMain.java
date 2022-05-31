@@ -1,6 +1,7 @@
 package Visitors;
 
 import Generators.Controller.ControllerGenerator;
+import Generators.PageGenerators.PageGenerator;
 import Models.DSLDocument;
 import gen.DSLLexer;
 import gen.DSLParser;
@@ -35,7 +36,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        FILE = new File("C:\\Users\\Lenovo\\FromGitHub\\New Compiler Project\\DSL-language\\src\\Errors");
+        FILE = new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
         try {
             Files.writeString(FILE.toPath(), "");
         } catch (IOException e) {
@@ -88,9 +89,10 @@ public class ProjectMain {
 //                return;
 //            }
             ControllerGenerator controllerGenerator = new ControllerGenerator();
-            File controllerFile = new File("D:\\Xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
+            PageGenerator pageGenerator = new PageGenerator();
+            File controllerFile = new File("D:\\Xampp\\htdocs\\"+doc.getPageStructure().getPAGE_NAME()+".html");
             try {
-                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController.getController()));
+                Files.writeString(controllerFile.toPath(),pageGenerator.generatePage(doc.getPageStructure()).toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }
