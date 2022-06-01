@@ -7,7 +7,7 @@ import gen.DSLParserBaseVisitor;
 
 public class IfStatementVisitor extends DSLParserBaseVisitor {
 
-    IFStatement ifStatement = new IFStatement();
+    IFStatement ifStatement;
 
     ConditionVisitor conditionVisitor;
 
@@ -15,6 +15,7 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
 
     @Override
     public IFStatement visitIfStatment(DSLParser.IfStatmentContext ctx) {
+        ifStatement = new IFStatement();
         conditionVisitor = new ConditionVisitor();
         controllerTokensVisitor = new ControllerTokensVisitor();
 

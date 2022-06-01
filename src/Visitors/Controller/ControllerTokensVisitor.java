@@ -8,39 +8,45 @@ import gen.DSLParserBaseVisitor;
 
 public class ControllerTokensVisitor extends DSLParserBaseVisitor {
 
-    ControllerTokens controllerTokens = new ControllerTokens();
+    ControllerTokens controllerTokens;
 
-    IfStatementVisitor ifStatementVisitor = new IfStatementVisitor();
+    IfStatementVisitor ifStatementVisitor;
 
-    AssignVisitor assignVisitor = new AssignVisitor();
-    PrintVisitor printVisitor = new PrintVisitor();
-    MathEquationVisitor mathEquationVisitor = new MathEquationVisitor();
-    LoopVisitor loopVisitor = new LoopVisitor();
-    SendVisitor sendVisitor = new SendVisitor();
+    AssignVisitor assignVisitor;
+    PrintVisitor printVisitor;
+    MathEquationVisitor mathEquationVisitor;
+    LoopVisitor loopVisitor;
+    SendVisitor sendVisitor;
 
 
     public ControllerTokens visitControllerTokens(DSLParser.ControllerTokensContext ctx) {
 
-        if (ctx.ifStatment() != null)
+        controllerTokens = new ControllerTokens();
 
+        if (ctx.ifStatment() != null) {
+            ifStatementVisitor = new IfStatementVisitor();
             controllerTokens.setIfStatement(ifStatementVisitor.visitIfStatment(ctx.ifStatment()));
-
-        if (ctx.loop() != null)
-
+        }
+        if (ctx.loop() != null) {
+            loopVisitor = new LoopVisitor();
             controllerTokens.setLoop(loopVisitor.visitLoop(ctx.loop()));
-
-        if (ctx.assign() != null)
+        }
+        if (ctx.assign() != null) {
+            assignVisitor = new AssignVisitor();
             controllerTokens.setAssign(assignVisitor.visitAssign(ctx.assign()));
-
-        if (ctx.print() != null)
+        }
+        if (ctx.print() != null) {
+            printVisitor = new PrintVisitor();
             controllerTokens.setPrint(printVisitor.visitPrint(ctx.print()));
-
-        if (ctx.send() != null)
+        }
+        if (ctx.send() != null) {
+            sendVisitor = new SendVisitor();
             controllerTokens.setSend(sendVisitor.visitSend(ctx.send()));
-
-        if (ctx.mathEquation() != null)
+        }
+        if (ctx.mathEquation() != null) {
+            mathEquationVisitor = new MathEquationVisitor();
             controllerTokens.setMathEquation(mathEquationVisitor.visitMathEquation(ctx.mathEquation()));
-
+        }
 
         return controllerTokens;
     }

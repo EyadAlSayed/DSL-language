@@ -36,7 +36,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        FILE = new File("C:\\Users\\Lenovo\\FromGitHub\\New Compiler Project\\DSL-language\\src\\Errors");
+        FILE = new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
         try {
             Files.writeString(FILE.toPath(), "");
         } catch (IOException e) {
@@ -63,6 +63,7 @@ public class ProjectMain {
             ParseTree tree = parser.dslDocument();
             doc = (DSLDocument) new BaseVisitor().visit(tree);
             System.out.println(doc);
+
             String sourceController = controllerPath;
             CharStream csController = fromFileName(sourceController);
             DSLLexer dslLexerController = new DSLLexer(csController);
@@ -90,9 +91,9 @@ public class ProjectMain {
 //            }
             ControllerGenerator controllerGenerator = new ControllerGenerator();
             PageGenerator pageGenerator = new PageGenerator();
-            File controllerFile = new File("C:\\Users\\Lenovo\\Desktop\\"+doc.getPageStructure().getPAGE_NAME()+".html");
+            File controllerFile = new File("D:\\xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
             try {
-                Files.writeString(controllerFile.toPath(),pageGenerator.generatePage(doc.getPageStructure()).toString());
+                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController.getController()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

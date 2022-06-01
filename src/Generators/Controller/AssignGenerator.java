@@ -18,7 +18,7 @@ public class AssignGenerator {
       if (assign.getTextValue() != null)
       {
           textValueGenerator = new TextValueGenerator();
-          stringBuilder.append(textValueGenerator.generateTextValue(assign.getTextValue()));
+          stringBuilder.append(textValueGenerator.generateTextValue(assign.getTextValue())).append(";");
       }
      return stringBuilder.toString();
   }

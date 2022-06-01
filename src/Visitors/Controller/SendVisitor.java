@@ -8,10 +8,12 @@ import gen.DSLParserBaseVisitor;
 
 public class SendVisitor extends DSLParserBaseVisitor {
 
-    Send send = new Send();
+    Send send;
 
     @Override
     public Send visitSend(DSLParser.SendContext ctx) {
+
+        send = new Send();
 
         if (ctx.SEND() != null)
             send.setSend(ctx.SEND().getText());

@@ -30,6 +30,7 @@ public class IfStatementGenerator {
                 stringBuilder.append(controllerGenerator.generateControllerToken(ifStatement.getControllerTokens().get(i)));
             }
         }
+        stringBuilder.append("}\n");
 
         return stringBuilder.toString();
 

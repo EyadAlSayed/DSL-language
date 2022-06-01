@@ -16,18 +16,21 @@ import java.nio.file.StandardOpenOption;
 
 public class PrintVisitor extends DSLParserBaseVisitor {
 
-    Print print = new Print();
+    Print print;
 
-    TextValueVisitor textValueVisitor = new TextValueVisitor();
+    TextValueVisitor textValueVisitor;
     @Override
     public Print visitPrint(DSLParser.PrintContext ctx) {
+
+        print = new Print();
 
         if (ctx.PRINT_ACTION() != null)
             print.setPrintAction(ctx.PRINT_ACTION().getText());
 
-        if (ctx.textValue() != null)
+        if (ctx.textValue() != null) {
+            textValueVisitor = new TextValueVisitor();
             print.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
-
+        }
         if (ctx.FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
             if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
