@@ -1,6 +1,6 @@
 package Visitors;
 
-import Generators.Controller.ControllerGenerator;
+import Generators.BaseGenerartor;
 import Generators.PageGenerators.PageGenerator;
 import Models.DSLDocument;
 import gen.DSLLexer;
@@ -89,11 +89,11 @@ public class ProjectMain {
 //                System.out.println("An error has acquired check error file");
 //                return;
 //            }
-            ControllerGenerator controllerGenerator = new ControllerGenerator();
+            BaseGenerartor controllerGenerator = new BaseGenerartor();
             PageGenerator pageGenerator = new PageGenerator();
             File controllerFile = new File("D:\\xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
             try {
-                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController.getController()));
+                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController));
             } catch (IOException e) {
                 e.printStackTrace();
             }
