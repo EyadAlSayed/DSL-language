@@ -128,6 +128,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitControllerDef(DSLParser.ControllerDefContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#radioDefault}.
+	 * @param ctx the parse tree
+	 */
+	void enterRadioDefault(DSLParser.RadioDefaultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#radioDefault}.
+	 * @param ctx the parse tree
+	 */
+	void exitRadioDefault(DSLParser.RadioDefaultContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#textField}.
 	 * @param ctx the parse tree
 	 */

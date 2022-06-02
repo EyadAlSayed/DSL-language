@@ -6,10 +6,11 @@ import gen.DSLParserBaseVisitor;
 
 public class LogicalOperationVisitor extends DSLParserBaseVisitor {
 
-    LogicalOperation logicalOperation = new LogicalOperation();
+    LogicalOperation logicalOperation;
 
     @Override
     public LogicalOperation visitLogicalOperation(DSLParser.LogicalOperationContext ctx) {
+        logicalOperation = new LogicalOperation();
 
         if (ctx.AND_OP_ID() != null)
             logicalOperation.setAndId(ctx.AND_OP_ID().getText());

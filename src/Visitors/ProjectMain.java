@@ -1,5 +1,7 @@
 package Visitors;
 
+import Generators.BaseGenerartor;
+import Generators.PageGenerators.PageGenerator;
 import Models.DSLDocument;
 import gen.DSLLexer;
 import gen.DSLParser;
@@ -20,7 +22,6 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 //TODO: Generate error page
 
 public class ProjectMain {
-    public static ArrayList<Object> symbolTableController = new ArrayList<>();
     public static ArrayList<Object> symbolTablePage = new ArrayList<>();
     public static File FILE;
     public static FileOutputStream FILEOUTPUTSTREAM;
@@ -62,6 +63,7 @@ public class ProjectMain {
             ParseTree tree = parser.dslDocument();
             doc = (DSLDocument) new BaseVisitor().visit(tree);
             System.out.println(doc);
+
             String sourceController = controllerPath;
             CharStream csController = fromFileName(sourceController);
             DSLLexer dslLexerController = new DSLLexer(csController);
@@ -76,17 +78,25 @@ public class ProjectMain {
             ParseTree treeController = parserController.dslDocument();
             docController = (DSLDocument) new BaseVisitor().visit(treeController);
             System.out.println(docController);
-            Runtime rt = Runtime.getRuntime();
+//            Runtime rt = Runtime.getRuntime();
+//            try {
+//                Process process = Runtime.getRuntime().exec("start ClickMe.html");
+//            } catch (IOException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//            if (ERROR) {
+//                System.out.println("An error has acquired check error file");
+//                return;
+//            }
+            BaseGenerartor controllerGenerator = new BaseGenerartor();
+            PageGenerator pageGenerator = new PageGenerator();
+            File controllerFile = new File("D:\\xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
             try {
-                Process process = Runtime.getRuntime().exec("start ClickMe.html");
+                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController));
             } catch (IOException e) {
-                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            if (ERROR) {
-                System.out.println("An error has acquired check error file");
-            }
-
 
         } catch (IOException e) {
             e.printStackTrace();

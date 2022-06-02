@@ -19,7 +19,6 @@ public class ButtonVisitor extends DSLParserBaseVisitor {
         else
         {
             String s = "SYNTAX ERROR: EXPECTED Button BUT RESERVED "+ctx.BUTTON_ID().getText();
-          //  ProjectMain.FILEOUTPUTSTREAM.write(s);
             try {
                 Files.writeString(ProjectMain.FILE.toPath(),ctx.exception.toString());
             } catch (IOException e) {
@@ -28,6 +27,9 @@ public class ButtonVisitor extends DSLParserBaseVisitor {
         }
         if(ctx.FILE_NAME_ID() != null)
             button.setVariableName(ctx.FILE_NAME_ID().getText());
+
+        if(ctx.TEXT() != null)
+            button.setValue(ctx.TEXT().getText());
         return button;
     }
 }

@@ -83,6 +83,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitControllerDef(DSLParser.ControllerDefContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#radioDefault}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRadioDefault(DSLParser.RadioDefaultContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#textField}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

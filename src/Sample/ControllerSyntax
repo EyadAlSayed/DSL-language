@@ -1,13 +1,13 @@
 Controller c1 controls p1
 {
-   if(username EQUAL "salem" AND password EQUAL "123")
+   if(text1 EQUAL "salem" AND text2 EQUAL "123")
      {
          text1 = "success";
           send("filename");
 
      }
      for(text1:5){
-     button1.send;
+     send("filename");
      }
     print "text1";
     print text1;

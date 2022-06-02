@@ -18,18 +18,20 @@ import java.nio.file.StandardOpenOption;
 public class ConditionVisitor extends DSLParserBaseVisitor {
 
 
-    Condition condition = new Condition();
+    Condition condition;
 
-    LogicalOperationVisitor logicalOperationVisitor = new LogicalOperationVisitor();
-    TextValueVisitor textValueVisitor = new TextValueVisitor();
+    LogicalOperationVisitor logicalOperationVisitor;
+    TextValueVisitor textValueVisitor;
 
 
     public Condition visitCondition(DSLParser.ConditionContext ctx) {
 
+        condition = new Condition();
+
         if (ctx.FILE_NAME_ID() != null)
         {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
+            if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
             condition.setFileNameId(ctx.FILE_NAME_ID().getText());
             else{
                 ProjectMain.ERROR=true;
@@ -41,15 +43,18 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
             }
         }
 
-        if (ctx.logicalOperation(0) != null)
+        if (ctx.logicalOperation(0) != null) {
+            logicalOperationVisitor = new LogicalOperationVisitor();
             condition.setLogicalOperation1(logicalOperationVisitor.visitLogicalOperation(ctx.logicalOperation(0)));
-
-        if (ctx.textValue() != null)
+        }
+        if (ctx.textValue() != null) {
+            textValueVisitor = new TextValueVisitor();
             condition.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
-
-      if (ctx.logicalOperation(1) != null)
+        }
+      if (ctx.logicalOperation(1) != null) {
+          logicalOperationVisitor = new LogicalOperationVisitor();
           condition.setLogicalOperation2(logicalOperationVisitor.visitLogicalOperation(ctx.logicalOperation(1)));
-
+      }
 
         return condition;
     }

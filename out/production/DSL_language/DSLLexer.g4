@@ -44,6 +44,7 @@ EQUAL_OP_ID : 'EQUAL';
 PRINT_ACTION:'print';
 RADIO_GROUP_ID : 'Radiogroup';
 CHECKBOX: 'Checkbox';
+CONTROLLED_BY: 'controlled' WHITE_SPACE+ 'by';
 BUTTON_ID : 'Button';
 FORM_ID : 'Form';
 DOT : '.';

@@ -16,12 +16,13 @@ import java.nio.file.StandardOpenOption;
 
 public class LoopVisitor extends DSLParserBaseVisitor {
 
-    Loop loop = new Loop();
+    Loop loop;
 
     ControllerTokensVisitor controllerTokensVisitor;
 
     @Override
     public Loop visitLoop(DSLParser.LoopContext ctx) {
+        loop = new Loop();
         controllerTokensVisitor = new ControllerTokensVisitor();
         if (ctx.FOR_ID() != null)
             loop.setForId(ctx.FOR_ID().getText());

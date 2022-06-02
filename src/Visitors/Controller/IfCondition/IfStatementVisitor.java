@@ -7,7 +7,7 @@ import gen.DSLParserBaseVisitor;
 
 public class IfStatementVisitor extends DSLParserBaseVisitor {
 
-    IFStatement ifStatement = new IFStatement();
+    IFStatement ifStatement;
 
     ConditionVisitor conditionVisitor;
 
@@ -15,6 +15,7 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
 
     @Override
     public IFStatement visitIfStatment(DSLParser.IfStatmentContext ctx) {
+        ifStatement = new IFStatement();
         conditionVisitor = new ConditionVisitor();
         controllerTokensVisitor = new ControllerTokensVisitor();
 
@@ -27,6 +28,7 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
 
         for (int i = 0; i < ctx.condition().size(); i++) {
             ifStatement.getConditions().add(conditionVisitor.visitCondition(ctx.condition(i)));
+            System.out.println(ifStatement.getConditions().get(i).getfileNameId());
         }
 
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)

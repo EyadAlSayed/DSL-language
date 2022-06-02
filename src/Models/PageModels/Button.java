@@ -10,6 +10,16 @@ public class Button extends Printer {
     String buttonID;
     String variableName;
     String sendValue;
+    String value;
+
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
 
     public String getSendValue() {
         return sendValue;
@@ -51,6 +61,8 @@ public class Button extends Printer {
             map.put("VariableName",variableName);
         if(sendValue != null)
             map.put("SendValue",sendValue);
+        if(value != null)
+            map.put("Value",value);
         return map;
 
     }
