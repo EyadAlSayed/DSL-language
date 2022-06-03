@@ -23,6 +23,7 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class ProjectMain {
     public static ArrayList<Object> symbolTablePage = new ArrayList<>();
+    public  static int VARIABLE_COUNTER = 1;
     public static File FILE;
     public static FileOutputStream FILEOUTPUTSTREAM;
     public static boolean ERROR = false;

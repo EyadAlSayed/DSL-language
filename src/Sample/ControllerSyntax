@@ -7,6 +7,7 @@ Controller c1 controls p1
 
      }
      for(text1:5){
+     text1 = "success";
      send("filename");
      }
     print "text1";

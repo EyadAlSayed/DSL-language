@@ -6,11 +6,13 @@ import Models.ControllerModels.If.LogicalOperation;
 
 public class IfStatementGenerator {
 
-    StringBuilder stringBuilder = new StringBuilder();
+    StringBuilder stringBuilder;
     ControllerGenerator controllerGenerator;
     TextValueGenerator textValueGenerator;
 
     public String ifStatementGenerate(IFStatement ifStatement) {
+
+        stringBuilder = new StringBuilder();
         stringBuilder.append("if(");
         if (ifStatement.getConditions().size() > 0)
             for (int i = 0; i < ifStatement.getConditions().size(); i++) {

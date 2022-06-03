@@ -232,6 +232,42 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLoopVariable(DSLParser.LoopVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopVariable(DSLParser.LoopVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIfStatment(DSLParser.IfStatmentContext ctx) { }
 	/**
 	 * {@inheritDoc}

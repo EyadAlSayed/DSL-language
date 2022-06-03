@@ -143,6 +143,27 @@ public class DSLParserBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
+	@Override public T visitLoopVariable(DSLParser.LoopVariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
+	@Override public T visitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { return visitChildren(ctx); }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation returns the result of calling
+	 * {@link #visitChildren} on {@code ctx}.</p>
+	 */
 	@Override public T visitIfStatment(DSLParser.IfStatmentContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
