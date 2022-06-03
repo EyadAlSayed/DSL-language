@@ -8,7 +8,7 @@ import gen.DSLParserBaseVisitor;
 public class ConditionVisitor extends DSLParserBaseVisitor {
 
 
-    Condition condition = new Condition();
+    Condition condition ;
 
     LogicalOperationVisitor logicalOperationVisitor = new LogicalOperationVisitor();
     TextValueVisitor textValueVisitor = new TextValueVisitor();
@@ -16,8 +16,12 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
 
     public Condition visitCondition(DSLParser.ConditionContext ctx) {
 
+
+        condition = new Condition();
+        
         if (ctx.FILE_NAME_ID() != null)
         {
+
            // Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
            // if(text instanceof Text || text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
             condition.setFileNameId(ctx.FILE_NAME_ID().getText());
