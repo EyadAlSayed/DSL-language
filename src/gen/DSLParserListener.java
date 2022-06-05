@@ -188,6 +188,36 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitLoop(DSLParser.LoopContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#loopVariable}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopVariable(DSLParser.LoopVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#loopVariable}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopVariable(DSLParser.LoopVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#loopFirstVariable}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#loopFirstVariable}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#loopSecondVariable}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#loopSecondVariable}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree
 	 */

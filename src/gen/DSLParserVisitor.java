@@ -119,6 +119,24 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLoop(DSLParser.LoopContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#loopVariable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoopVariable(DSLParser.LoopVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#loopFirstVariable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#loopSecondVariable}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

@@ -11,7 +11,6 @@ public class BaseGenerartor {
     public String generateController(DSLDocument dslDocument)
     {
         controllerGenerator = new ControllerGenerator();
-        builder.append("<?php\n");
         builder.append(controllerGenerator.generateController(dslDocument.getController()));
         return builder.toString();
     }
