@@ -3,7 +3,6 @@ package Visitors.Controller.IfCondition;
 import Models.ControllerModels.If.Condition;
 import Models.PageModels.Checkbox;
 import Models.PageModels.RadioGroup;
-import Models.PageModels.Text;
 import Models.PageModels.TextField;
 import Visitors.Controller.TextValueVisitor;
 import Visitors.CustomPair;
@@ -31,7 +30,7 @@ public class ConditionVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID() != null)
         {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
+            if(text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
             condition.setFileNameId(ctx.FILE_NAME_ID().getText());
             else{
                 ProjectMain.ERROR=true;

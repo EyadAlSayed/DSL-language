@@ -3,7 +3,6 @@ package Visitors.Controller;
 import Models.ControllerModels.Loop;
 import Models.PageModels.Checkbox;
 import Models.PageModels.RadioGroup;
-import Models.PageModels.Text;
 import Models.PageModels.TextField;
 import Visitors.CustomPair;
 import Visitors.ProjectMain;
@@ -32,7 +31,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
 
         if (ctx.loopFirstVariable().loopVariable().FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.loopFirstVariable().loopVariable().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
+            if( text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
             loop.setFileNameId1(ctx.loopFirstVariable().loopVariable().FILE_NAME_ID().getText());
             else{
                 ProjectMain.ERROR=true;
@@ -52,7 +51,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
 
         if (ctx.loopSecondVariable().loopVariable().FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.loopSecondVariable().loopVariable().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
+            if( text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox)
                 loop.setFileNameId2(ctx.loopSecondVariable().loopVariable().FILE_NAME_ID().getText());
             else{
                 ProjectMain.ERROR=true;
