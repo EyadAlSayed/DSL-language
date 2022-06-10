@@ -37,7 +37,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        FILE = new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
+        FILE = new File("C:\\Users\\Abdalrahim Khoulani\\Desktop\\Compiler\\DSL-language\\src\\Errors");
         try {
             Files.writeString(FILE.toPath(), "");
         } catch (IOException e) {
@@ -92,9 +92,9 @@ public class ProjectMain {
 //            }
             BaseGenerartor controllerGenerator = new BaseGenerartor();
             PageGenerator pageGenerator = new PageGenerator();
-            File controllerFile = new File("D:\\xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
+            File controllerFile = new File("C:\\xampp\\htdocs\\"+doc.getPageStructure().getPAGE_NAME()+".html");
             try {
-                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController));
+                Files.writeString(controllerFile.toPath(),pageGenerator.generatePage(doc.getPageStructure()));
             } catch (IOException e) {
                 e.printStackTrace();
             }

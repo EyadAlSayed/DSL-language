@@ -12,7 +12,7 @@ public class PageGenerator {
             stringBuilder.append("<html>\n");
             if (pageStructure.getBody() != null) {
                 bodyGenerator = new BodyGenerator();
-                stringBuilder.append(bodyGenerator.generateBody(pageStructure.getBody()));
+                stringBuilder.append(bodyGenerator.generateBody(pageStructure.getBody(),pageStructure.getCONTROLLER()));
             }
             stringBuilder.append("</html>\n");
 
