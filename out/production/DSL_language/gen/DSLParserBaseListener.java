@@ -1,5 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
-package gen;
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/out/production/DSL_language\DSLParser.g4 by ANTLR 4.10.1
 
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
@@ -160,18 +159,6 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterRadioDefault(DSLParser.RadioDefaultContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitRadioDefault(DSLParser.RadioDefaultContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterTextField(DSLParser.TextFieldContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -196,18 +183,6 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSend(DSLParser.SendContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSend(DSLParser.SendContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -227,42 +202,6 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitLoop(DSLParser.LoopContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLoopVariable(DSLParser.LoopVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLoopVariable(DSLParser.LoopVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

@@ -1,5 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
-package gen;
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/out/production/DSL_language\DSLParser.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -83,12 +82,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitControllerDef(DSLParser.ControllerDefContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#radioDefault}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitRadioDefault(DSLParser.RadioDefaultContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link DSLParser#textField}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -101,12 +94,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitControllerTokens(DSLParser.ControllerTokensContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#send}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitSend(DSLParser.SendContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link DSLParser#textFieldAttribute}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -118,24 +105,6 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitLoop(DSLParser.LoopContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#loopVariable}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLoopVariable(DSLParser.LoopVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#loopFirstVariable}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#loopSecondVariable}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree

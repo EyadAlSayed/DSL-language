@@ -1,5 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
-package gen;
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/out/production/DSL_language\DSLParser.g4 by ANTLR 4.10.1
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
 /**
@@ -128,16 +127,6 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitControllerDef(DSLParser.ControllerDefContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#radioDefault}.
-	 * @param ctx the parse tree
-	 */
-	void enterRadioDefault(DSLParser.RadioDefaultContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#radioDefault}.
-	 * @param ctx the parse tree
-	 */
-	void exitRadioDefault(DSLParser.RadioDefaultContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link DSLParser#textField}.
 	 * @param ctx the parse tree
 	 */
@@ -158,16 +147,6 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitControllerTokens(DSLParser.ControllerTokensContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#send}.
-	 * @param ctx the parse tree
-	 */
-	void enterSend(DSLParser.SendContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#send}.
-	 * @param ctx the parse tree
-	 */
-	void exitSend(DSLParser.SendContext ctx);
-	/**
 	 * Enter a parse tree produced by {@link DSLParser#textFieldAttribute}.
 	 * @param ctx the parse tree
 	 */
@@ -187,36 +166,6 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitLoop(DSLParser.LoopContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#loopVariable}.
-	 * @param ctx the parse tree
-	 */
-	void enterLoopVariable(DSLParser.LoopVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#loopVariable}.
-	 * @param ctx the parse tree
-	 */
-	void exitLoopVariable(DSLParser.LoopVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#loopFirstVariable}.
-	 * @param ctx the parse tree
-	 */
-	void enterLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#loopFirstVariable}.
-	 * @param ctx the parse tree
-	 */
-	void exitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#loopSecondVariable}.
-	 * @param ctx the parse tree
-	 */
-	void enterLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#loopSecondVariable}.
-	 * @param ctx the parse tree
-	 */
-	void exitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree
