@@ -7,11 +7,11 @@ public class BodyGenerator {
     BodyAttributeGenerator bodyAttributeGenerator;
     StringBuilder stringBuilder = new StringBuilder();
 
-    public StringBuilder generateBody(Body body){
+    public StringBuilder generateBody(Body body, String controller){
         stringBuilder.append("<body>\n");
         if(body.getBodyAttributes() != null){
             bodyAttributeGenerator = new BodyAttributeGenerator();
-            stringBuilder.append(bodyAttributeGenerator.generateBodyAttributes(body.getBodyAttributes()));
+            stringBuilder.append(bodyAttributeGenerator.generateBodyAttributes(body.getBodyAttributes(),controller));
         }
         stringBuilder.append("</body>\n");
 

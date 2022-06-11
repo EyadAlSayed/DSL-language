@@ -13,10 +13,10 @@ public class IFStatement extends Printer {
 
     String ifId;
     String openParBracktId;
-    final List<Condition> conditions = new ArrayList<>();
+     List<Condition> conditions = new ArrayList<>();
     String closeParBracktId;
     String openCurlyBracktId;
-    final List<ControllerTokens> controllerTokens = new ArrayList<>();
+     List<ControllerTokens> controllerTokens = new ArrayList<>();
     String closeCurlyBracktId;
 
 

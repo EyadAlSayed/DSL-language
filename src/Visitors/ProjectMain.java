@@ -1,7 +1,6 @@
 package Visitors;
 
 import Generators.BaseGenerartor;
-import Generators.PageGenerators.PageGenerator;
 import Models.DSLDocument;
 import gen.DSLLexer;
 import gen.DSLParser;
@@ -37,7 +36,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        FILE = new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors");
+        FILE = new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors.txt");
         try {
             Files.writeString(FILE.toPath(), "");
         } catch (IOException e) {
@@ -86,18 +85,25 @@ public class ProjectMain {
 //                // TODO Auto-generated catch block
 //                e.printStackTrace();
 //            }
-//            if (ERROR) {
-//                System.out.println("An error has acquired check error file");
-//                return;
-//            }
+            if (ERROR) {
+                System.out.println("An error has acquired check error file");
+                return;
+            }
             BaseGenerartor controllerGenerator = new BaseGenerartor();
-            PageGenerator pageGenerator = new PageGenerator();
+            BaseGenerartor pageGenerator = new BaseGenerartor();
             File controllerFile = new File("D:\\xampp\\htdocs\\"+docController.getController().getFileNameId1()+".php");
             try {
                 Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(docController));
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            File pageFile = new File("D:\\xampp\\htdocs\\"+doc.getPageStructure().getPAGE_NAME()+".php");
+            try {
+                Files.writeString(pageFile.toPath(),pageGenerator.generatePage(doc));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
 
         } catch (IOException e) {
             e.printStackTrace();

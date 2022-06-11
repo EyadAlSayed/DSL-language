@@ -75,9 +75,6 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                     e.printStackTrace();
                 }
             }
-        }else
-        {
-            ProjectMain.ERROR=true;
         }
 
         if (ctx.radioGroup() != null) {
@@ -93,8 +90,6 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                     e.printStackTrace();
                 }
             }
-        }else{
-            ProjectMain.ERROR=true;
         }
         if(ctx.buttonSend() != null)
         {
@@ -111,10 +106,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 }
             }
 
-        }else {
-            ProjectMain.ERROR=true;
         }
-
         if(ctx.checkbox() != null){
             if(CustomPair.containVariable(ctx.checkbox().FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage)== null){
                 checkboxVisitor = new CheckboxVisitor();

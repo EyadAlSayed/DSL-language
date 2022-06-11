@@ -30,7 +30,6 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
             ifStatement.getConditions().add(conditionVisitor.visitCondition(ctx.condition(i)));
             System.out.println(ifStatement.getConditions().get(i).getfileNameId());
         }
-
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
             ifStatement.setCloseParBracktId(ctx.CLOSE_PAR_BRACKT_ID().getText());
 
