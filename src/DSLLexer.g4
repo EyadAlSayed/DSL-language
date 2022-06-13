@@ -20,7 +20,7 @@ END_STATMENT_ID:';';
 // KEY TOKENS
 
 
-
+IMAGE: 'Image';
 
 TEXT_DEF_ID : 'Text';
 

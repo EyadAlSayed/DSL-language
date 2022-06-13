@@ -1,7 +1,6 @@
 package Generators.PageGenerators;
 
 import Models.PageModels.BodyAttribute;
-import Visitors.ProjectMain;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ public class BodyAttributeGenerator {
     HeaderGenerator headerGenerator;
     RadioGroupGenerator radioGroupGenerator;
     ButtonGenerator buttonGenerator;
+    ImageGenerator imageGenerator;
 
     StringBuilder stringBuilder = new StringBuilder();
 
@@ -45,6 +45,9 @@ public class BodyAttributeGenerator {
             } else if (attribute.getButton() != null) {
                 buttonGenerator = new ButtonGenerator();
                 stringBuilder.append(buttonGenerator.generateButton(attribute.getButton()));
+            } else if (attribute.getImage() != null){
+                imageGenerator = new ImageGenerator();
+                stringBuilder.append(imageGenerator.generateImage(attribute.getImage()));
             }
         }
         stringBuilder.append("\n</form>\n");

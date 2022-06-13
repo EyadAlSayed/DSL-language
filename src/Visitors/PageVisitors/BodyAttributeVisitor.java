@@ -22,6 +22,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
     RadioGroupVisitor radioGroupVisitor;
     FormVisitor formVisitor;
     CheckboxVisitor checkboxVisitor;
+    ImageVisitor imageVisitor;
 
     @Override
     public BodyAttribute visitBodyAttributes(DSLParser.BodyAttributesContext ctx) {
@@ -120,6 +121,11 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                     e.printStackTrace();
                 }
             }
+        }
+
+        if(ctx.image() != null){
+            imageVisitor = new ImageVisitor();
+            bodyAttribute.setImage(imageVisitor.visitImage(ctx.image()));
         }
 
         if (ctx.form() != null) {
