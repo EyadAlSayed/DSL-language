@@ -78,13 +78,7 @@ public class ProjectMain {
             ParseTree treeController = parserController.dslDocument();
             docController = (DSLDocument) new BaseVisitor().visit(treeController);
             System.out.println(docController);
-//            Runtime rt = Runtime.getRuntime();
-//            try {
-//                Process process = Runtime.getRuntime().exec("start ClickMe.html");
-//            } catch (IOException e) {
-//                // TODO Auto-generated catch block
-//                e.printStackTrace();
-//            }
+
             if (ERROR) {
                 System.out.println("An error has acquired check error file");
                 return;

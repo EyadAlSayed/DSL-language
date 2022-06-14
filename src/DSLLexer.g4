@@ -79,7 +79,7 @@ VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 
 FILE_NAME_ID: [a-z]+ [1-9]* | [a-z]+  [1-9]+ ;
 
-TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [1-9]+)+ | WHITE_SPACE)* DOUBLE_QUOTE;
+TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [1-9]+ | '/' | '\\' | DOT | '_' | '-' )+ | WHITE_SPACE)* DOUBLE_QUOTE;
 TEXTNUM: [1-9]+;
 //TEXTCHAR: ([a-zA-Z] | [1-9])+;
 
