@@ -4,7 +4,7 @@ import Models.ControllerModels.Action.Assign;
 
 public class AssignGenerator {
 
-  StringBuilder stringBuilder;
+  StringBuilder stringBuilder = new StringBuilder();
   TextValueGenerator textValueGenerator;
 
   public String generateAssign(Assign assign)

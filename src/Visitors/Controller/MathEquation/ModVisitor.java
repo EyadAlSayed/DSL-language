@@ -1,9 +1,7 @@
 package Visitors.Controller.MathEquation;
 
 import Models.ControllerModels.Action.Mod;
-
 import Models.PageModels.RadioGroup;
-import Models.PageModels.Text;
 import Models.PageModels.TextField;
 import Visitors.Controller.TextValueVisitor;
 import Visitors.CustomPair;
@@ -28,7 +26,7 @@ public class ModVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(0) != null)
         {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup)
+            if( text instanceof TextField || text instanceof RadioGroup)
                 mod.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
             else{
                 ProjectMain.ERROR=true;
@@ -48,7 +46,7 @@ public class ModVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(1) != null)
         {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID(1).getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup)
+            if( text instanceof TextField || text instanceof RadioGroup)
                 mod.setFileNameId1(ctx.FILE_NAME_ID(1).getText());
             else{
                 ProjectMain.ERROR=true;
@@ -68,7 +66,7 @@ public class ModVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(2) != null)
         {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID(2).getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text || text instanceof TextField || text instanceof RadioGroup)
+            if( text instanceof TextField || text instanceof RadioGroup)
                 mod.setFileNameId1(ctx.FILE_NAME_ID(2).getText());
             else{
                 ProjectMain.ERROR=true;

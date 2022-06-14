@@ -1,4 +1,4 @@
-// Generated from C:/Users/Abdalrahim Khoulani/Desktop/Compiler/DSL-language/out/production/DSL_language\DSLLexer.g4 by ANTLR 4.9.1
+// Generated from D:/Documents/GitHub/DSL-language2/out/production/DSL_language\DSLLexer.g4 by ANTLR 4.9.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;
