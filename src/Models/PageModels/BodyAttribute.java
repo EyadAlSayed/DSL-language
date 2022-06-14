@@ -14,6 +14,7 @@ public class BodyAttribute extends Printer {
     Button button;
     Form form;
     Checkbox checkbox;
+    DropDown dropDown;
 
     public Checkbox getCheckbox() {
         return checkbox;
@@ -71,6 +72,14 @@ public class BodyAttribute extends Printer {
         this.form = form;
     }
 
+    public DropDown getDropDown() {
+        return dropDown;
+    }
+
+    public void setDropDown(DropDown dropDown) {
+        this.dropDown = dropDown;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = getPrettyString("BodyAttribute", toMap());
@@ -95,6 +104,8 @@ public class BodyAttribute extends Printer {
             map.put("Form",form.toMap());
         if(checkbox != null)
             map.put("CheckBox",checkbox.toMap());
+        if(dropDown != null)
+            map.put("DropDown",dropDown.toMap());
 
         return map;
     }

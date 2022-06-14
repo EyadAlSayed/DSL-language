@@ -13,6 +13,7 @@ public class BodyAttributeGenerator {
     HeaderGenerator headerGenerator;
     RadioGroupGenerator radioGroupGenerator;
     ButtonGenerator buttonGenerator;
+    DropDownGenerator dropDownGenerator;
 
     StringBuilder stringBuilder = new StringBuilder();
 
@@ -45,6 +46,10 @@ public class BodyAttributeGenerator {
             } else if (attribute.getButton() != null) {
                 buttonGenerator = new ButtonGenerator();
                 stringBuilder.append(buttonGenerator.generateButton(attribute.getButton()));
+            }
+            else if(attribute.getDropDown()!=null){
+                dropDownGenerator = new DropDownGenerator();
+                stringBuilder.append(dropDownGenerator.generateDropDown(attribute.getDropDown()));
             }
         }
         stringBuilder.append("\n</form>\n");
