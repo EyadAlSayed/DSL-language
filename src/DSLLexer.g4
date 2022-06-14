@@ -43,6 +43,7 @@ OR_OP_ID : 'OR';
 EQUAL_OP_ID : 'EQUAL';
 PRINT_ACTION:'print';
 RADIO_GROUP_ID : 'Radiogroup';
+DROPDOWN:'DropDown';
 CHECKBOX: 'Checkbox';
 CONTROLLED_BY: 'controlled' WHITE_SPACE+ 'by';
 BUTTON_ID : 'Button';
