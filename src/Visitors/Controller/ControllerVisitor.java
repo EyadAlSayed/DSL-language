@@ -1,8 +1,11 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Controller;
+import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
+
+import java.util.Objects;
 
 public class ControllerVisitor extends DSLParserBaseVisitor {
     Controller controller;
@@ -22,9 +25,12 @@ public class ControllerVisitor extends DSLParserBaseVisitor {
         if (ctx.CONTROLLER_METHOD() != null)
             controller.setControllerMethod(ctx.CONTROLLER_METHOD().getText());
 
-        if (ctx.FILE_NAME_ID(1) != null)
+        if (ctx.FILE_NAME_ID(1) != null) {
+            if (!Objects.equals(ProjectMain.PAGE_NAME, ctx.FILE_NAME_ID(1).getText())){
+                ProjectMain.generateSymbolTable(ctx.FILE_NAME_ID(1).getText());
+            }
             controller.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
-
+        }
         if (ctx.OPEN_CURLY_BRACKT_ID() != null)
             controller.setOpenCurlyBrackt(ctx.OPEN_CURLY_BRACKT_ID().getText());
         if (ctx.controllerTokens().size() > 0) {

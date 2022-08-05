@@ -41,7 +41,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             } else{
                 ProjectMain.ERROR = true;
                 try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.text().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.text().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
@@ -56,7 +56,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             } else{
                 ProjectMain.ERROR = true;
                 try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.textField().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.textField().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
@@ -71,7 +71,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             }else {
                 ProjectMain.ERROR = true;
                 try {
-                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.button().FILE_NAME_ID().getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.button().FILE_NAME_ID().getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -86,7 +86,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             }else {
                 ProjectMain.ERROR = true;
                 try {
-                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.radioGroup().FILE_NAME_ID(0).getText()+" ALREADY EXIST!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.radioGroup().FILE_NAME_ID(0).getText()+" ALREADY EXIST!\n", StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -101,7 +101,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             else {
                 ProjectMain.ERROR = true;
                 try {
-                    Files.writeString(ProjectMain.FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.buttonSend().FILE_NAME_ID().getText()+" IS EITHER NULL OR IS NOT BUTTON\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.buttonSend().FILE_NAME_ID().getText()+" IS EITHER NULL OR IS NOT BUTTON\n", StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -116,7 +116,7 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             } else{
                 ProjectMain.ERROR = true;
                 try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE "+ctx.checkbox().FILE_NAME_ID(0).getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE "+ctx.checkbox().FILE_NAME_ID(0).getText()+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }

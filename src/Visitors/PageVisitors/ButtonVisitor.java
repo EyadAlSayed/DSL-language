@@ -20,7 +20,7 @@ public class ButtonVisitor extends DSLParserBaseVisitor {
         {
             String s = "SYNTAX ERROR: EXPECTED Button BUT RESERVED "+ctx.BUTTON_ID().getText();
             try {
-                Files.writeString(ProjectMain.FILE.toPath(),ctx.exception.toString());
+                Files.writeString(ProjectMain.ERROR_FILE.toPath(),ctx.exception.toString());
             } catch (IOException e) {
                 e.printStackTrace();
             }

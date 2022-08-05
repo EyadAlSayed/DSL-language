@@ -14,5 +14,6 @@ Page p1 controlled by c1
     DropDown(cars,[bmw,volvo,ford])
     Checkbox(checkbox1,[checkbutton1,checkbutton2])
     Button(buttot1,"salem")
+    Image("C:\Users\assia\Pictures\3567970.webp")
 
 }
