@@ -59,6 +59,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitCheckbox(DSLParser.CheckboxContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#dropDown}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDropDown(DSLParser.DropDownContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -76,6 +82,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitButtonSend(DSLParser.ButtonSendContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#image}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitImage(DSLParser.ImageContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree

@@ -6,7 +6,7 @@ Controller c1 controls p1
           print userfield;
           print "password";
           print password;
-        send("p1");
+          send("p1");
      }
   print "validation failed";
 

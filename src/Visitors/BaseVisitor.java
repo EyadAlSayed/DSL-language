@@ -21,8 +21,7 @@ public class BaseVisitor extends DSLParserBaseVisitor {
     public DSLDocument visitDslDocument(DSLParser.DslDocumentContext ctx) {
 
 
-        StringBuilder builder = new StringBuilder();
-        builder.append("");
+
 
         if (ctx.pageStructure() != null) {
             pageVisitor = new PageVisitor();

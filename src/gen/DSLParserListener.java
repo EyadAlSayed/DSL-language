@@ -88,6 +88,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitCheckbox(DSLParser.CheckboxContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#dropDown}.
+	 * @param ctx the parse tree
+	 */
+	void enterDropDown(DSLParser.DropDownContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#dropDown}.
+	 * @param ctx the parse tree
+	 */
+	void exitDropDown(DSLParser.DropDownContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree
 	 */
@@ -117,6 +127,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitButtonSend(DSLParser.ButtonSendContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#image}.
+	 * @param ctx the parse tree
+	 */
+	void enterImage(DSLParser.ImageContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#image}.
+	 * @param ctx the parse tree
+	 */
+	void exitImage(DSLParser.ImageContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
