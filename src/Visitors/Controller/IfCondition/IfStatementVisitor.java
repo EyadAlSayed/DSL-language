@@ -1,6 +1,7 @@
 package Visitors.Controller.IfCondition;
 
 import Models.ControllerModels.If.IFStatement;
+import Models.ControllerModels.If.MainCondition;
 import Visitors.Controller.ControllerTokensVisitor;
 import Visitors.Node;
 import gen.DSLParser;
@@ -13,6 +14,7 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
     ConditionVisitor conditionVisitor;
 
     ControllerTokensVisitor controllerTokensVisitor;
+    MainConditionVisitor mainConditionVisitor;
 
 
     public IFStatement visitIfStatment(DSLParser.IfStatmentContext ctx,Node father) {
@@ -21,15 +23,17 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
         controllerTokensVisitor = new ControllerTokensVisitor();
         Node node = new Node(father,ifStatement);
         father.getSons().add(node);
+        mainConditionVisitor = new MainConditionVisitor();
+
+
         if (ctx.IF_ID() != null)
             ifStatement.setIfId(ctx.IF_ID().getText());
 
         if (ctx.OPEN_PAR_BRACKT_ID() != null)
             ifStatement.setOpenParBracktId(ctx.OPEN_PAR_BRACKT_ID().getText());
 
-        for (int i = 0; i < ctx.condition().size(); i++) {
-            ifStatement.getConditions().add(conditionVisitor.visitCondition(ctx.condition(i),node));
-            System.out.println(ifStatement.getConditions().get(i).getfileNameId());
+        if(ctx.main_condition() != null){
+            ifStatement.setMainCondition(mainConditionVisitor.visitMain_condition(ctx.main_condition()));
         }
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
             ifStatement.setCloseParBracktId(ctx.CLOSE_PAR_BRACKT_ID().getText());

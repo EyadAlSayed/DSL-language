@@ -59,12 +59,15 @@ loopVariable : (TEXTNUM | FILE_NAME_ID);
 loopFirstVariable : loopVariable;
 loopSecondVariable : loopVariable;
 
-ifStatment:IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* condition+ WHITE_SPACE* CLOSE_PAR_BRACKT_ID space
+ifStatment:IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* (condition|(condition WHITE_SPACE* binary_condition+)) WHITE_SPACE* CLOSE_PAR_BRACKT_ID space
             OPEN_CURLY_BRACKT_ID space controllerTokens+ space CLOSE_CURLY_BRACKT_ID space;
 
 
-logicalOperation:AND_OP_ID |OR_OP_ID|EQUAL_OP_ID;
-condition:FILE_NAME_ID WHITE_SPACE* logicalOperation WHITE_SPACE*  textValue  WHITE_SPACE* logicalOperation? WHITE_SPACE*;
+logicalOperation:AND_OP_ID |OR_OP_ID;
+condition:FILE_NAME_ID WHITE_SPACE* logicalOperation WHITE_SPACE*  textValue  WHITE_SPACE*;
+equal_condition:FILE_NAME_ID WHITE_SPACE* EQUAL_OP_ID WHITE_SPACE*  textValue  WHITE_SPACE*;
+binary_condition:logicalOperation WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* logicalOperation WHITE_SPACE*  textValue WHITE_SPACE*;
+binary_equal_condition:logicalOperation WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* EQUAL_OP_ID WHITE_SPACE*  textValue WHITE_SPACE*;
 textValue :  (TEXT |TEXTNUM) ;
 space: (NEWLINE+ | WHITE_SPACE)*;
 print:PRINT_ACTION WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;

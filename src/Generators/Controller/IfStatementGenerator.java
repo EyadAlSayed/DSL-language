@@ -9,17 +9,19 @@ public class IfStatementGenerator {
     StringBuilder stringBuilder;
     ControllerGenerator controllerGenerator;
     TextValueGenerator textValueGenerator;
+    MainConditionGenerator mainConditionGenerator;
 
     public String ifStatementGenerate(IFStatement ifStatement) {
 
         stringBuilder = new StringBuilder();
         stringBuilder.append("if(");
-        if (ifStatement.getConditions().size() > 0)
-            for (int i = 0; i < ifStatement.getConditions().size(); i++) {
 
-                conditionGenerate(ifStatement.getConditions().get(i));
 
-            }
+        if(ifStatement.getMainCondition() != null){
+            mainConditionGenerator = new MainConditionGenerator();
+            stringBuilder.append(mainConditionGenerator.generateMainCondition(ifStatement.getMainCondition()));
+        }
+
         stringBuilder.append(" )\n");
         stringBuilder.append("{\n");
 
