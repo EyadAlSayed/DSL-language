@@ -1,6 +1,7 @@
 package Visitors.Controller.MathEquation;
 
 import Models.ControllerModels.Action.MathEquation;
+import Visitors.Node;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
@@ -14,11 +15,11 @@ public class MathEquationVisitor extends DSLParserBaseVisitor {
     ModVisitor modVisitor = new ModVisitor();
     MultVisitor multVisitor = new MultVisitor();
 
-    @Override
-    public MathEquation visitMathEquation(DSLParser.MathEquationContext ctx) {
+
+    public MathEquation visitMathEquation(DSLParser.MathEquationContext ctx, Node father) {
 
         if (ctx.sum() !=null)
-            mathEquation.setSum(sumVisitor.visitSum(ctx.sum()));
+            mathEquation.setSum(sumVisitor.visitSum(ctx.sum(),father));
 
         if (ctx.minus() != null)
             mathEquation.setMinus(minusVisitor.visitMinus(ctx.minus()));

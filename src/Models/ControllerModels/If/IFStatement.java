@@ -2,7 +2,6 @@ package Models.ControllerModels.If;
 
 import Models.ControllerModels.ControllerTokens;
 import Models.Printer;
-import org.stringtemplate.v4.ST;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -18,7 +17,15 @@ public class IFStatement extends Printer {
     String openCurlyBracktId;
      List<ControllerTokens> controllerTokens = new ArrayList<>();
     String closeCurlyBracktId;
+    Object father;
 
+    public Object getFather() {
+        return father;
+    }
+
+    public void setFather(Object father) {
+        this.father = father;
+    }
 
     public String getIfId() {
         return ifId;

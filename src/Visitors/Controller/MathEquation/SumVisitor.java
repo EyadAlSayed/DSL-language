@@ -5,9 +5,11 @@ import Models.PageModels.RadioGroup;
 import Models.PageModels.TextField;
 import Visitors.Controller.TextValueVisitor;
 import Visitors.CustomPair;
+import Visitors.Node;
 import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
+import org.antlr.v4.runtime.misc.Pair;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -18,21 +20,29 @@ public class SumVisitor extends DSLParserBaseVisitor {
     Sum sum = new Sum();
 
     TextValueVisitor textValueVisitor = new TextValueVisitor();
-    @Override
-    public Sum visitSum(DSLParser.SumContext ctx) {
+    public Sum visitSum(DSLParser.SumContext ctx, Node father) {
 
 
         if (ctx.FILE_NAME_ID(0) != null) {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
-            if( text instanceof TextField || text instanceof RadioGroup)
-            sum.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
-            else{
-                ProjectMain.ERROR=true;
-                try{
-                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID(0).getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON} DOES NOT EXIST!\n", StandardOpenOption.APPEND);
-                } catch (IOException e){
-                    e.printStackTrace();
+            if(text != null) {
+                if (text instanceof TextField || text instanceof RadioGroup)
+                    sum.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
+                else {
+                    ProjectMain.ERROR = true;
+                    try {
+                        Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID(0).getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON} DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
+            }else{
+                String variableTypeNode = CustomPair.inScope(father,ctx.FILE_NAME_ID(0).getText(),"NUMBER");
+                if (variableTypeNode == null){
+                    father.getVariables().add(new Pair<>(ctx.FILE_NAME_ID(0).getText(),"NUMBER"));
+                }
+                    sum.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
+
             }
         }
         if (ctx.ASSIGN_OP_ID() != null)

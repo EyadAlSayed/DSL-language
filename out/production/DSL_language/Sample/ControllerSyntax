@@ -1,13 +1,11 @@
 Controller c1 controls p1
 {
+        salem = "salem";
    if(userfield EQUAL "salem" AND password EQUAL "123")
      {
-          print "username";
-          print userfield;
-          print "password";
-          print password;
-        send("p1");
+        print salem;
+        ahmed = 1;
      }
-  print "validation failed";
+
 
 }

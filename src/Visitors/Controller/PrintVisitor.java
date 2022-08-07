@@ -5,6 +5,7 @@ import Models.PageModels.Checkbox;
 import Models.PageModels.RadioGroup;
 import Models.PageModels.TextField;
 import Visitors.CustomPair;
+import Visitors.Node;
 import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
@@ -18,8 +19,7 @@ public class PrintVisitor extends DSLParserBaseVisitor {
     Print print;
 
     TextValueVisitor textValueVisitor;
-    @Override
-    public Print visitPrint(DSLParser.PrintContext ctx) {
+    public Print visitPrint(DSLParser.PrintContext ctx, Node father) {
 
         print = new Print();
 
@@ -32,16 +32,30 @@ public class PrintVisitor extends DSLParserBaseVisitor {
         }
         if (ctx.FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
+            if(text != null){
             if( text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
             print.setFileNameId(ctx.FILE_NAME_ID().getText());
             else {
                 ProjectMain.ERROR=true;
                 try{
-                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON} OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON}\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
             }
+            }else{
+                String variableTypeNode = CustomPair.inScope(father,ctx.FILE_NAME_ID().getText(),null);
+                if (variableTypeNode == null){
+                    ProjectMain.ERROR = true;
+                    try {
+                        Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }else
+                    print.setFileNameId(ctx.FILE_NAME_ID().getText());
+            }
+
         }
         if (ctx.END_STATMENT_ID() != null)
             print.setEndStatementId(ctx.END_STATMENT_ID().getText());
