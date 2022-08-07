@@ -27,14 +27,14 @@ public class RadioGroupVisitor extends DSLParserBaseVisitor {
             radioGroup.setDefaultValue(ctx.radioDefault().FILE_NAME_ID().getText());
         }else if(ctx.radioDefault().TEXTNUM() != null)
             radioGroup.setDefaultValue(ctx.radioDefault().TEXTNUM().getText());
-        if(ctx.marginList() != null){
+        if (ctx.marginList().TEXTNUM(0) != null) {
             int[] MARGINS = new int[4];
-            if(ctx.marginList().TEXTNUM(0)!=null) {
-                MARGINS[0] = Integer.parseInt(ctx.marginList().TEXTNUM(0).getText());
-                MARGINS[1] = Integer.parseInt(ctx.marginList().TEXTNUM(1).getText());
-                MARGINS[2] = Integer.parseInt(ctx.marginList().TEXTNUM(2).getText());
-                MARGINS[3] = Integer.parseInt(ctx.marginList().TEXTNUM(3).getText());
-            }
+
+            MARGINS[0] = Integer.parseInt(ctx.marginList().TEXTNUM(0).getText());
+            MARGINS[1] = Integer.parseInt(ctx.marginList().TEXTNUM(1).getText());
+            MARGINS[2] = Integer.parseInt(ctx.marginList().TEXTNUM(2).getText());
+            MARGINS[3] = Integer.parseInt(ctx.marginList().TEXTNUM(3).getText());
+
             radioGroup.setMARGINS(MARGINS);
         }
         return radioGroup;
