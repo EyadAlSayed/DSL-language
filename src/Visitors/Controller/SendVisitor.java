@@ -1,17 +1,17 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Send;
-import Visitors.CustomPair;
-import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
 
 public class SendVisitor extends DSLParserBaseVisitor {
 
-    Send send = new Send();
+    Send send;
 
     @Override
     public Send visitSend(DSLParser.SendContext ctx) {
+
+        send = new Send();
 
         if (ctx.SEND() != null)
             send.setSend(ctx.SEND().getText());
@@ -20,14 +20,8 @@ public class SendVisitor extends DSLParserBaseVisitor {
             send.setOpenParBracktId(ctx.OPEN_PAR_BRACKT_ID().getText());
 
         if (ctx.TEXT() != null){
-            Object fileName = CustomPair.containVariable(ctx.TEXT().getText(), ProjectMain.symbolTablePage);
-            if (fileName != null){
                 send.setText(ctx.TEXT().getText());
-            }
-            else {
-                ProjectMain.ERROR=true;
 
-            }
 
         }
 

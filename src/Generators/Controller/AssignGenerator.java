@@ -9,6 +9,7 @@ public class AssignGenerator {
 
   public String generateAssign(Assign assign)
   {
+      stringBuilder = new StringBuilder();
       if(assign.getFileNameId1() != null)
           stringBuilder.append(" $").append(assign.getFileNameId1());
       if (assign.getAssignOpId() != null)
@@ -18,7 +19,7 @@ public class AssignGenerator {
       if (assign.getTextValue() != null)
       {
           textValueGenerator = new TextValueGenerator();
-          stringBuilder.append(textValueGenerator.generateTextValue(assign.getTextValue()));
+          stringBuilder.append(textValueGenerator.generateTextValue(assign.getTextValue())).append(";");
       }
      return stringBuilder.toString();
   }

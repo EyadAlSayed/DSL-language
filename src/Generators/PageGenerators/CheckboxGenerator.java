@@ -13,7 +13,7 @@ public class CheckboxGenerator {
             if (checkbox.getNAME() != null) {
                 stringBuilder.append("name=\"").append(checkbox.getNAME()).append("\">");
             }
-            stringBuilder.append(checkbox.getCheckboxAttributes().get(i)).append("</label>\n");
+            stringBuilder.append(checkbox.getCheckboxAttributes().get(i)).append("</label>\n").append("<br>\n");
         }
         return stringBuilder;
     }

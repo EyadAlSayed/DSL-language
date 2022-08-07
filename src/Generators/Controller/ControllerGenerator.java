@@ -2,17 +2,24 @@ package Generators.Controller;
 
 import Models.ControllerModels.Controller;
 import Models.ControllerModels.ControllerTokens;
+import Models.PageModels.*;
+import Visitors.ProjectMain;
 
 public class ControllerGenerator {
 
-    StringBuilder stringBuilder = new StringBuilder();
+    StringBuilder stringBuilder;
     IfStatementGenerator ifStatementGenerator;
     AssignGenerator assignGenerator;
+    LoopGenerator loopGenerator;
     PrintGenerator printGenerator;
     SendGenerator sendGenerator;
 
 
     public String generateController(Controller controller) {
+
+        stringBuilder = new StringBuilder();
+
+        generateVariables();
 
         if (controller.getControllerTokens().size() > 0) {
             for (int i = 0; i < controller.getControllerTokens().size(); i++) {
@@ -35,15 +42,43 @@ public class ControllerGenerator {
             return assignGenerator.generateAssign(controllerTokens.getAssign());
         }
 
+        if (controllerTokens.getLoop() != null) {
+            loopGenerator = new LoopGenerator();
+            return loopGenerator.generateLoop(controllerTokens.getLoop());
+
+        }
         if (controllerTokens.getPrint() != null) {
             printGenerator = new PrintGenerator();
             return printGenerator.generatePrint(controllerTokens.getPrint());
         }
-        if (controllerTokens.getSend() != null){
+        if (controllerTokens.getSend() != null) {
             sendGenerator = new SendGenerator();
             return sendGenerator.sendGenerator(controllerTokens.getSend());
         }
         return "\n";
+
+    }
+
+    public void generateVariables(){
+        for (Object object:
+                ProjectMain.symbolTablePage) {
+            if(object instanceof Button){
+                stringBuilder.append("$").append(((Button) object).getVariableName())
+                        .append("= $_POST[\"").append(((Button) object).getVariableName()).append("\"];\n");
+            }
+            if(object instanceof Checkbox){
+                stringBuilder.append("$").append(((Checkbox) object).getNAME())
+                        .append("= $_POST[\"").append(((Checkbox) object).getNAME()).append("\"];\n");
+            }
+            if(object instanceof RadioGroup){
+                stringBuilder.append("$").append(((RadioGroup) object).getVariableName())
+                        .append("= $_POST[\"").append(((RadioGroup) object).getVariableName()).append("\"];\n");
+            }
+            if(object instanceof TextField){
+                stringBuilder.append("$").append(((TextField) object).getNAME())
+                        .append("= $_POST[\"").append(((TextField) object).getNAME()).append("\"];\n");
+            }
+        }
     }
 
 }

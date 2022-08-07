@@ -1,4 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
+// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -88,6 +88,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitCheckbox(DSLParser.CheckboxContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#dropDown}.
+	 * @param ctx the parse tree
+	 */
+	void enterDropDown(DSLParser.DropDownContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#dropDown}.
+	 * @param ctx the parse tree
+	 */
+	void exitDropDown(DSLParser.DropDownContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#button}.
 	 * @param ctx the parse tree
 	 */
@@ -118,6 +128,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitButtonSend(DSLParser.ButtonSendContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#image}.
+	 * @param ctx the parse tree
+	 */
+	void enterImage(DSLParser.ImageContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#image}.
+	 * @param ctx the parse tree
+	 */
+	void exitImage(DSLParser.ImageContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
 	 */
@@ -127,6 +147,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitControllerDef(DSLParser.ControllerDefContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#radioDefault}.
+	 * @param ctx the parse tree
+	 */
+	void enterRadioDefault(DSLParser.RadioDefaultContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#radioDefault}.
+	 * @param ctx the parse tree
+	 */
+	void exitRadioDefault(DSLParser.RadioDefaultContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#textField}.
 	 * @param ctx the parse tree
@@ -178,6 +208,36 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitLoop(DSLParser.LoopContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#loopVariable}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopVariable(DSLParser.LoopVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#loopVariable}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopVariable(DSLParser.LoopVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#loopFirstVariable}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#loopFirstVariable}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#loopSecondVariable}.
+	 * @param ctx the parse tree
+	 */
+	void enterLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#loopSecondVariable}.
+	 * @param ctx the parse tree
+	 */
+	void exitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#ifStatment}.
 	 * @param ctx the parse tree
 	 */
@@ -198,15 +258,35 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitLogicalOperation(DSLParser.LogicalOperationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#condition}.
+	 * Enter a parse tree produced by {@link DSLParser#main_condition}.
 	 * @param ctx the parse tree
 	 */
-	void enterCondition(DSLParser.ConditionContext ctx);
+	void enterMain_condition(DSLParser.Main_conditionContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#condition}.
+	 * Exit a parse tree produced by {@link DSLParser#main_condition}.
 	 * @param ctx the parse tree
 	 */
-	void exitCondition(DSLParser.ConditionContext ctx);
+	void exitMain_condition(DSLParser.Main_conditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#equal_condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterEqual_condition(DSLParser.Equal_conditionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#equal_condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitEqual_condition(DSLParser.Equal_conditionContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#binary_equal_condition}.
+	 * @param ctx the parse tree
+	 */
+	void enterBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#binary_equal_condition}.
+	 * @param ctx the parse tree
+	 */
+	void exitBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#textValue}.
 	 * @param ctx the parse tree
@@ -258,53 +338,33 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitMathEquation(DSLParser.MathEquationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#sum}.
+	 * Enter a parse tree produced by {@link DSLParser#simpleMathEquation}.
 	 * @param ctx the parse tree
 	 */
-	void enterSum(DSLParser.SumContext ctx);
+	void enterSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#sum}.
+	 * Exit a parse tree produced by {@link DSLParser#simpleMathEquation}.
 	 * @param ctx the parse tree
 	 */
-	void exitSum(DSLParser.SumContext ctx);
+	void exitSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#mult}.
+	 * Enter a parse tree produced by {@link DSLParser#complexMathEquation}.
 	 * @param ctx the parse tree
 	 */
-	void enterMult(DSLParser.MultContext ctx);
+	void enterComplexMathEquation(DSLParser.ComplexMathEquationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#mult}.
+	 * Exit a parse tree produced by {@link DSLParser#complexMathEquation}.
 	 * @param ctx the parse tree
 	 */
-	void exitMult(DSLParser.MultContext ctx);
+	void exitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#minus}.
+	 * Enter a parse tree produced by {@link DSLParser#mathOperation}.
 	 * @param ctx the parse tree
 	 */
-	void enterMinus(DSLParser.MinusContext ctx);
+	void enterMathOperation(DSLParser.MathOperationContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#minus}.
+	 * Exit a parse tree produced by {@link DSLParser#mathOperation}.
 	 * @param ctx the parse tree
 	 */
-	void exitMinus(DSLParser.MinusContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#div}.
-	 * @param ctx the parse tree
-	 */
-	void enterDiv(DSLParser.DivContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#div}.
-	 * @param ctx the parse tree
-	 */
-	void exitDiv(DSLParser.DivContext ctx);
-	/**
-	 * Enter a parse tree produced by {@link DSLParser#mod}.
-	 * @param ctx the parse tree
-	 */
-	void enterMod(DSLParser.ModContext ctx);
-	/**
-	 * Exit a parse tree produced by {@link DSLParser#mod}.
-	 * @param ctx the parse tree
-	 */
-	void exitMod(DSLParser.ModContext ctx);
+	void exitMathOperation(DSLParser.MathOperationContext ctx);
 }

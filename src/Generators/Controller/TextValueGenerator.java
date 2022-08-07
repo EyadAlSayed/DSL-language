@@ -4,9 +4,11 @@ import Models.TextValue;
 
 public class TextValueGenerator {
 
-    StringBuilder stringBuilder = new StringBuilder();
+    StringBuilder stringBuilder;
 
-    public String  generateTextValue(TextValue textValue) {
+    public String generateTextValue(TextValue textValue) {
+
+        stringBuilder = new StringBuilder();
         if (textValue.getText() != null)
             stringBuilder.append(" ").append(textValue.getText());
 

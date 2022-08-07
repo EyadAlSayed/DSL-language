@@ -1,13 +1,19 @@
 Page p1 controlled by c1
 {
     Title("title")
-    Text(text1,"salem")
-    Text(text2,"test")
-    TextField(textfield1,"textfield1",Email)
-    TextField(textfield2,"textfield2",Date)
-    TextField(textfield3,"textfield2",Password)
-    Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3])
+    Text(text1,"Email ")
+    TextField(textfield1,"email address",Email)
+    Text(user, "Username ")
+    TextField(userfield, "username")
+    Text(text2,"Date ")
+    TextField(textfield2,"Date",Date)
+    Text(pass, "Password ")
+    TextField(password,"Password",Password)
+    Title("New Title")
+    Radiogroup(radiogroup1,[radiobutton1,radiobutton2,radiobutton3],radiobutton1)
+    DropDown(cars,[bmw,volvo,ford])
     Checkbox(checkbox1,[checkbutton1,checkbutton2])
-    Button(buttot1)
+    Button(buttot1,"salem")
+    Image("C:\Users\assia\Pictures\3567970.webp")
 
 }

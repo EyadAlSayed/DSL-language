@@ -19,7 +19,7 @@ public class ThrowingErrorListener extends BaseErrorListener {
         //throw new ParseCancellationException("line " + line + ":" + charPositionInLine + " " + msg);
         ProjectMain.ERROR=true;
         try {
-            Files.writeString(ProjectMain.FILE.toPath(),"line " + line + ":" + charPositionInLine + " " + msg+"\n");
+            Files.writeString(ProjectMain.ERROR_FILE.toPath(),"line " + line + ":" + charPositionInLine + " " + msg+"\n");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

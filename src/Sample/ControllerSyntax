@@ -1,18 +1,13 @@
 Controller c1 controls p1
 {
-   if(text1 EQUAL "salem" AND text2 EQUAL "123")
+   if(userfield EQUAL "salem" AND password EQUAL "123")
      {
-         text1 = "success";
-          send("filename");
-
+          print "username";
+          print userfield;
+          print "password";
+          print password;
+          send("p1");
      }
-     for(text1:5){
-     send("filename");
-     }
-    print "text1";
-    print text1;
-    text2 = "salem";
-    print text2;
-    sum = number1 + number2;
+  print "validation failed";
 
 }

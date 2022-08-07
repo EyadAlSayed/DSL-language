@@ -1,4 +1,4 @@
-// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
+// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
 package gen;
 
 import org.antlr.v4.runtime.ParserRuleContext;
@@ -112,6 +112,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterDropDown(DSLParser.DropDownContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitDropDown(DSLParser.DropDownContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterButton(DSLParser.ButtonContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -148,6 +160,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterImage(DSLParser.ImageContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitImage(DSLParser.ImageContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterControllerDef(DSLParser.ControllerDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -155,6 +179,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitControllerDef(DSLParser.ControllerDefContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterRadioDefault(DSLParser.RadioDefaultContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitRadioDefault(DSLParser.RadioDefaultContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -220,6 +256,42 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterLoopVariable(DSLParser.LoopVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopVariable(DSLParser.LoopVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopFirstVariable(DSLParser.LoopFirstVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitLoopSecondVariable(DSLParser.LoopSecondVariableContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterIfStatment(DSLParser.IfStatmentContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -244,13 +316,37 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCondition(DSLParser.ConditionContext ctx) { }
+	@Override public void enterMain_condition(DSLParser.Main_conditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCondition(DSLParser.ConditionContext ctx) { }
+	@Override public void exitMain_condition(DSLParser.Main_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEqual_condition(DSLParser.Equal_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEqual_condition(DSLParser.Equal_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -316,61 +412,37 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSum(DSLParser.SumContext ctx) { }
+	@Override public void enterSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSum(DSLParser.SumContext ctx) { }
+	@Override public void exitSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMult(DSLParser.MultContext ctx) { }
+	@Override public void enterComplexMathEquation(DSLParser.ComplexMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMult(DSLParser.MultContext ctx) { }
+	@Override public void exitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMinus(DSLParser.MinusContext ctx) { }
+	@Override public void enterMathOperation(DSLParser.MathOperationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMinus(DSLParser.MinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDiv(DSLParser.DivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDiv(DSLParser.DivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMod(DSLParser.ModContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMod(DSLParser.ModContext ctx) { }
+	@Override public void exitMathOperation(DSLParser.MathOperationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

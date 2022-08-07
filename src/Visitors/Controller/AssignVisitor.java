@@ -1,7 +1,7 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Action.Assign;
-import Models.PageModels.Text;
+import Models.PageModels.TextField;
 import Visitors.CustomPair;
 import Visitors.ProjectMain;
 import gen.DSLParser;
@@ -15,42 +15,41 @@ public class AssignVisitor extends DSLParserBaseVisitor {
 
     Assign assign = new Assign();
 
-    TextValueVisitor textValueVisitor = new TextValueVisitor();
+    TextValueVisitor textValueVisitor;
 
     @Override
     public Assign visitAssign(DSLParser.AssignContext ctx) {
         if (ctx.ASSIGN_OP_ID() != null)
             assign.setAssignOpId(ctx.ASSIGN_OP_ID().getText());
 
-        if (ctx.textValue() != null)
+        if (ctx.textValue() != null) {
+            textValueVisitor = new TextValueVisitor();
             assign.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
+        }
 
-        if(ctx.FILE_NAME_ID(0) != null)
-        {
-            Object text = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text)
-             assign.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
-            else
-            {
-                ProjectMain.ERROR=true;
-                try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID(0).getText() + " IS NOT TEXT OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
-                } catch (IOException e){
+        if (ctx.FILE_NAME_ID(0) != null) {
+            Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
+            if (object instanceof TextField)
+                assign.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
+            else {
+                ProjectMain.ERROR = true;
+                try {
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID(0).getText() + " IS NOT TEXT OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }
 
         if (ctx.FILE_NAME_ID(1) != null) {
-            Object text = CustomPair.containVariable(ctx.FILE_NAME_ID(1).getText(), ProjectMain.symbolTablePage);
-            if(text instanceof Text)
+            Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(1).getText(), ProjectMain.symbolTablePage);
+            if (object instanceof TextField)
                 assign.setFileNameId1(ctx.FILE_NAME_ID(1).getText());
-            else
-            {
-                ProjectMain.ERROR=true;
-                try{
-                    Files.writeString(ProjectMain.FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID(1).getText() + " IS NOT TEXT OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
-                } catch (IOException e){
+            else {
+                ProjectMain.ERROR = true;
+                try {
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID(1).getText() + " IS NOT TEXT OR DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }

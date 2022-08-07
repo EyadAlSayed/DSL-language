@@ -14,6 +14,15 @@ public class BodyAttribute extends Printer {
     Button button;
     Form form;
     Checkbox checkbox;
+    ImageModel image;
+
+    public ImageModel getImage() {
+        return image;
+    }
+
+    public void setImage(ImageModel image) {
+        this.image = image;
+    }
 
     public Checkbox getCheckbox() {
         return checkbox;
@@ -95,6 +104,8 @@ public class BodyAttribute extends Printer {
             map.put("Form",form.toMap());
         if(checkbox != null)
             map.put("CheckBox",checkbox.toMap());
+        if(image != null)
+            map.put("Image", image.toMap());
 
         return map;
     }

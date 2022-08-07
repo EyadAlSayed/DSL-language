@@ -6,10 +6,12 @@ import gen.DSLParserBaseVisitor;
 
 public class TextValueVisitor extends DSLParserBaseVisitor {
 
-    TextValue textValue = new TextValue();
+    TextValue textValue;
 
 
     public TextValue visitTextValue(DSLParser.TextValueContext ctx) {
+
+        textValue = new TextValue();
 
         if (ctx.TEXTNUM() != null)
         textValue.setTextNum(ctx.TEXTNUM().getText());

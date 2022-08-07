@@ -17,7 +17,16 @@ public class RadioGroupVisitor extends DSLParserBaseVisitor {
             for (int i = 1; i < ctx.FILE_NAME_ID().size(); i++) {
                 radioGroup.getRadioButtonVariables().add(ctx.FILE_NAME_ID().get(i).getText());
             }
+            for (int i = 1 ; i < ctx.TEXTNUM().size() ; i++)
+            {
+                radioGroup.getRadioButtonVariables().add(ctx.TEXTNUM().get(i).getText());
+            }
         }
+        if (ctx.radioDefault().FILE_NAME_ID()!= null)
+        {
+            radioGroup.setDefaultValue(ctx.radioDefault().FILE_NAME_ID().getText());
+        }else if(ctx.radioDefault().TEXTNUM() != null)
+            radioGroup.setDefaultValue(ctx.radioDefault().TEXTNUM().getText());
         return radioGroup;
     }
 }

@@ -1,6 +1,5 @@
 package Generators.PageGenerators;
 
-import Models.PageModels.Text;
 import Models.PageModels.TextField;
 
 public class TextFieldGenerator {
@@ -15,14 +14,19 @@ public class TextFieldGenerator {
             if (textField.getATTRIBUTE().getPASSWORD() != null) {
                 stringBuilder.append("\"password\" ");
             } else if (textField.getATTRIBUTE().getDATE() != null) {
-                stringBuilder.append("\"email\" ");
-            } else if (textField.getATTRIBUTE().getEMAIL() != null) {
                 stringBuilder.append("\"date\" ");
+            } else if (textField.getATTRIBUTE().getEMAIL() != null) {
+                stringBuilder.append("\"email\" ");
             }
         }
 
         if (textField.getNAME() != null)
-            stringBuilder.append("name=\"").append(textField.getNAME()).append("\">\n");
+            stringBuilder.append("name=\"").append(textField.getNAME()).append("\" ");
+
+        if(textField.getTEXT() != null) {
+            String textFieldValue = textField.getTEXT().replace('"', ' ');
+            stringBuilder.append("placeholder=\"").append(textFieldValue).append("\">\n").append("<br>\n");
+        }
 
         return stringBuilder;
     }

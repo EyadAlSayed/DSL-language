@@ -11,6 +11,15 @@ public class RadioGroup extends Printer {
     String radioGroupID;
     String variableName;
     ArrayList<String> radioButtonVariables = new ArrayList<>();
+    String defaultValue;
+
+    public String getDefaultValue() {
+        return defaultValue;
+    }
+
+    public void setDefaultValue(String defaultValue) {
+        this.defaultValue = defaultValue;
+    }
 
     public String getRadioGroupID() {
         return radioGroupID;
@@ -52,6 +61,8 @@ public class RadioGroup extends Printer {
             map.put("VariableName",variableName);
         if(radioButtonVariables.size() > 0)
         map.put("RadioButtons",radioButtonVariables.toString());
+        if (defaultValue != null)
+            map.put("defaultValue",defaultValue);
         return map;
 
     }
