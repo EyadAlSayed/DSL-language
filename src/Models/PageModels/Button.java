@@ -11,6 +11,7 @@ public class Button extends Printer {
     String variableName;
     String sendValue;
     String value;
+    int[] MARGINS;
 
 
     public String getValue() {
@@ -45,6 +46,14 @@ public class Button extends Printer {
         this.variableName = variableName;
     }
 
+    public int[] getMARGINS() {
+        return MARGINS;
+    }
+
+    public void setMARGINS(int[] MARGINS) {
+        this.MARGINS = MARGINS;
+    }
+
     @Override
     public String toString() {
         StringBuilder stringBuilder = getPrettyString("Button", toMap());
@@ -63,6 +72,12 @@ public class Button extends Printer {
             map.put("SendValue",sendValue);
         if(value != null)
             map.put("Value",value);
+        if(MARGINS != null){
+            map.put("Left Margin", MARGINS[0]);
+            map.put("Top Margin", MARGINS[1]);
+            map.put("Right Margin", MARGINS[2]);
+            map.put("Bottom Margin", MARGINS[3]);
+        }
         return map;
 
     }

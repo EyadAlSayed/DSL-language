@@ -9,6 +9,7 @@ public class ImageModel extends Printer {
 
     String IMAGE;
     String VALUE;
+    int[] MARGINS;
 
     public String getIMAGE() {
         return IMAGE;
@@ -16,6 +17,14 @@ public class ImageModel extends Printer {
 
     public void setIMAGE(String IMAGE) {
         this.IMAGE = IMAGE;
+    }
+
+    public int[] getMARGINS() {
+        return MARGINS;
+    }
+
+    public void setMARGINS(int[] MARGINS) {
+        this.MARGINS = MARGINS;
     }
 
     public String getVALUE() {
@@ -35,7 +44,12 @@ public class ImageModel extends Printer {
             map.put("Text",IMAGE);
         if (VALUE != null)
             map.put("Value",VALUE);
-
+        if(MARGINS != null){
+            map.put("Left Margin", MARGINS[0]);
+            map.put("Top Margin", MARGINS[1]);
+            map.put("Right Margin", MARGINS[2]);
+            map.put("Bottom Margin", MARGINS[3]);
+        }
         return map;
     }
 }

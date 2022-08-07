@@ -8,8 +8,11 @@ public class PageGenerator {
     StringBuilder stringBuilder = new StringBuilder();
 
     public StringBuilder generatePage(PageStructure pageStructure) {
-            //DocumentGenerator.code.append("<html>\n");
             stringBuilder.append("<html>\n");
+            stringBuilder.append("<head>\n");
+            stringBuilder.append("<style>\n");
+            stringBuilder.append("</style>\n");
+            stringBuilder.append("</head>\n");
             if (pageStructure.getBody() != null) {
                 bodyGenerator = new BodyGenerator();
                 stringBuilder.append(bodyGenerator.generateBody(pageStructure.getBody(),pageStructure.getCONTROLLER()));

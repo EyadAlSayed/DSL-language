@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from C:/Users/Lenovo/FromGitHub/New Compiler Project/DSL-language/src\DSLParser.g4 by ANTLR 4.10.1
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeListener;
 
@@ -137,6 +137,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitImage(DSLParser.ImageContext ctx);
+	/**
+	 * Enter a parse tree produced by {@link DSLParser#marginList}.
+	 * @param ctx the parse tree
+	 */
+	void enterMarginList(DSLParser.MarginListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#marginList}.
+	 * @param ctx the parse tree
+	 */
+	void exitMarginList(DSLParser.MarginListContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree

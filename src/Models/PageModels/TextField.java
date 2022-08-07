@@ -11,6 +11,7 @@ public class TextField extends Printer {
     String NAME;
     String TEXT;
     TextFieldAttribute ATTRIBUTE;
+    int[] MARGINS;
 
     public String getTEXT() {
         return TEXT;
@@ -26,6 +27,14 @@ public class TextField extends Printer {
 
     public void setTEXT_FIELD(String TEXT_FIELD) {
         this.TEXT_FIELD = TEXT_FIELD;
+    }
+
+    public int[] getMARGINS() {
+        return MARGINS;
+    }
+
+    public void setMARGINS(int[] MARGINS) {
+        this.MARGINS = MARGINS;
     }
 
     public String getNAME() {
@@ -62,6 +71,12 @@ public class TextField extends Printer {
             map.put("Text",TEXT);
         if (ATTRIBUTE != null)
             map.put("Attribute",ATTRIBUTE.toMap());
+        if(MARGINS != null){
+            map.put("Left Margin", MARGINS[0]);
+            map.put("Top Margin", MARGINS[1]);
+            map.put("Right Margin", MARGINS[2]);
+            map.put("Bottom Margin", MARGINS[3]);
+        }
         return map;
     }
 }
