@@ -1,83 +1,92 @@
 package Models.ControllerModels.Action;
 
+import Models.ControllerModels.If.BinaryEqualCondition;
 import Models.Printer;
+import gen.DSLParser;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class MathEquation extends Printer {
 
-    Sum sum;
-    Mult mult;
-    Div div;
-    Minus minus;
-    Mod mod;
+    String fileNameId;
+    String assignOpId;
+    SimpleMathEquation simpleMathEquation;
+    List<ComplexMathEquation> complexMathEquationList;
+    String endStatementId;
 
-    public Sum getSum() {
-        return sum;
+    public String getFileNameId() {
+        return fileNameId;
     }
 
-    public void setSum(Sum sum) {
-        this.sum = sum;
+    public void setFileNameId(String fileNameId) {
+        this.fileNameId = fileNameId;
     }
 
-    public Mult getMult() {
-        return mult;
+    public String getAssignOpId() {
+        return assignOpId;
     }
 
-    public void setMult(Mult mult) {
-        this.mult = mult;
+    public void setAssignOpId(String assignOpId) {
+        this.assignOpId = assignOpId;
     }
 
-    public Div getDiv() {
-        return div;
+    public SimpleMathEquation getSimpleMathEquation() {
+        return simpleMathEquation;
     }
 
-    public void setDiv(Div div) {
-        this.div = div;
+    public void setSimpleMathEquation(SimpleMathEquation simpleMathEquation) {
+        this.simpleMathEquation = simpleMathEquation;
     }
 
-    public Minus getMinus() {
-        return minus;
+    public List<ComplexMathEquation> getComplexMathEquationList() {
+        return complexMathEquationList;
     }
 
-    public void setMinus(Minus minus) {
-        this.minus = minus;
+    public void setComplexMathEquationList(List<ComplexMathEquation> complexMathEquationList) {
+        this.complexMathEquationList = complexMathEquationList;
     }
 
-    public Mod getMod() {
-        return mod;
+    public String getEndStatementId() {
+        return endStatementId;
     }
 
-    public void setMod(Mod mod) {
-        this.mod = mod;
+    public void setEndStatementId(String endStatementId) {
+        this.endStatementId = endStatementId;
     }
 
     @Override
     public String toString() {
-        StringBuilder stringBuilder = getPrettyString("MathEquation",toMap());
+        StringBuilder stringBuilder = getPrettyString("MathEquation", toMap());
         return stringBuilder.toString();
     }
 
     @Override
     public Map<String, Object> toMap() {
-        Map<String,Object> map = new LinkedHashMap<>();
+        Map<String, Object> map = new LinkedHashMap<>();
 
-        map.put("label","MathEquation");
-        if (sum != null)
-            map.put("sum",sum.toMap());
+        map.put("label", "MathEquation");
 
-        if (minus != null)
-            map.put("minus",minus.toMap());
+        if (fileNameId != null)
+            map.put("fileNameId", fileNameId);
+        if (assignOpId != null)
+            map.put("assignOpId", assignOpId);
+        if (simpleMathEquation != null)
+            map.put("simpleMathEquation", simpleMathEquation.toMap());
 
-        if (mult != null)
-            map.put("mult",mult.toMap());
+        if (complexMathEquationList.size() > 0) {
+            ArrayList<Map<String, Object>> list = new ArrayList<>();
+            for (ComplexMathEquation cme : complexMathEquationList) {
+                list.add(cme.toMap());
+            }
+            map.put("complexMathEquation", list);
+        }
 
-        if (div != null)
-            map.put("div",div.toMap());
+        if (endStatementId != null)
+            map.put("endStatementId", endStatementId);
 
-        if (mod != null)
-            map.put("mod",mod.toMap());
         return map;
     }
 }

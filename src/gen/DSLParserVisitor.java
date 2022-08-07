@@ -1,4 +1,4 @@
-// Generated from D:/Documents/GitHub/DSL-language2/src\DSLParser.g4 by ANTLR 4.9.1
+// Generated from D:/DSL-language/src\DSLParser.g4 by ANTLR 4.9.2
 package gen;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
@@ -161,11 +161,23 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitLogicalOperation(DSLParser.LogicalOperationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#condition}.
+	 * Visit a parse tree produced by {@link DSLParser#main_condition}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitCondition(DSLParser.ConditionContext ctx);
+	T visitMain_condition(DSLParser.Main_conditionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#equal_condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitEqual_condition(DSLParser.Equal_conditionContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link DSLParser#binary_equal_condition}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#textValue}.
 	 * @param ctx the parse tree
@@ -197,33 +209,21 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitMathEquation(DSLParser.MathEquationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#sum}.
+	 * Visit a parse tree produced by {@link DSLParser#simpleMathEquation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSum(DSLParser.SumContext ctx);
+	T visitSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#mult}.
+	 * Visit a parse tree produced by {@link DSLParser#complexMathEquation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMult(DSLParser.MultContext ctx);
+	T visitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#minus}.
+	 * Visit a parse tree produced by {@link DSLParser#mathOperation}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitMinus(DSLParser.MinusContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#div}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitDiv(DSLParser.DivContext ctx);
-	/**
-	 * Visit a parse tree produced by {@link DSLParser#mod}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitMod(DSLParser.ModContext ctx);
+	T visitMathOperation(DSLParser.MathOperationContext ctx);
 }

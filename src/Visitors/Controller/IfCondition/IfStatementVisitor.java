@@ -1,6 +1,7 @@
 package Visitors.Controller.IfCondition;
 
 import Models.ControllerModels.If.IFStatement;
+import Models.ControllerModels.If.MainCondition;
 import Visitors.Controller.ControllerTokensVisitor;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
@@ -13,11 +14,13 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
 
     ControllerTokensVisitor controllerTokensVisitor;
 
+    MainConditionVisitor mainConditionVisitor;
     @Override
     public IFStatement visitIfStatment(DSLParser.IfStatmentContext ctx) {
         ifStatement = new IFStatement();
         conditionVisitor = new ConditionVisitor();
         controllerTokensVisitor = new ControllerTokensVisitor();
+        mainConditionVisitor = new MainConditionVisitor();
 
 
         if (ctx.IF_ID() != null)
@@ -26,9 +29,8 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
         if (ctx.OPEN_PAR_BRACKT_ID() != null)
             ifStatement.setOpenParBracktId(ctx.OPEN_PAR_BRACKT_ID().getText());
 
-        for (int i = 0; i < ctx.condition().size(); i++) {
-            ifStatement.getConditions().add(conditionVisitor.visitCondition(ctx.condition(i)));
-            System.out.println(ifStatement.getConditions().get(i).getfileNameId());
+        if(ctx.main_condition() != null){
+            ifStatement.setMainCondition(mainConditionVisitor.visitMain_condition(ctx.main_condition()));
         }
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
             ifStatement.setCloseParBracktId(ctx.CLOSE_PAR_BRACKT_ID().getText());
