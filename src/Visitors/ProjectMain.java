@@ -25,7 +25,7 @@ public class ProjectMain {
     public static boolean ERROR = false;
     static String pagePath = "src/Sample/PageSyntax";
     static String controllerPath = "src/Sample/ControllerSyntax";
-    public static String htdocsPath = "C:\\xampp\\htdocs";
+    public static String htdocsPath = "D:\\xampp\\htdocs";
 
     protected static void showGUI(ParseTree pt, DSLParser parser) {
         Trees.inspect(pt, parser);
@@ -33,7 +33,7 @@ public class ProjectMain {
 
 
     public static void main(String[] args) throws FileNotFoundException {
-        ERROR_FILE = new File("C:\\Users\\Lenovo\\FromGitHub\\New Compiler Project\\DSL-language\\src\\Errors.txt");
+        ERROR_FILE = new File("D:\\Documents\\GitHub\\DSL-language2\\src\\Errors.txt");
         try {
             Files.writeString(ERROR_FILE.toPath(), "");
         } catch (IOException e) {
@@ -55,13 +55,13 @@ public class ProjectMain {
             }
             BaseGenerartor controllerGenerator = new BaseGenerartor();
             BaseGenerartor pageGenerator = new BaseGenerartor();
-            File controllerFile = new File("C:\\xampp\\htdocs\\"+controllerDoc.getController().getFileNameId1()+".php");
+            File controllerFile = new File("D:\\xampp\\htdocs\\"+controllerDoc.getController().getFileNameId1()+".php");
             try {
                 Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(controllerDoc));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            File pageFile = new File("C:\\xampp\\htdocs\\"+pageDoc.getPageStructure().getPAGE_NAME()+".php");
+            File pageFile = new File("D:\\xampp\\htdocs\\"+pageDoc.getPageStructure().getPAGE_NAME()+".php");
             try {
                 Files.writeString(pageFile.toPath(),pageGenerator.generatePage(pageDoc));
             } catch (IOException e) {
