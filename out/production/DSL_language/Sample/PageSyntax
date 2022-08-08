@@ -1,7 +1,7 @@
 Page p1 controlled by c1
 {
     Title("title")
-    Text(text1,"Email ")
+    Text(text1,"Email ",[0,0,0,0])
     TextField(textfield1,"email address",Email)
     Text(user, "Username ")
     TextField(userfield, "username")

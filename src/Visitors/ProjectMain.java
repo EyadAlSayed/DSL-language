@@ -68,9 +68,6 @@ public class ProjectMain {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-
     }
 
     public static DSLDocument generateCode(boolean isPage , String fileName){

@@ -138,6 +138,16 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitImage(DSLParser.ImageContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link DSLParser#marginList}.
+	 * @param ctx the parse tree
+	 */
+	void enterMarginList(DSLParser.MarginListContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link DSLParser#marginList}.
+	 * @param ctx the parse tree
+	 */
+	void exitMarginList(DSLParser.MarginListContext ctx);
+	/**
 	 * Enter a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
 	 */

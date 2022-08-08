@@ -11,6 +11,7 @@ public class Checkbox extends Printer {
     String CHECKBOX;
     String NAME;
     ArrayList<String> checkboxAttributes = new ArrayList<>();
+    int[] MARGINS;
 
     public String getCHECKBOX() {
         return CHECKBOX;
@@ -26,6 +27,14 @@ public class Checkbox extends Printer {
 
     public void setNAME(String NAME) {
         this.NAME = NAME;
+    }
+
+    public int[] getMARGINS() {
+        return MARGINS;
+    }
+
+    public void setMARGINS(int[] MARGINS) {
+        this.MARGINS = MARGINS;
     }
 
     public ArrayList<String> getCheckboxAttributes() {
@@ -52,6 +61,12 @@ public class Checkbox extends Printer {
             map.put("Name",NAME);
         if(checkboxAttributes.size() > 0)
             map.put("Checkbox Choices",checkboxAttributes.toString());
+        if(MARGINS != null){
+            map.put("Top Margin", MARGINS[0]);
+            map.put("Right Margin", MARGINS[1]);
+            map.put("Bottom Margin", MARGINS[2]);
+            map.put("Left Margin", MARGINS[3]);
+        }
         return map;
     }
 }

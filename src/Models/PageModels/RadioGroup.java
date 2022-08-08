@@ -12,6 +12,7 @@ public class RadioGroup extends Printer {
     String variableName;
     ArrayList<String> radioButtonVariables = new ArrayList<>();
     String defaultValue;
+    int[] MARGINS;
 
     public String getDefaultValue() {
         return defaultValue;
@@ -35,6 +36,14 @@ public class RadioGroup extends Printer {
 
     public void setVariableName(String variableName) {
         this.variableName = variableName;
+    }
+
+    public int[] getMARGINS() {
+        return MARGINS;
+    }
+
+    public void setMARGINS(int[] MARGINS) {
+        this.MARGINS = MARGINS;
     }
 
     public ArrayList<String> getRadioButtonVariables() {
@@ -63,6 +72,12 @@ public class RadioGroup extends Printer {
         map.put("RadioButtons",radioButtonVariables.toString());
         if (defaultValue != null)
             map.put("defaultValue",defaultValue);
+        if(MARGINS != null){
+            map.put("Top Margin", MARGINS[0]);
+            map.put("Right Margin", MARGINS[1]);
+            map.put("Bottom Margin", MARGINS[2]);
+            map.put("Left Margin", MARGINS[3]);
+        }
         return map;
 
     }

@@ -89,6 +89,12 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitImage(DSLParser.ImageContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link DSLParser#marginList}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMarginList(DSLParser.MarginListContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerDef}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
