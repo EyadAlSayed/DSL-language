@@ -10,9 +10,8 @@ public class CheckboxGenerator {
         for (int i = 0; i < checkbox.getCheckboxAttributes().size(); i++) {
             stringBuilder.append("<label> ");
             stringBuilder.append("<input type=").append("\"checkbox\" ");
-            if (checkbox.getNAME() != null) {
-                stringBuilder.append("name=\"").append(checkbox.getNAME()).append("\">");
-            }
+            stringBuilder.append("name=\"").append(checkbox.getCheckboxAttributes().get(i)).append("\">");
+
             stringBuilder.append(checkbox.getCheckboxAttributes().get(i)).append("</label>\n").append("<br>\n");
         }
         return stringBuilder;

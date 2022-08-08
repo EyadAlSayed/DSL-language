@@ -16,7 +16,7 @@ public class RadioGroupGenerator {
                 str.append("checked ");
             }
             str.append("/>");
-            str.append(radioGroup.getVariableName()).append("<br></label>");
+            str.append(r).append("<br></label>");
         }
 
         return str.toString();

@@ -1,6 +1,5 @@
 package Models.ControllerModels.If;
 
-import Models.ControllerModels.ControllerTokens;
 import Models.Printer;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class MainCondition extends Printer {
 
 
     EqualCondition equalCondition;
-    List<BinaryEqualCondition> binaryEqualCondition;
+    List<BinaryEqualCondition> binaryEqualCondition = new ArrayList<>();
 
     public EqualCondition getEqualCondition() {
         return equalCondition;

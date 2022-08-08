@@ -1,9 +1,17 @@
 package Visitors.Controller.MathEquation;
 
 import Models.ControllerModels.Action.ComplexMathEquation;
+import Models.PageModels.*;
 import Visitors.Controller.TextValueVisitor;
+import Visitors.CustomPair;
+import Visitors.Node;
+import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardOpenOption;
 
 public class ComplexMathEquationVisitor extends DSLParserBaseVisitor {
 
@@ -11,32 +19,47 @@ public class ComplexMathEquationVisitor extends DSLParserBaseVisitor {
 
     TextValueVisitor textValueVisitor;
 
-    @Override
-    public ComplexMathEquation visitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx) {
+    public ComplexMathEquation visitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx, Node father) {
         ComplexMathEquation complexMathEquation = new ComplexMathEquation();
 
         textValueVisitor = new TextValueVisitor();
         mathOperationVisitor = new MathOperationVisitor();
 
-        if(ctx.mathOperation(0) != null)
-            complexMathEquation.setMathOperation1(mathOperationVisitor.visitMathOperation(ctx.mathOperation(0)));
+        if (ctx.mathOperation() != null)
+            complexMathEquation.setMathOperation(mathOperationVisitor.visitMathOperation(ctx.mathOperation()));
 
-        if (ctx.FILE_NAME_ID(0) != null)
-            complexMathEquation.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
+        if (ctx.FILE_NAME_ID() != null) {
+            Object object = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
+            if (object != null) {
+                if (object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox
+                || object instanceof String || object instanceof DropDown) {
+                    complexMathEquation.setFileNameId(ctx.FILE_NAME_ID().getText());
+                } else {
+                    ProjectMain.ERROR = true;
+                    try {
+                        Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " IS NOT {TEXT,TEXTFIELD,CHECKBOX,RADIOBUTTON}\n", StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            } else {
+                String variableType = CustomPair.inScope(father, ctx.FILE_NAME_ID().getText(), null);
+                if (variableType == null) {
+                    ProjectMain.ERROR = true;
+                    try {
+                        Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.FILE_NAME_ID().getText() + " DOES NOT EXIST!\n", StandardOpenOption.APPEND);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                } else {
+                    complexMathEquation.setFileNameId(ctx.FILE_NAME_ID().getText());
+                }
+            }
+        }
+        if (ctx.textValue() != null)
+            complexMathEquation.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
 
-        if(ctx.textValue(0) != null)
-            complexMathEquation.setTextValue1(textValueVisitor.visitTextValue(ctx.textValue(0)));
-
-        if(ctx.mathOperation(1) != null)
-            complexMathEquation.setMathOperation2(mathOperationVisitor.visitMathOperation(ctx.mathOperation(1)));
-
-        if (ctx.FILE_NAME_ID(1) != null)
-            complexMathEquation.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
-
-        if(ctx.textValue(1) != null)
-            complexMathEquation.setTextValue2(textValueVisitor.visitTextValue(ctx.textValue(1)));
-
-        return  complexMathEquation;
+        return complexMathEquation;
     }
 
 

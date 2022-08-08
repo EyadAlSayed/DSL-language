@@ -1,7 +1,7 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Action.Print;
-import Models.PageModels.Checkbox;
+import Models.PageModels.DropDown;
 import Models.PageModels.RadioGroup;
 import Models.PageModels.TextField;
 import Visitors.CustomPair;
@@ -32,8 +32,9 @@ public class PrintVisitor extends DSLParserBaseVisitor {
         }
         if (ctx.FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
+
             if(text != null){
-            if( text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox)
+            if( text instanceof TextField || text instanceof RadioGroup || text instanceof String || text instanceof DropDown)
             print.setFileNameId(ctx.FILE_NAME_ID().getText());
             else {
                 ProjectMain.ERROR=true;

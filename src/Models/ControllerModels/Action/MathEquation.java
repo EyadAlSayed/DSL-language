@@ -1,8 +1,6 @@
 package Models.ControllerModels.Action;
 
-import Models.ControllerModels.If.BinaryEqualCondition;
 import Models.Printer;
-import gen.DSLParser;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,7 +12,7 @@ public class MathEquation extends Printer {
     String fileNameId;
     String assignOpId;
     SimpleMathEquation simpleMathEquation;
-    List<ComplexMathEquation> complexMathEquationList;
+    List<ComplexMathEquation> complexMathEquationList = new ArrayList<>();
     String endStatementId;
 
     public String getFileNameId() {

@@ -8,59 +8,35 @@ import java.util.Map;
 
 public class ComplexMathEquation extends Printer {
     MathOperation mathOperation1;
-    TextValue textValue1;
-    String fileNameId1;
-    MathOperation mathOperation2;
-    TextValue textValue2;
-    String fileNameId2;
+    TextValue textValue;
+    String fileNameId;
 
-    public MathOperation getMathOperation1() {
+
+    public MathOperation getMathOperation() {
         return mathOperation1;
     }
 
-    public void setMathOperation1(MathOperation mathOperation1) {
+    public void setMathOperation(MathOperation mathOperation1) {
         this.mathOperation1 = mathOperation1;
     }
 
-    public TextValue getTextValue1() {
-        return textValue1;
+    public TextValue getTextValue() {
+        return textValue;
     }
 
-    public void setTextValue1(TextValue textValue1) {
-        this.textValue1 = textValue1;
+    public void setTextValue(TextValue textValue1) {
+        this.textValue = textValue1;
     }
 
-    public String getFileNameId1() {
-        return fileNameId1;
+    public String getFileNameId() {
+        return fileNameId;
     }
 
-    public void setFileNameId1(String fileNameId1) {
-        this.fileNameId1 = fileNameId1;
+    public void setFileNameId(String fileNameId1) {
+        this.fileNameId = fileNameId1;
     }
 
-    public MathOperation getMathOperation2() {
-        return mathOperation2;
-    }
 
-    public void setMathOperation2(MathOperation mathOperation2) {
-        this.mathOperation2 = mathOperation2;
-    }
-
-    public TextValue getTextValue2() {
-        return textValue2;
-    }
-
-    public void setTextValue2(TextValue textValue2) {
-        this.textValue2 = textValue2;
-    }
-
-    public String getFileNameId2() {
-        return fileNameId2;
-    }
-
-    public void setFileNameId2(String fileNameId2) {
-        this.fileNameId2 = fileNameId2;
-    }
 
 
     @Override
@@ -79,21 +55,14 @@ public class ComplexMathEquation extends Printer {
         if(mathOperation1 != null)
             map.put("mathOperation 1",mathOperation1.toMap());
 
-        if (textValue1 != null)
-            map.put("textValue 1",textValue1.toMap());
+        if (textValue != null)
+            map.put("textValue 1",textValue.toMap());
 
-        if(fileNameId1 != null)
-            map.put("fileNameId 1",fileNameId1);
+        if(fileNameId != null)
+            map.put("fileNameId 1",fileNameId);
 
 
-        if(mathOperation2 != null)
-            map.put("mathOperation 2",mathOperation2.toMap());
 
-        if (textValue2 != null)
-            map.put("textValue 2",textValue2.toMap());
-
-        if(fileNameId2 != null)
-            map.put("fileNameId 2",fileNameId2);
 
         return  map;
     }

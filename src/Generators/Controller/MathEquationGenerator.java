@@ -47,23 +47,15 @@ public class MathEquationGenerator {
 
     public void generateComplexMathEquation(ComplexMathEquation complexMathEquation) {
 
-        if(complexMathEquation.getMathOperation1() != null)
-            generateMathOperation(complexMathEquation.getMathOperation1());
+        if(complexMathEquation.getMathOperation() != null)
+            generateMathOperation(complexMathEquation.getMathOperation());
 
-        if(complexMathEquation.getFileNameId1() != null)
-            stringBuilder.append(complexMathEquation.getFileNameId1());
+        if(complexMathEquation.getFileNameId() != null)
+            stringBuilder.append(complexMathEquation.getFileNameId());
 
-        if(complexMathEquation.getTextValue1() != null)
-            stringBuilder.append(textValueGenerator.generateTextValue(complexMathEquation.getTextValue1()));
+        if(complexMathEquation.getTextValue() != null)
+            stringBuilder.append(textValueGenerator.generateTextValue(complexMathEquation.getTextValue()));
 
-        if(complexMathEquation.getMathOperation2() != null)
-            generateMathOperation(complexMathEquation.getMathOperation2());
-
-        if(complexMathEquation.getFileNameId2() != null)
-            stringBuilder.append(complexMathEquation.getFileNameId2());
-
-        if(complexMathEquation.getTextValue2() != null)
-            stringBuilder.append(textValueGenerator.generateTextValue(complexMathEquation.getTextValue2()));
 
     }
 

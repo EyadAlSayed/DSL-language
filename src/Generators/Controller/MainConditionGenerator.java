@@ -31,19 +31,21 @@ public class MainConditionGenerator {
         if (binaryEqualCondition.getLogicalOperation() != null)
             logicalOperationGenerate(binaryEqualCondition.getLogicalOperation());
 
-        if (binaryEqualCondition.getFileNameId() != null)
-            stringBuilder.append(binaryEqualCondition.getFileNameId());
+        if (binaryEqualCondition.getFileNameId1() != null)
+            stringBuilder.append("$").append(binaryEqualCondition.getFileNameId1());
 
         if (binaryEqualCondition.getEqualOpId() != null)
             stringBuilder.append("==");
 
         if (binaryEqualCondition.getTextValue() != null)
             stringBuilder.append(textValueGenerator.generateTextValue(binaryEqualCondition.getTextValue()));
+        if(binaryEqualCondition.getFileNameId2() != null)
+            stringBuilder.append("$").append(binaryEqualCondition.getFileNameId2());
     }
 
     public void generateEqualCondition(EqualCondition equalCondition) {
-        if (equalCondition.getFileNameId() != null) {
-            stringBuilder.append(equalCondition.getFileNameId());
+        if (equalCondition.getFileNameId1() != null) {
+            stringBuilder.append("$").append(equalCondition.getFileNameId1());
         }
 
         if (equalCondition.getEqualOpId() != null) {
@@ -52,6 +54,10 @@ public class MainConditionGenerator {
 
         if (equalCondition.getTextValue() != null) {
             stringBuilder.append(textValueGenerator.generateTextValue(equalCondition.getTextValue()));
+        }
+
+        if(equalCondition.getFileNameId2() != null){
+            stringBuilder.append("$").append(equalCondition.getFileNameId2());
         }
     }
 

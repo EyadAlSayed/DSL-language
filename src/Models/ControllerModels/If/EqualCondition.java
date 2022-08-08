@@ -9,16 +9,26 @@ import java.util.Map;
 public class EqualCondition extends Printer {
 
 
-    String fileNameId;
+    String fileNameId1;
     String equalOpId;
     TextValue textValue;
+    String fileNameId2;
 
-    public String getFileNameId() {
-        return fileNameId;
+
+    public String getFileNameId1() {
+        return fileNameId1;
     }
 
-    public void setFileNameId(String fileNameId) {
-        this.fileNameId = fileNameId;
+    public void setFileNameId1(String fileNameId1) {
+        this.fileNameId1 = fileNameId1;
+    }
+
+    public String getFileNameId2() {
+        return fileNameId2;
+    }
+
+    public void setFileNameId2(String fileNameId2) {
+        this.fileNameId2 = fileNameId2;
     }
 
     public String getEqualOpId() {
@@ -49,14 +59,17 @@ public class EqualCondition extends Printer {
 
         map.put("label","EqualCondition");
 
-        if(fileNameId != null)
-            map.put("fileNameId",fileNameId);
+        if(fileNameId1 != null)
+            map.put("fileNameId1",fileNameId1);
 
         if (equalOpId != null)
             map.put("equalOperation",equalOpId);
 
         if (textValue != null)
             map.put("textValue",textValue.toMap());
+
+        if(fileNameId2 != null)
+            map.put("fileNameId2",fileNameId2);
 
         return  map;
     }

@@ -1,11 +1,4 @@
 Controller c1 controls p1
 {
-        salem = "salem";
-   if(userfield EQUAL "salem" AND password EQUAL "123")
-     {
-        print salem;
-        ahmed = 1;
-     }
-
-
+  print cars;
 }

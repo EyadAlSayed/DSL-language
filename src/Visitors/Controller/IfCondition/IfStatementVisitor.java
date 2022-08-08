@@ -1,7 +1,6 @@
 package Visitors.Controller.IfCondition;
 
 import Models.ControllerModels.If.IFStatement;
-import Models.ControllerModels.If.MainCondition;
 import Visitors.Controller.ControllerTokensVisitor;
 import Visitors.Node;
 import gen.DSLParser;
@@ -33,7 +32,7 @@ public class IfStatementVisitor extends DSLParserBaseVisitor {
             ifStatement.setOpenParBracktId(ctx.OPEN_PAR_BRACKT_ID().getText());
 
         if(ctx.main_condition() != null){
-            ifStatement.setMainCondition(mainConditionVisitor.visitMain_condition(ctx.main_condition()));
+            ifStatement.setMainCondition(mainConditionVisitor.visitMain_condition(ctx.main_condition(),father));
         }
         if (ctx.CLOSE_PAR_BRACKT_ID() != null)
             ifStatement.setCloseParBracktId(ctx.CLOSE_PAR_BRACKT_ID().getText());

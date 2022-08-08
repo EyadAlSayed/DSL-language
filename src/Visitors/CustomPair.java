@@ -32,9 +32,11 @@ public class CustomPair {
             if (pairs.get(i) instanceof TextField)
                 if (Objects.equals(variable, ((TextField) pairs.get(i)).getNAME()))
                     return pairs.get(i);
-            if (pairs.get(i) instanceof Checkbox)
-                if (Objects.equals(variable, ((Checkbox) pairs.get(i)).getNAME()))
-                    return pairs.get(i);
+             if(pairs.get(i) instanceof DropDown)
+                 if (Objects.equals(variable,((DropDown) pairs.get(i)).getName()))
+                     return pairs.get(i);
+           if(Objects.equals(variable,  pairs.get(i)))
+               return pairs.get(i);
 
         }
         return null;

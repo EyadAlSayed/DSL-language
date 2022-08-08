@@ -67,8 +67,13 @@ public class ControllerGenerator {
                         .append("= $_POST[\"").append(((Button) object).getVariableName()).append("\"];\n");
             }
             if(object instanceof Checkbox){
-                stringBuilder.append("$").append(((Checkbox) object).getNAME())
-                        .append("= $_POST[\"").append(((Checkbox) object).getNAME()).append("\"];\n");
+                for (int i = 0; i < ((Checkbox) object).getCheckboxAttributes().size(); i++) {
+                    stringBuilder.append("if(isset($_POST[\"").append(((Checkbox) object).getCheckboxAttributes().get(i)).append("\"]))\n");
+                    stringBuilder.append("$").append(((Checkbox) object).getCheckboxAttributes().get(i))
+                            .append("= $_POST[\"").append(((Checkbox) object).getCheckboxAttributes().get(i)).append("\"];\n");
+                    stringBuilder.append("else\n$").append(((Checkbox) object).getCheckboxAttributes().get(i)).append("=\"off\";");
+                }
+
             }
             if(object instanceof RadioGroup){
                 stringBuilder.append("$").append(((RadioGroup) object).getVariableName())
@@ -77,6 +82,10 @@ public class ControllerGenerator {
             if(object instanceof TextField){
                 stringBuilder.append("$").append(((TextField) object).getNAME())
                         .append("= $_POST[\"").append(((TextField) object).getNAME()).append("\"];\n");
+            }
+            if(object instanceof DropDown){
+                stringBuilder.append("$").append(((DropDown) object).getName())
+                        .append(" =$_POST[\"").append(((DropDown) object).getName()).append("\"];\n");
             }
         }
     }
