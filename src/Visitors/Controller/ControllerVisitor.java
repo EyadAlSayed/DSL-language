@@ -1,6 +1,7 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Controller;
+import Visitors.Node;
 import Visitors.ProjectMain;
 import gen.DSLParser;
 import gen.DSLParserBaseVisitor;
@@ -10,11 +11,11 @@ import java.util.Objects;
 public class ControllerVisitor extends DSLParserBaseVisitor {
     Controller controller;
     ControllerTokensVisitor controllerTokensVisitor;
-
     @Override
     public Controller visitControllerDef(DSLParser.ControllerDefContext ctx) {
         controller = new Controller();
 
+        Node node = new Node(null,controller);
         if (ctx.CONTROLLER_DEF() != null)
             controller.setControllerDef(ctx.CONTROLLER_DEF().getText());
 
@@ -36,7 +37,7 @@ public class ControllerVisitor extends DSLParserBaseVisitor {
         if (ctx.controllerTokens().size() > 0) {
             controllerTokensVisitor = new ControllerTokensVisitor();
             for (int i = 0; i < ctx.controllerTokens().size(); i++) {
-                controller.getControllerTokens().add(controllerTokensVisitor.visitControllerTokens(ctx.controllerTokens(i)));
+                controller.getControllerTokens().add(controllerTokensVisitor.visitControllerTokens(ctx.controllerTokens(i),node));
             }
         }
 

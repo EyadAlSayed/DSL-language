@@ -18,6 +18,7 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class ProjectMain {
     public static ArrayList<Object> symbolTablePage = new ArrayList<>();
+    public static Node symbolTableController;
     public static String PAGE_NAME;
     public  static int VARIABLE_COUNTER = 1;
     public static File ERROR_FILE;
@@ -67,9 +68,6 @@ public class ProjectMain {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-
-
     }
 
     public static DSLDocument generateCode(boolean isPage , String fileName){
@@ -112,7 +110,7 @@ public class ProjectMain {
 
     public static void generateSymbolTable(String pageName){
         String source = htdocsPath + "\\" + pageName + ".txt";
-       generateCode(true,source);
+        generateCode(true,source);
 
     }
 

@@ -2,7 +2,6 @@ package Models.ControllerModels.If;
 
 import Models.ControllerModels.ControllerTokens;
 import Models.Printer;
-import org.stringtemplate.v4.ST;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -13,12 +12,24 @@ public class IFStatement extends Printer {
 
     String ifId;
     String openParBracktId;
-     List<Condition> conditions = new ArrayList<>();
+    MainCondition mainCondition;
     String closeParBracktId;
     String openCurlyBracktId;
      List<ControllerTokens> controllerTokens = new ArrayList<>();
     String closeCurlyBracktId;
+    Object father;
 
+    public MainCondition getMainCondition() {
+        return mainCondition;
+    }
+
+    public void setMainCondition(MainCondition mainCondition) {
+        this.mainCondition = mainCondition;
+    }
+
+    public void setControllerTokens(List<ControllerTokens> controllerTokens) {
+        this.controllerTokens = controllerTokens;
+    }
 
     public String getIfId() {
         return ifId;
@@ -34,10 +45,6 @@ public class IFStatement extends Printer {
 
     public void setOpenParBracktId(String openParBracktId) {
         this.openParBracktId = openParBracktId;
-    }
-
-    public List<Condition> getConditions() {
-        return conditions;
     }
 
     public String getCloseParBracktId() {
@@ -84,13 +91,9 @@ public class IFStatement extends Printer {
             map.put("ifId", ifId);
         if (openParBracktId != null)
             map.put("openParBracktId", openCurlyBracktId);
-        if (conditions.size() > 0) {
-            ArrayList<Map<String, Object>> list = new ArrayList<>();
-            for (Condition cd : conditions) {
-                list.add(cd.toMap());
-            }
-            map.put("Conditions", list);
-        }
+       if(mainCondition != null)
+           map.put("mainCondition",mainCondition);
+
         if (closeParBracktId != null)
             map.put("CloseParBracktId", closeCurlyBracktId);
         if (openCurlyBracktId != null)

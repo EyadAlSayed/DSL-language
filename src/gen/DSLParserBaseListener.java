@@ -172,6 +172,18 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterMarginList(DSLParser.MarginListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMarginList(DSLParser.MarginListContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterControllerDef(DSLParser.ControllerDefContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -316,13 +328,37 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterCondition(DSLParser.ConditionContext ctx) { }
+	@Override public void enterMain_condition(DSLParser.Main_conditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitCondition(DSLParser.ConditionContext ctx) { }
+	@Override public void exitMain_condition(DSLParser.Main_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterEqual_condition(DSLParser.Equal_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitEqual_condition(DSLParser.Equal_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -388,61 +424,37 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSum(DSLParser.SumContext ctx) { }
+	@Override public void enterSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSum(DSLParser.SumContext ctx) { }
+	@Override public void exitSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMult(DSLParser.MultContext ctx) { }
+	@Override public void enterComplexMathEquation(DSLParser.ComplexMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMult(DSLParser.MultContext ctx) { }
+	@Override public void exitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterMinus(DSLParser.MinusContext ctx) { }
+	@Override public void enterMathOperation(DSLParser.MathOperationContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitMinus(DSLParser.MinusContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterDiv(DSLParser.DivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitDiv(DSLParser.DivContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMod(DSLParser.ModContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMod(DSLParser.ModContext ctx) { }
+	@Override public void exitMathOperation(DSLParser.MathOperationContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

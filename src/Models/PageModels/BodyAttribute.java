@@ -15,6 +15,15 @@ public class BodyAttribute extends Printer {
     Form form;
     Checkbox checkbox;
     ImageModel image;
+    DropDown dropDown;
+
+    public DropDown getDropDown() {
+        return dropDown;
+    }
+
+    public void setDropDown(DropDown dropDown) {
+        this.dropDown = dropDown;
+    }
 
     public ImageModel getImage() {
         return image;

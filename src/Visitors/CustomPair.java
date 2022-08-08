@@ -32,13 +32,33 @@ public class CustomPair {
             if (pairs.get(i) instanceof TextField)
                 if (Objects.equals(variable, ((TextField) pairs.get(i)).getNAME()))
                     return pairs.get(i);
-            if (pairs.get(i) instanceof Checkbox)
-                if (Objects.equals(variable, ((Checkbox) pairs.get(i)).getNAME()))
-                    return pairs.get(i);
+             if(pairs.get(i) instanceof DropDown)
+                 if (Objects.equals(variable,((DropDown) pairs.get(i)).getName()))
+                     return pairs.get(i);
+           if(Objects.equals(variable,  pairs.get(i)))
+               return pairs.get(i);
 
         }
         return null;
     }
 
+  public static String inScope(Node node,String variableName,String variableType){
 
+      System.out.println(node.getVariables());
+      for (int i = 0; i < node.getVariables().size(); i++) {
+          if(Objects.equals(node.getVariables().get(i).a,variableName)){
+              if(variableType!=null){
+                  node.getVariables().remove(i);
+                  node.getVariables().add(new Pair<>(variableName,variableType));
+                  return variableType;
+              }
+              return node.getVariables().get(i).b;
+
+          }
+      }
+      if(node.getFather() == null)
+          return null;
+      else
+          return inScope(node.getFather(),variableName,variableType);
+  }
 }

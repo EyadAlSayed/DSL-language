@@ -10,6 +10,7 @@ public class DropDown extends Printer {
     private String dropDownID;
     private String name;
     private ArrayList<String> options;
+    int[] MARGINS;
 
     public DropDown() {
         this.options = new ArrayList<>();
@@ -21,6 +22,14 @@ public class DropDown extends Printer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int[] getMARGINS() {
+        return MARGINS;
+    }
+
+    public void setMARGINS(int[] MARGINS) {
+        this.MARGINS = MARGINS;
     }
 
     public ArrayList<String> getOptions() {
@@ -55,7 +64,12 @@ public class DropDown extends Printer {
             map.put("name",name);
         if(options.size() > 0)
             map.put("Options",options.toString());
-
+        if(MARGINS != null){
+            map.put("Top Margin", MARGINS[0]);
+            map.put("Right Margin", MARGINS[1]);
+            map.put("Bottom Margin", MARGINS[2]);
+            map.put("Left Margin", MARGINS[3]);
+        }
         return map;
     }
 }
