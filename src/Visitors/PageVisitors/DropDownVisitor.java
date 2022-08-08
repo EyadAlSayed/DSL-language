@@ -21,7 +21,7 @@ public class DropDownVisitor extends DSLParserBaseVisitor {
                 dropDown.getOptions().add(ctx.TEXTNUM().get(i).getText());
             }
         }
-        if(ctx.marginList() != null){
+        if (ctx.marginList().TEXTNUM(0) != null) {
             int[] MARGINS = new int[4];
 
             MARGINS[0] = Integer.parseInt(ctx.marginList().TEXTNUM(0).getText());

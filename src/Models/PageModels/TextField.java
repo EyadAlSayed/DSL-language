@@ -72,10 +72,10 @@ public class TextField extends Printer {
         if (ATTRIBUTE != null)
             map.put("Attribute",ATTRIBUTE.toMap());
         if(MARGINS != null){
-            map.put("Left Margin", MARGINS[0]);
-            map.put("Top Margin", MARGINS[1]);
-            map.put("Right Margin", MARGINS[2]);
-            map.put("Bottom Margin", MARGINS[3]);
+            map.put("Top Margin", MARGINS[0]);
+            map.put("Right Margin", MARGINS[1]);
+            map.put("Bottom Margin", MARGINS[2]);
+            map.put("Left Margin", MARGINS[3]);
         }
         return map;
     }
