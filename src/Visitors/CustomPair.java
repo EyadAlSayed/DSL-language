@@ -29,8 +29,8 @@ public class CustomPair {
             if (pairs.get(i) instanceof Text)
                 if (Objects.equals(variable, ((Text) pairs.get(i)).getNAME()))
                     return pairs.get(i);
-            if (pairs.get(i) instanceof TextField)
-                if (Objects.equals(variable, ((TextField) pairs.get(i)).getNAME()))
+            if (pairs.get(i) instanceof Input)
+                if (Objects.equals(variable, ((Input) pairs.get(i)).getNAME()))
                     return pairs.get(i);
              if(pairs.get(i) instanceof DropDown)
                  if (Objects.equals(variable,((DropDown) pairs.get(i)).getName()))

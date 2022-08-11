@@ -168,15 +168,15 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitRadioDefault(DSLParser.RadioDefaultContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#textField}.
+	 * Enter a parse tree produced by {@link DSLParser#input}.
 	 * @param ctx the parse tree
 	 */
-	void enterTextField(DSLParser.TextFieldContext ctx);
+	void enterInput(DSLParser.InputContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#textField}.
+	 * Exit a parse tree produced by {@link DSLParser#input}.
 	 * @param ctx the parse tree
 	 */
-	void exitTextField(DSLParser.TextFieldContext ctx);
+	void exitInput(DSLParser.InputContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#controllerTokens}.
 	 * @param ctx the parse tree
@@ -198,15 +198,15 @@ public interface DSLParserListener extends ParseTreeListener {
 	 */
 	void exitSend(DSLParser.SendContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link DSLParser#textFieldAttribute}.
+	 * Enter a parse tree produced by {@link DSLParser#inputAttribute}.
 	 * @param ctx the parse tree
 	 */
-	void enterTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx);
+	void enterInputAttribute(DSLParser.InputAttributeContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link DSLParser#textFieldAttribute}.
+	 * Exit a parse tree produced by {@link DSLParser#inputAttribute}.
 	 * @param ctx the parse tree
 	 */
-	void exitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx);
+	void exitInputAttribute(DSLParser.InputAttributeContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link DSLParser#loop}.
 	 * @param ctx the parse tree

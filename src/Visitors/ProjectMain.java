@@ -18,9 +18,8 @@ import static org.antlr.v4.runtime.CharStreams.fromFileName;
 
 public class ProjectMain {
     public static ArrayList<Object> symbolTablePage = new ArrayList<>();
-    public static Node symbolTableController;
     public static String PAGE_NAME;
-    public  static int VARIABLE_COUNTER = 1;
+    public static int VARIABLE_COUNTER = 1;
     public static File ERROR_FILE;
     public static FileOutputStream FILEOUTPUTSTREAM;
     public static boolean ERROR = false;
@@ -56,17 +55,21 @@ public class ProjectMain {
             }
             BaseGenerartor controllerGenerator = new BaseGenerartor();
             BaseGenerartor pageGenerator = new BaseGenerartor();
-            File controllerFile = new File("D:\\xampp\\htdocs\\"+controllerDoc.getController().getFileNameId1()+".php");
-            try {
-                Files.writeString(controllerFile.toPath(),controllerGenerator.generateController(controllerDoc));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(controllerDoc != null) {
+                File controllerFile = new File("D:\\xampp\\htdocs\\" + controllerDoc.getController().getFileNameId1() + ".php");
+                try {
+                    Files.writeString(controllerFile.toPath(), controllerGenerator.generateController(controllerDoc));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
-            File pageFile = new File("D:\\xampp\\htdocs\\"+pageDoc.getPageStructure().getPAGE_NAME()+".php");
-            try {
-                Files.writeString(pageFile.toPath(),pageGenerator.generatePage(pageDoc));
-            } catch (IOException e) {
-                e.printStackTrace();
+            if(pageDoc != null) {
+                File pageFile = new File("D:\\xampp\\htdocs\\" + pageDoc.getPageStructure().getPAGE_NAME() + ".php");
+                try {
+                    Files.writeString(pageFile.toPath(), pageGenerator.generatePage(pageDoc));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
     }
 
@@ -88,24 +91,33 @@ public class ProjectMain {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        DSLLexer dslLexer = new DSLLexer(cs);
-        dslLexer.removeErrorListeners();
-        dslLexer.addErrorListener(ThrowingErrorListener.INSTANCE);
-        CommonTokenStream token = new CommonTokenStream(dslLexer);
-        DSLParser parser = new DSLParser(token);
-        parser.removeErrorListeners();
-        parser.addErrorListener(ThrowingErrorListener.INSTANCE);
-        DSLDocument doc;
-        ParseTree tree = parser.dslDocument();
-        doc = (DSLDocument) new BaseVisitor().visit(tree);
-        System.out.println(doc);
-        if(isPage) {
-            storeFile(doc.getPageStructure().getPAGE_NAME(), true);
-        }else {
-            storeFile(doc.getController().getFileNameId1(),false);
-        }
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(source));
+            if(bufferedReader.readLine() == null)
+                return null;
+            DSLLexer dslLexer = new DSLLexer(cs);
+            dslLexer.removeErrorListeners();
+            dslLexer.addErrorListener(ThrowingErrorListener.INSTANCE);
+            CommonTokenStream token = new CommonTokenStream(dslLexer);
+            DSLParser parser = new DSLParser(token);
+            parser.removeErrorListeners();
+            parser.addErrorListener(ThrowingErrorListener.INSTANCE);
+            DSLDocument doc;
+            ParseTree tree = parser.dslDocument();
+            doc = (DSLDocument) new BaseVisitor().visit(tree);
+            System.out.println(doc);
+            if(isPage) {
+                storeFile(doc.getPageStructure().getPAGE_NAME(), true);
+            }else {
+                if(doc.getController()!=null)
+                    storeFile(doc.getController().getFileNameId1(),false);
+            }
 
-        return doc;
+            return doc;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public static void generateSymbolTable(String pageName){

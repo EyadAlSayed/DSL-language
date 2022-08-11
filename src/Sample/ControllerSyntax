@@ -1,4 +1,0 @@
-Controller c1 controls p1
-{
-  print cars;
-}

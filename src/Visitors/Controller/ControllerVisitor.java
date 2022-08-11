@@ -27,9 +27,12 @@ public class ControllerVisitor extends DSLParserBaseVisitor {
             controller.setControllerMethod(ctx.CONTROLLER_METHOD().getText());
 
         if (ctx.FILE_NAME_ID(1) != null) {
-            if (!Objects.equals(ProjectMain.PAGE_NAME, ctx.FILE_NAME_ID(1).getText())){
+            if(ProjectMain.PAGE_NAME != null) {
+                if (!Objects.equals(ProjectMain.PAGE_NAME, ctx.FILE_NAME_ID(1).getText())) {
+                    ProjectMain.generateSymbolTable(ctx.FILE_NAME_ID(1).getText());
+                }
+            }else
                 ProjectMain.generateSymbolTable(ctx.FILE_NAME_ID(1).getText());
-            }
             controller.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
         }
         if (ctx.OPEN_CURLY_BRACKT_ID() != null)

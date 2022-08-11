@@ -1,7 +1,7 @@
 package Visitors.Controller;
 
 import Models.ControllerModels.Action.Assign;
-import Models.PageModels.TextField;
+import Models.PageModels.Input;
 import Visitors.CustomPair;
 import Visitors.Node;
 import Visitors.ProjectMain;
@@ -40,7 +40,7 @@ public class AssignVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(0) != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
             if(object != null) {
-                if (object instanceof TextField)
+                if (object instanceof Input)
                 assign.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
                 else {
                     ProjectMain.ERROR = true;
@@ -62,7 +62,7 @@ public class AssignVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(1) != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(1).getText(), ProjectMain.symbolTablePage);
             if(object!= null) {
-                if (object instanceof TextField)
+                if (object instanceof Input)
                     assign.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
                 else {
                     ProjectMain.ERROR = true;

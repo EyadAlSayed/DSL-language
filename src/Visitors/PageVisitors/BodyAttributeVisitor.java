@@ -1,7 +1,6 @@
 package Visitors.PageVisitors;
 
 import Models.PageModels.BodyAttribute;
-import Models.PageModels.Button;
 import Visitors.CustomPair;
 import Visitors.ProjectMain;
 import gen.DSLParser;
@@ -17,10 +16,9 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
 
     HeaderVisitor headerVisitor;
     TextVisitor textVisitor;
-    TextFieldVisitor textFieldVisitor;
+    InputVisitor inputVisitor;
     ButtonVisitor buttonVisitor;
     RadioGroupVisitor radioGroupVisitor;
-    FormVisitor formVisitor;
     CheckboxVisitor checkboxVisitor;
     ImageVisitor imageVisitor;
     DropDownVisitor dropDownVisitor;
@@ -49,15 +47,15 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
             }
         }
 
-        if (ctx.textField() != null) {
-            if (CustomPair.containVariable(ctx.textField().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage) == null) {
-                textFieldVisitor = new TextFieldVisitor();
-                bodyAttribute.setTextField(textFieldVisitor.visitTextField(ctx.textField()));
-                ProjectMain.symbolTablePage.add(bodyAttribute.getTextField());
+        if (ctx.input() != null) {
+            if (CustomPair.containVariable(ctx.input().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage) == null) {
+                inputVisitor = new InputVisitor();
+                bodyAttribute.setInput(inputVisitor.visitInput(ctx.input()));
+                ProjectMain.symbolTablePage.add(bodyAttribute.getInput());
             } else{
                 ProjectMain.ERROR = true;
                 try{
-                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.textField().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE " + ctx.input().FILE_NAME_ID().getText() + " ALREADY EXISTS!\n", StandardOpenOption.APPEND);
                 } catch (IOException e){
                     e.printStackTrace();
                 }
@@ -93,39 +91,21 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                 }
             }
         }
-        if(ctx.buttonSend() != null)
-        {
-            Object button =  CustomPair.containVariable(ctx.buttonSend().FILE_NAME_ID().getText(),ProjectMain.symbolTablePage);
-            if(button instanceof Button)
-                ((Button) button).setSendValue(ctx.buttonSend().TEXT().getText());
 
-            else {
+        if(ctx.checkbox() != null){
+            if(CustomPair.containVariable(ctx.checkbox().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage) == null) {
+                checkboxVisitor = new CheckboxVisitor();
+                bodyAttribute.setCheckbox(checkboxVisitor.visitCheckbox(ctx.checkbox()));
+                ProjectMain.symbolTablePage.add(bodyAttribute.getCheckbox());
+            }else{
                 ProjectMain.ERROR = true;
                 try {
-                    Files.writeString(ProjectMain.ERROR_FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.buttonSend().FILE_NAME_ID().getText()+" IS EITHER NULL OR IS NOT BUTTON\n", StandardOpenOption.APPEND);
+                    Files.writeString(ProjectMain.ERROR_FILE.toPath(),"SEMANTIC ERROR: VARIABLE "+ctx.checkbox().FILE_NAME_ID().getText()+" ALREADY EXIST!\n", StandardOpenOption.APPEND);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
 
-        }
-        if(ctx.checkbox() != null){
-            checkboxVisitor = new CheckboxVisitor();
-            bodyAttribute.setCheckbox(checkboxVisitor.visitCheckbox(ctx.checkbox()));
-            ProjectMain.symbolTablePage.add(bodyAttribute.getCheckbox());
-            for (int i = 0; i < bodyAttribute.getCheckbox().getCheckboxAttributes().size(); i++) {
-                if(CustomPair.containVariable(bodyAttribute.getCheckbox().getCheckboxAttributes().get(i), ProjectMain.symbolTablePage)== null){
-                    ProjectMain.symbolTablePage.add(bodyAttribute.getCheckbox().getCheckboxAttributes().get(i));
-                    System.out.println(ProjectMain.symbolTablePage);
-                } else{
-                    ProjectMain.ERROR = true;
-                    try{
-                        Files.writeString(ProjectMain.ERROR_FILE.toPath(), "SEMANTIC ERROR: VARIABLE "+bodyAttribute.getCheckbox().getCheckboxAttributes().get(i)+" ALREADY EXISTS!\n", StandardOpenOption.APPEND);
-                    } catch (IOException e){
-                        e.printStackTrace();
-                    }
-                }
-            }
 
         }
 
@@ -147,10 +127,6 @@ public class BodyAttributeVisitor extends DSLParserBaseVisitor {
                     e.printStackTrace();
                 }
             }
-        }
-        if (ctx.form() != null) {
-            formVisitor = new FormVisitor();
-            bodyAttribute.setForm(formVisitor.visitForm(ctx.form()));
         }
 
         return bodyAttribute;

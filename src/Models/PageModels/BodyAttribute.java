@@ -9,10 +9,9 @@ public class BodyAttribute extends Printer {
 
     Header header;
     Text text;
-    TextField textField;
+    Input input;
     RadioGroup radioGroup;
     Button button;
-    Form form;
     Checkbox checkbox;
     ImageModel image;
     DropDown dropDown;
@@ -57,12 +56,12 @@ public class BodyAttribute extends Printer {
         this.text = text;
     }
 
-    public TextField getTextField() {
-        return textField;
+    public Input getInput() {
+        return input;
     }
 
-    public void setTextField(TextField textField) {
-        this.textField = textField;
+    public void setInput(Input input) {
+        this.input = input;
     }
 
     public RadioGroup getRadioGroup() {
@@ -81,14 +80,6 @@ public class BodyAttribute extends Printer {
         this.button = button;
     }
 
-    public Form getForm() {
-        return form;
-    }
-
-    public void setForm(Form form) {
-        this.form = form;
-    }
-
     @Override
     public String toString() {
         StringBuilder stringBuilder = getPrettyString("BodyAttribute", toMap());
@@ -103,14 +94,12 @@ public class BodyAttribute extends Printer {
             map.put("Header",header.toMap());
         if(text != null)
             map.put("Text",text.toMap());
-        if (textField != null)
-            map.put("TextField",textField.toMap());
+        if (input != null)
+            map.put("Input", input.toMap());
         if (radioGroup != null)
             map.put("RadioGroup",radioGroup.toMap());
         if (button != null)
             map.put("Button",button.toMap());
-        if (form != null)
-            map.put("Form",form.toMap());
         if(checkbox != null)
             map.put("CheckBox",checkbox.toMap());
         if(image != null)

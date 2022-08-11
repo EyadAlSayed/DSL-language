@@ -16,6 +16,11 @@ public class MathEquationGenerator {
         textValueGenerator = new TextValueGenerator();
 
 
+        if(mathEquation.getFileNameId()!= null){
+            stringBuilder.append("$").append(mathEquation.getFileNameId());
+        }
+        stringBuilder.append(" =");
+
         if (mathEquation.getSimpleMathEquation() != null)
             generateSimpleMathEquation(mathEquation.getSimpleMathEquation());
 
@@ -23,25 +28,26 @@ public class MathEquationGenerator {
         for (int i = 0; i < mathEquation.getComplexMathEquationList().size(); i++) {
             generateComplexMathEquation(mathEquation.getComplexMathEquationList().get(i));
         }
-
+        stringBuilder.append(";");
         return stringBuilder.toString();
     }
 
     public void generateSimpleMathEquation(SimpleMathEquation simpleMathEquation) {
         if(simpleMathEquation.getFileNameId1() != null)
-            stringBuilder.append(simpleMathEquation.getFileNameId1());
+            stringBuilder.append("$").append(simpleMathEquation.getFileNameId1());
 
-        if(simpleMathEquation.getTextValue1() != null)
-            stringBuilder.append(textValueGenerator.generateTextValue(simpleMathEquation.getTextValue1()));
+        if(simpleMathEquation.getNumber1() != null)
+            stringBuilder.append(simpleMathEquation.getNumber1());
 
         if(simpleMathEquation.getMathOperation() != null)
             generateMathOperation(simpleMathEquation.getMathOperation());
 
         if(simpleMathEquation.getFileNameId2() != null)
-            stringBuilder.append(simpleMathEquation.getFileNameId2());
+            stringBuilder.append("$").append(simpleMathEquation.getFileNameId2());
 
-        if(simpleMathEquation.getTextValue2() != null)
-            stringBuilder.append(textValueGenerator.generateTextValue(simpleMathEquation.getTextValue2()));
+        if(simpleMathEquation.getNumber2() != null)
+            stringBuilder.append(simpleMathEquation.getNumber2());
+
 
     }
 
@@ -51,10 +57,10 @@ public class MathEquationGenerator {
             generateMathOperation(complexMathEquation.getMathOperation());
 
         if(complexMathEquation.getFileNameId() != null)
-            stringBuilder.append(complexMathEquation.getFileNameId());
+            stringBuilder.append("$").append(complexMathEquation.getFileNameId());
 
-        if(complexMathEquation.getTextValue() != null)
-            stringBuilder.append(textValueGenerator.generateTextValue(complexMathEquation.getTextValue()));
+        if(complexMathEquation.getNumber() != null)
+            stringBuilder.append(complexMathEquation.getNumber());
 
 
     }

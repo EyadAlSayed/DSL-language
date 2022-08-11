@@ -7,7 +7,7 @@ import java.util.List;
 public class BodyAttributeGenerator {
 
     TextGenerator textGenerator;
-    TextFieldGenerator textFieldGenerator;
+    InputGenerator inputGenerator;
     CheckboxGenerator checkboxGenerator;
     HeaderGenerator headerGenerator;
     RadioGroupGenerator radioGroupGenerator;
@@ -34,9 +34,9 @@ public class BodyAttributeGenerator {
             if (attribute.getText() != null) {
                 textGenerator = new TextGenerator();
                 stringBuilder.append(textGenerator.generateText(attribute.getText()));
-            } else if (attribute.getTextField() != null) {
-                textFieldGenerator = new TextFieldGenerator();
-                stringBuilder.append(textFieldGenerator.generateTextField(attribute.getTextField()));
+            } else if (attribute.getInput() != null) {
+                inputGenerator = new InputGenerator();
+                stringBuilder.append(inputGenerator.generateInput(attribute.getInput()));
             } else if (attribute.getCheckbox() != null) {
                 checkboxGenerator = new CheckboxGenerator();
                 stringBuilder.append(checkboxGenerator.generateCheckbox(attribute.getCheckbox()));

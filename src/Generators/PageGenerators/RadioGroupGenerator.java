@@ -21,7 +21,7 @@ public class RadioGroupGenerator {
             str.append("<input type=\"radio\" ");
             str.append("name=\"").append(radioGroup.getVariableName()).append("\" ");
             str.append("value=\"").append(r).append("\" ");
-            if (r.compareTo(radioGroup.getDefaultValue()) == 0) {
+            if (radioGroup.getDefaultValue()!=null && r.compareTo(radioGroup.getDefaultValue()) == 0) {
                 str.append("checked ");
             }
             str.append("/>");

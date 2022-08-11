@@ -31,7 +31,7 @@ public class BinaryEqualConditionVisitor  extends DSLParserBaseVisitor {
         if(ctx.FILE_NAME_ID(0) != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
             if(object != null){
-                if(object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox||
+                if(object instanceof Text || object instanceof Input || object instanceof RadioGroup || object instanceof Checkbox||
                 object instanceof String || object instanceof DropDown){
                     binaryEqualCondition.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
                     firstVariableType = "TEXT";
@@ -67,7 +67,7 @@ public class BinaryEqualConditionVisitor  extends DSLParserBaseVisitor {
         if(ctx.FILE_NAME_ID(1) != null){
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(1).getText(), ProjectMain.symbolTablePage);
             if(object != null){
-                if((object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox
+                if((object instanceof Text || object instanceof Input || object instanceof RadioGroup || object instanceof Checkbox
                 || object instanceof String || object instanceof DropDown)
                         && firstVariableType.equals("STRING")){
                     binaryEqualCondition.setFileNameId2(ctx.FILE_NAME_ID(1).getText());

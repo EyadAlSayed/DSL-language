@@ -5,7 +5,7 @@ import Models.Printer;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class TextFieldAttribute extends Printer {
+public class InputAttribute extends Printer {
 
     String TEXT;
     String EMAIL;

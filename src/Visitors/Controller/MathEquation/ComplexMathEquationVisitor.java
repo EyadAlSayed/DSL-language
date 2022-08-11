@@ -31,7 +31,7 @@ public class ComplexMathEquationVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID() != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
             if (object != null) {
-                if (object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox
+                if (object instanceof Text || object instanceof Input || object instanceof RadioGroup || object instanceof Checkbox
                 || object instanceof String || object instanceof DropDown) {
                     complexMathEquation.setFileNameId(ctx.FILE_NAME_ID().getText());
                 } else {
@@ -56,8 +56,8 @@ public class ComplexMathEquationVisitor extends DSLParserBaseVisitor {
                 }
             }
         }
-        if (ctx.textValue() != null)
-            complexMathEquation.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
+        if (ctx.TEXTNUM() != null)
+            complexMathEquation.setNumber(ctx.TEXTNUM().getText());
 
         return complexMathEquation;
     }

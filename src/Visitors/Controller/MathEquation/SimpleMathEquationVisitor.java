@@ -28,7 +28,7 @@ public class SimpleMathEquationVisitor extends DSLParserBaseVisitor {
         if (ctx.FILE_NAME_ID(0) != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(0).getText(), ProjectMain.symbolTablePage);
             if (object != null) {
-                if (object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox) {
+                if (object instanceof Text || object instanceof Input || object instanceof RadioGroup || object instanceof Checkbox) {
                     simpleMathEquation.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
                 } else {
                     ProjectMain.ERROR = true;
@@ -50,18 +50,22 @@ public class SimpleMathEquationVisitor extends DSLParserBaseVisitor {
                 } else {
                     simpleMathEquation.setFileNameId1(ctx.FILE_NAME_ID(0).getText());
                 }
-            }        }
-        if(ctx.textValue(0) != null)
-            simpleMathEquation.setTextValue1(textValueVisitor.visitTextValue(ctx.textValue(0)));
-
-        if(ctx.mathOperation() != null)
+            }
+        }
+        if (ctx.TEXTNUM(0) != null) {
+            if(ctx.FILE_NAME_ID(0) == null)
+            simpleMathEquation.setNumber1(ctx.TEXTNUM(0).getText());
+            else
+                simpleMathEquation.setNumber2(ctx.TEXTNUM(0).getText());
+        }
+        if (ctx.mathOperation() != null)
             simpleMathEquation.setMathOperation(mathOperationVisitor.visitMathOperation(ctx.mathOperation()));
 
         if (ctx.FILE_NAME_ID(1) != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID(1).getText(), ProjectMain.symbolTablePage);
             if (object != null) {
-                if (object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox
-                || object instanceof String || object instanceof DropDown) {
+                if (object instanceof Text || object instanceof Input || object instanceof RadioGroup || object instanceof Checkbox
+                        || object instanceof String || object instanceof DropDown) {
                     simpleMathEquation.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
                 } else {
                     ProjectMain.ERROR = true;
@@ -83,10 +87,11 @@ public class SimpleMathEquationVisitor extends DSLParserBaseVisitor {
                 } else {
                     simpleMathEquation.setFileNameId2(ctx.FILE_NAME_ID(1).getText());
                 }
-            }        }
-        if(ctx.textValue(1) != null)
-            simpleMathEquation.setTextValue2(textValueVisitor.visitTextValue(ctx.textValue(1)));
-
-        return  simpleMathEquation;
+            }
+        }
+        if (ctx.TEXTNUM(1) != null) {
+            simpleMathEquation.setNumber2(ctx.TEXTNUM(1).getText());
+        }
+        return simpleMathEquation;
     }
 }

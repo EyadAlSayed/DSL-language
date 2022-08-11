@@ -24,11 +24,12 @@ public class MathEquationVisitor extends DSLParserBaseVisitor {
         MathEquation mathEquation = new MathEquation();
         simpleMathEquationVisitor = new SimpleMathEquationVisitor();
         complexMathEquationVisitor = new ComplexMathEquationVisitor();
+        boolean addVariable = false;
 
         if (ctx.FILE_NAME_ID() != null) {
             Object object = CustomPair.containVariable(ctx.FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
             if (object != null) {
-                if (object instanceof Text || object instanceof TextField || object instanceof RadioGroup || object instanceof Checkbox
+                if (object instanceof Text || object instanceof Input || object instanceof RadioGroup || object instanceof Checkbox
                 || object instanceof String || object instanceof DropDown) {
                     mathEquation.setFileNameId(ctx.FILE_NAME_ID().getText());
                 } else {
@@ -42,7 +43,8 @@ public class MathEquationVisitor extends DSLParserBaseVisitor {
             } else {
                 String variableType = CustomPair.inScope(father, ctx.FILE_NAME_ID().getText(), "NUMBER");
                 if (variableType == null) {
-                   father.getVariables().add(new Pair<>(ctx.FILE_NAME_ID().getText(),"NUMBER"));
+                    mathEquation.setFileNameId(ctx.FILE_NAME_ID().getText());
+                    addVariable = true;
                 } else {
                     mathEquation.setFileNameId(ctx.FILE_NAME_ID().getText());
                 }
@@ -59,6 +61,9 @@ public class MathEquationVisitor extends DSLParserBaseVisitor {
             mathEquation.getComplexMathEquationList().add(complexMathEquationVisitor.visitComplexMathEquation(ctx.complexMathEquation(i),father));
         }
 
+        if(addVariable){
+            father.getVariables().add(new Pair<>(ctx.FILE_NAME_ID().getText(),"NUMBER"));
+        }
         if (ctx.END_STATMENT_ID() != null)
             mathEquation.setEndStatementId(ctx.END_STATMENT_ID().getText());
         return mathEquation;
