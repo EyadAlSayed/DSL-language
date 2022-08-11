@@ -208,13 +208,13 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTextField(DSLParser.TextFieldContext ctx) { }
+	@Override public void enterInput(DSLParser.InputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTextField(DSLParser.TextFieldContext ctx) { }
+	@Override public void exitInput(DSLParser.InputContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -244,13 +244,13 @@ public class DSLParserBaseListener implements DSLParserListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx) { }
+	@Override public void enterInputAttribute(DSLParser.InputAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx) { }
+	@Override public void exitInputAttribute(DSLParser.InputAttributeContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

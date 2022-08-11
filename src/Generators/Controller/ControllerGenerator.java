@@ -13,6 +13,7 @@ public class ControllerGenerator {
     LoopGenerator loopGenerator;
     PrintGenerator printGenerator;
     SendGenerator sendGenerator;
+    MathEquationGenerator mathEquationGenerator;
 
 
     public String generateController(Controller controller) {
@@ -55,6 +56,10 @@ public class ControllerGenerator {
             sendGenerator = new SendGenerator();
             return sendGenerator.sendGenerator(controllerTokens.getSend());
         }
+        if(controllerTokens.getMathEquation()!=null){
+            mathEquationGenerator = new MathEquationGenerator();
+            return mathEquationGenerator.generateMathEquation(controllerTokens.getMathEquation());
+        }
         return "\n";
 
     }
@@ -67,21 +72,20 @@ public class ControllerGenerator {
                         .append("= $_POST[\"").append(((Button) object).getVariableName()).append("\"];\n");
             }
             if(object instanceof Checkbox){
-                for (int i = 0; i < ((Checkbox) object).getCheckboxAttributes().size(); i++) {
-                    stringBuilder.append("if(isset($_POST[\"").append(((Checkbox) object).getCheckboxAttributes().get(i)).append("\"]))\n");
-                    stringBuilder.append("$").append(((Checkbox) object).getCheckboxAttributes().get(i))
-                            .append("= $_POST[\"").append(((Checkbox) object).getCheckboxAttributes().get(i)).append("\"];\n");
-                    stringBuilder.append("else\n$").append(((Checkbox) object).getCheckboxAttributes().get(i)).append("=\"off\";");
-                }
+                    stringBuilder.append("if(isset($_POST[\"").append(((Checkbox) object).getVariableName()).append("\"]))\n");
+                    stringBuilder.append("$").append(((Checkbox) object).getVariableName())
+                            .append("= $_POST[\"").append(((Checkbox) object).getVariableName()).append("\"];\n");
+                    stringBuilder.append("else\n$").append(((Checkbox) object).getVariableName()).append("=\"off\";");
+
 
             }
             if(object instanceof RadioGroup){
                 stringBuilder.append("$").append(((RadioGroup) object).getVariableName())
                         .append("= $_POST[\"").append(((RadioGroup) object).getVariableName()).append("\"];\n");
             }
-            if(object instanceof TextField){
-                stringBuilder.append("$").append(((TextField) object).getNAME())
-                        .append("= $_POST[\"").append(((TextField) object).getNAME()).append("\"];\n");
+            if(object instanceof Input){
+                stringBuilder.append("$").append(((Input) object).getNAME())
+                        .append("= $_POST[\"").append(((Input) object).getNAME()).append("\"];\n");
             }
             if(object instanceof DropDown){
                 stringBuilder.append("$").append(((DropDown) object).getName())

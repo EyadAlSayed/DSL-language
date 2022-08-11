@@ -1,24 +1,31 @@
 package Models.ControllerModels.Action;
 
 import Models.Printer;
-import Models.TextValue;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class SimpleMathEquation extends Printer {
-    TextValue textValue1;
+    String number1;
     String fileNameId1;
     MathOperation mathOperation;
-    TextValue textValue2;
+    String number2;
     String fileNameId2;
 
-    public TextValue getTextValue1() {
-        return textValue1;
+    public String getNumber1() {
+        return number1;
     }
 
-    public void setTextValue1(TextValue textValue1) {
-        this.textValue1 = textValue1;
+    public void setNumber1(String number1) {
+        this.number1 = number1;
+    }
+
+    public String getNumber2() {
+        return number2;
+    }
+
+    public void setNumber2(String number2) {
+        this.number2 = number2;
     }
 
     public String getFileNameId1() {
@@ -37,13 +44,7 @@ public class SimpleMathEquation extends Printer {
         this.mathOperation = mathOperation;
     }
 
-    public TextValue getTextValue2() {
-        return textValue2;
-    }
 
-    public void setTextValue2(TextValue textValue2) {
-        this.textValue2 = textValue2;
-    }
 
     public String getFileNameId2() {
         return fileNameId2;
@@ -65,8 +66,8 @@ public class SimpleMathEquation extends Printer {
 
         map.put("label","SimpleMathEquation");
 
-        if (textValue1 != null)
-            map.put("textValue 1",textValue1.toMap());
+        if (number1 != null)
+            map.put("number 1",number1);
 
         if(fileNameId1 != null)
             map.put("fileNameId 1",fileNameId1);
@@ -75,8 +76,8 @@ public class SimpleMathEquation extends Printer {
         if(mathOperation != null)
             map.put("mathOperation ",mathOperation.toMap());
 
-        if (textValue2 != null)
-            map.put("textValue 2",textValue2.toMap());
+        if (number2 != null)
+            map.put("number 2",number2);
 
         if(fileNameId2 != null)
             map.put("fileNameId 2",fileNameId2);

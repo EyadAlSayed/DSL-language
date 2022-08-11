@@ -107,11 +107,11 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitRadioDefault(DSLParser.RadioDefaultContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#textField}.
+	 * Visit a parse tree produced by {@link DSLParser#input}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTextField(DSLParser.TextFieldContext ctx);
+	T visitInput(DSLParser.InputContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#controllerTokens}.
 	 * @param ctx the parse tree
@@ -125,11 +125,11 @@ public interface DSLParserVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSend(DSLParser.SendContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link DSLParser#textFieldAttribute}.
+	 * Visit a parse tree produced by {@link DSLParser#inputAttribute}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitTextFieldAttribute(DSLParser.TextFieldAttributeContext ctx);
+	T visitInputAttribute(DSLParser.InputAttributeContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link DSLParser#loop}.
 	 * @param ctx the parse tree

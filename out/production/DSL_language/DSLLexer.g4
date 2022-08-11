@@ -2,10 +2,9 @@ lexer grammar  DSLLexer;
 
 
 
-//EYAD
 
 CONTROLLER_DEF:'Controller';
-CONTROLLER_METHOD:'controls';
+CONTROLLER_METHOD:'controls' | 'Controls';
 
 OPEN_CURLY_BRACKT_ID:'{';
 CLOSE_CURLY_BRACKT_ID:'}';
@@ -34,7 +33,7 @@ PASSWORD_AS_PARAMETER: 'Password';
 
 DATE_AS_PARAMETER: 'Date';
 
-TEXT_FIELD:'TextField';
+INPUT:'Input';
 
 FOR_ID:'for';
 IF_ID:'if';
@@ -42,9 +41,9 @@ AND_OP_ID : 'AND';
 OR_OP_ID : 'OR';
 EQUAL_OP_ID : 'EQUAL';
 PRINT_ACTION:'print';
-RADIO_GROUP_ID : 'Radiogroup';
-DROPDOWN:'DropDown';
-CHECKBOX: 'Checkbox';
+RADIO_GROUP_ID : 'Radiogroup'|'RadioGroup';
+DROPDOWN:'DropDown'|'Dropdown';
+CHECKBOX: 'Checkbox' | 'CheckBox';
 CONTROLLED_BY: 'controlled' WHITE_SPACE+ 'by';
 BUTTON_ID : 'Button';
 FORM_ID : 'Form';
@@ -76,11 +75,9 @@ RANG:':';
 
 VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 
-//VAR_ID: [a-zA-Z]+ ([1-9]+ | [a-zA-Z]+ | '_')*;
 
-FILE_NAME_ID: [a-z]+ [1-9]* | [a-z]+  [1-9]+ ;
+FILE_NAME_ID: [a-zA-Z]+ [1-9]* | [a-zA-Z]+  [1-9]+ ;
 
 TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [0-9]+ | '/' | '\\' | DOT | '_' | '-' | ':' )+ | WHITE_SPACE)* DOUBLE_QUOTE;
 TEXTNUM: '0' | [1-9][0-9]* | '-'[1-9][0-9]*;
-//TEXTCHAR: ([a-zA-Z] | [1-9])+;
 

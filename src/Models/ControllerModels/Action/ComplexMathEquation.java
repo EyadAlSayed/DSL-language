@@ -1,14 +1,13 @@
 package Models.ControllerModels.Action;
 
 import Models.Printer;
-import Models.TextValue;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class ComplexMathEquation extends Printer {
     MathOperation mathOperation1;
-    TextValue textValue;
+    String number;
     String fileNameId;
 
 
@@ -20,13 +19,15 @@ public class ComplexMathEquation extends Printer {
         this.mathOperation1 = mathOperation1;
     }
 
-    public TextValue getTextValue() {
-        return textValue;
+    public String getNumber() {
+        return number;
     }
 
-    public void setTextValue(TextValue textValue1) {
-        this.textValue = textValue1;
+    public void setNumber(String number) {
+        this.number = number;
     }
+
+
 
     public String getFileNameId() {
         return fileNameId;
@@ -55,11 +56,11 @@ public class ComplexMathEquation extends Printer {
         if(mathOperation1 != null)
             map.put("mathOperation 1",mathOperation1.toMap());
 
-        if (textValue != null)
-            map.put("textValue 1",textValue.toMap());
+        if (number != null)
+            map.put("number",number);
 
         if(fileNameId != null)
-            map.put("fileNameId 1",fileNameId);
+            map.put("variable",fileNameId);
 
 
 

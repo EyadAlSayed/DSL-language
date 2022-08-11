@@ -11,7 +11,6 @@ public class CheckboxGenerator {
     String divName = BodyAttributeAutoNameGenerator.getAutoName();
 
     public StringBuilder generateCheckbox(Checkbox checkbox) {
-        for (int i = 0; i < checkbox.getCheckboxAttributes().size(); i++) {
 
             if(checkbox.getMARGINS() != null){
                 hasMargins = true;
@@ -19,10 +18,10 @@ public class CheckboxGenerator {
             }
             stringBuilder.append("<label> ");
             stringBuilder.append("<input type=").append("\"checkbox\" ");
-            stringBuilder.append("name=\"").append(checkbox.getCheckboxAttributes().get(i)).append("\">");
+            stringBuilder.append("name=\"").append(checkbox.getVariableName()).append("\">");
 
-            stringBuilder.append(checkbox.getCheckboxAttributes().get(i)).append("</label>\n");
-        }
+            stringBuilder.append(checkbox.getText().replace("\"","")).append("</label>\n");
+
         if(hasMargins){
             stringBuilder.append("</div>\n");
             addToMarginsList(checkbox);

@@ -4,7 +4,7 @@ import Models.ControllerModels.Loop;
 import Models.PageModels.Checkbox;
 import Models.PageModels.DropDown;
 import Models.PageModels.RadioGroup;
-import Models.PageModels.TextField;
+import Models.PageModels.Input;
 import Visitors.CustomPair;
 import Visitors.Node;
 import Visitors.ProjectMain;
@@ -36,7 +36,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
         if (ctx.loopFirstVariable().loopVariable().FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.loopFirstVariable().loopVariable().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
             if(text != null) {
-                if (text instanceof TextField || text instanceof RadioGroup || text instanceof Checkbox || text instanceof String
+                if (text instanceof Input || text instanceof RadioGroup || text instanceof Checkbox || text instanceof String
                 || text instanceof DropDown)
                     loop.setFileNameId1(ctx.loopFirstVariable().loopVariable().FILE_NAME_ID().getText());
                 else {
@@ -70,7 +70,7 @@ public class LoopVisitor extends DSLParserBaseVisitor {
         if (ctx.loopSecondVariable().loopVariable().FILE_NAME_ID() != null) {
             Object text = CustomPair.containVariable(ctx.loopSecondVariable().loopVariable().FILE_NAME_ID().getText(), ProjectMain.symbolTablePage);
             if(text!= null){
-            if( text instanceof TextField|| text instanceof RadioGroup || text instanceof Checkbox || text instanceof String
+            if( text instanceof Input || text instanceof RadioGroup || text instanceof Checkbox || text instanceof String
             || text instanceof DropDown)
                 loop.setFileNameId2(ctx.loopSecondVariable().loopVariable().FILE_NAME_ID().getText());
             else{

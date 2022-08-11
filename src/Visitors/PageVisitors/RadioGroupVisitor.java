@@ -22,10 +22,10 @@ public class RadioGroupVisitor extends DSLParserBaseVisitor {
                 radioGroup.getRadioButtonVariables().add(ctx.TEXTNUM().get(i).getText());
             }
         }
-        if (ctx.radioDefault().FILE_NAME_ID()!= null)
+        if (ctx.radioDefault()!=null && ctx.radioDefault().FILE_NAME_ID()!= null)
         {
             radioGroup.setDefaultValue(ctx.radioDefault().FILE_NAME_ID().getText());
-        }else if(ctx.radioDefault().TEXTNUM() != null)
+        }else if(ctx.radioDefault()!=null && ctx.radioDefault().TEXTNUM() != null)
             radioGroup.setDefaultValue(ctx.radioDefault().TEXTNUM().getText());
         if (ctx.marginList().TEXTNUM(0) != null) {
             int[] MARGINS = new int[4];
