@@ -56,6 +56,10 @@ public class EqualConditionVisitor extends DSLParserBaseVisitor {
             equalCondition.setEqualOpId(ctx.EQUAL_OP_ID().getText());
         }
 
+        if(ctx.NOT_EQUAL_OP_ID() != null){
+            equalCondition.setNotEqualOpId(ctx.NOT_EQUAL_OP_ID().getText());
+        }
+
         if(ctx.textValue() != null){
             equalCondition.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
         }

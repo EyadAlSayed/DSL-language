@@ -46,8 +46,8 @@ public class ProjectMain {
             e.printStackTrace();
         }
 
-            DSLDocument pageDoc = generateCode(true,null);
-            DSLDocument controllerDoc = generateCode(false,null);
+            DSLDocument pageDoc = generateCode(true,null,true);
+            DSLDocument controllerDoc = generateCode(false,null,true);
 
             if (ERROR) {
                 System.out.println("An error has acquired check error file");
@@ -73,7 +73,7 @@ public class ProjectMain {
             }
     }
 
-    public static DSLDocument generateCode(boolean isPage , String fileName){
+    public static DSLDocument generateCode(boolean isPage , String fileName,boolean storeFile){
 
         String source;
 
@@ -106,9 +106,9 @@ public class ProjectMain {
             ParseTree tree = parser.dslDocument();
             doc = (DSLDocument) new BaseVisitor().visit(tree);
             System.out.println(doc);
-            if(isPage) {
+            if(isPage && storeFile) {
                 storeFile(doc.getPageStructure().getPAGE_NAME(), true);
-            }else {
+            }else if(!isPage && storeFile) {
                 if(doc.getController()!=null)
                     storeFile(doc.getController().getFileNameId1(),false);
             }
@@ -121,8 +121,9 @@ public class ProjectMain {
     }
 
     public static void generateSymbolTable(String pageName){
+        symbolTablePage.clear();
         String source = htdocsPath + "\\" + pageName + ".txt";
-        generateCode(true,source);
+        generateCode(true,source,false);
 
     }
 

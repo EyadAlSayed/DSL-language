@@ -1,0 +1,10 @@
+Controller loginPageController controls loginpage{
+
+if(username EQUAL "salem" AND password EQUAL "123")
+{
+ send("SignUpSuccessPage");
+}
+if(username NOTEQUAL "salem" AND password NOTEQUAL "123"){
+send("SignUpFailedPage");
+}
+}

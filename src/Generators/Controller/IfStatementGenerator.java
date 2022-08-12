@@ -42,7 +42,6 @@ public class IfStatementGenerator {
 
 
     public void conditionGenerate(Condition condition) {
-       /// System.out.println(condition.getfileNameId());
         if (condition.getfileNameId() != null)
             stringBuilder.append(" $").append(condition.getfileNameId());
 
@@ -66,6 +65,7 @@ public class IfStatementGenerator {
 
         else if (logicalOperation.getEqualId() != null)
             stringBuilder.append(" ==");
+
 
         else if (logicalOperation.getOrId() != null)
             stringBuilder.append(" ||");

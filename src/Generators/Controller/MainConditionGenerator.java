@@ -36,6 +36,8 @@ public class MainConditionGenerator {
 
         if (binaryEqualCondition.getEqualOpId() != null)
             stringBuilder.append("==");
+        if(binaryEqualCondition.getNotEqualOpId() != null)
+            stringBuilder.append("!=");
 
         if (binaryEqualCondition.getTextValue() != null)
             stringBuilder.append(textValueGenerator.generateTextValue(binaryEqualCondition.getTextValue()));
@@ -51,7 +53,8 @@ public class MainConditionGenerator {
         if (equalCondition.getEqualOpId() != null) {
             stringBuilder.append("==");
         }
-
+        if(equalCondition.getNotEqualOpId() != null)
+          stringBuilder.append("!=");
         if (equalCondition.getTextValue() != null) {
             stringBuilder.append(textValueGenerator.generateTextValue(equalCondition.getTextValue()));
         }
