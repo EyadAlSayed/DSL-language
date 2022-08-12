@@ -61,6 +61,9 @@ public class BinaryEqualConditionVisitor  extends DSLParserBaseVisitor {
         if(ctx.EQUAL_OP_ID() != null)
             binaryEqualCondition.setEqualOpId(ctx.EQUAL_OP_ID().getText());
 
+        if (ctx.NOT_EQUAL_OP_ID()!= null)
+            binaryEqualCondition.setNotEqualOpId(ctx.NOT_EQUAL_OP_ID().getText());
+
         if(ctx.textValue() != null)
             binaryEqualCondition.setTextValue(textValueVisitor.visitTextValue(ctx.textValue()));
 

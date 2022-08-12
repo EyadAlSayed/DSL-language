@@ -1,18 +1,9 @@
-Page formPage controlled by formpagecontroller
-{
-    Title("form Page")
-    Image("sign-up.jpg",[20,0,0,550])
-    Text(firstNameText,"First name",[10,0,0,600])
-    Input(firstName,"first name",Text,[0,0,0,600])
-    Text(lastNameText,"Last name",[10,0,0,600])
-    Input(lastName,"last name",Text,[5,0,0,600])
-    Text(emailText,"Email",[10,0,0,600])
-    Input(email,"Email",Email,[5,0,0,600])
-    Text(genderText,"Gender",[10,0,0,600])
-    Radiogroup(gender,[male,female],male,[5,0,0,600])
-    Text(bornDateText,"Date of birth",[10,0,0,600])
-    Input(bornDate,"Date",Date,[5,0,0,600])
-    Text(confirmationText,"Confirmation check",[10,0,0,600])
-    Checkbox(confirmationCheck,"confirm",[5,0,0,600])
-    Button(submitButton,"Sign up",[10,0,0,600])
+Page loginpage controlled by loginPageController{
+  Title("Login in")
+  Image("login.png",[20,0,0,500])
+  Text(usernameText,"Username" , [10,0,0,600])
+  Input(username,"username",Text,[5,0,0,600])
+  Text(passwordText,"Password" , [10,0,0,600])
+  Input(password,"password",Password,[5,0,0,600])
+  Button(submit,"Login",[10,0,0,600])
 }

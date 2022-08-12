@@ -39,7 +39,9 @@ FOR_ID:'for';
 IF_ID:'if';
 AND_OP_ID : 'AND';
 OR_OP_ID : 'OR';
+NOT_EQUAL_OP_ID : 'NOTEQUAL';
 EQUAL_OP_ID : 'EQUAL';
+
 PRINT_ACTION:'print';
 RADIO_GROUP_ID : 'Radiogroup'|'RadioGroup';
 DROPDOWN:'DropDown'|'Dropdown';

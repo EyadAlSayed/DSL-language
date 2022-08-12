@@ -11,9 +11,17 @@ public class EqualCondition extends Printer {
 
     String fileNameId1;
     String equalOpId;
+    String notEqualOpId;
     TextValue textValue;
     String fileNameId2;
 
+    public String getNotEqualOpId() {
+        return notEqualOpId;
+    }
+
+    public void setNotEqualOpId(String notEqualOpId) {
+        this.notEqualOpId = notEqualOpId;
+    }
 
     public String getFileNameId1() {
         return fileNameId1;
@@ -64,6 +72,9 @@ public class EqualCondition extends Printer {
 
         if (equalOpId != null)
             map.put("equalOperation",equalOpId);
+
+        if(notEqualOpId != null)
+            map.put("notEqualOperation",notEqualOpId);
 
         if (textValue != null)
             map.put("textValue",textValue.toMap());

@@ -67,8 +67,8 @@ ifStatment:IF_ID WHITE_SPACE* OPEN_PAR_BRACKT_ID WHITE_SPACE* main_condition WHI
 
 logicalOperation:AND_OP_ID |OR_OP_ID;
 main_condition: (equal_condition|(equal_condition WHITE_SPACE* binary_equal_condition+));
-equal_condition:FILE_NAME_ID WHITE_SPACE* EQUAL_OP_ID WHITE_SPACE*  (textValue|FILE_NAME_ID)  WHITE_SPACE*;
-binary_equal_condition:logicalOperation WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* EQUAL_OP_ID WHITE_SPACE*  (textValue|FILE_NAME_ID) WHITE_SPACE*;
+equal_condition:FILE_NAME_ID WHITE_SPACE* (EQUAL_OP_ID|NOT_EQUAL_OP_ID) WHITE_SPACE*  (textValue|FILE_NAME_ID)  WHITE_SPACE*;
+binary_equal_condition:logicalOperation WHITE_SPACE* FILE_NAME_ID WHITE_SPACE* (EQUAL_OP_ID|NOT_EQUAL_OP_ID) WHITE_SPACE*  (textValue|FILE_NAME_ID) WHITE_SPACE*;
 textValue :  (TEXT |TEXTNUM) ;
 space: (NEWLINE+ | WHITE_SPACE)*;
 print:PRINT_ACTION WHITE_SPACE* (textValue|FILE_NAME_ID) WHITE_SPACE* END_STATMENT_ID space;
