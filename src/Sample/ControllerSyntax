@@ -1,23 +1,6 @@
 Controller calculatorPageController controls calculatorPage{
 
-if(operation EQUAL "addition")
-{
- result = firstNumber + secondNumber;
- print result;
-}
-if(operation EQUAL "subtraction")
-{
- result = firstNumber - secondNumber;
- print result;
-}
-if(operation EQUAL "multiplication")
-{
- result = firstNumber * secondNumber;
- print result;
-}
-if(operation EQUAL "division")
-{
-result = firstNumber/secondNumber;
-print result;
+for(firstNumber:19){
+print 1;
 }
 }
