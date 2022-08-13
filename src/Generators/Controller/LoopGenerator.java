@@ -19,11 +19,13 @@ public class LoopGenerator {
                     .append("))");
             addElse = true;
         }
-        else if(loop.getFileNameId1()!=null)
-        stringBuilder.append("if(is_numeric($").append(loop.getFileNameId1()).append(")").append(")\n");
-       else if(loop.getFileNameId2()!=null)
+        else if(loop.getFileNameId1()!=null) {
+            stringBuilder.append("if(is_numeric($").append(loop.getFileNameId1()).append(")").append(")\n");
+            addElse = true;
+        }       else if(loop.getFileNameId2()!=null) {
             stringBuilder.append("if(is_numeric($").append(loop.getFileNameId2()).append(")").append(")\n");
-        stringBuilder.append("for( $i").append(ProjectMain.VARIABLE_COUNTER).append(" = ");
+            addElse = true;
+        }        stringBuilder.append("for( $i").append(ProjectMain.VARIABLE_COUNTER).append(" = ");
 
         if (loop.getFileNameId1() != null) {
             var1 = "$"+loop.getFileNameId1();
