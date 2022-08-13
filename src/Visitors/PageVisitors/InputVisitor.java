@@ -8,7 +8,7 @@ import gen.DSLParserBaseVisitor;
 public class InputVisitor extends DSLParserBaseVisitor {
 
     Input input;
-    InputAttributeVisitor visitTextFieldAttribute;
+    InputAttributeVisitor visitInputAttribute;
 
     @Override
     public Input visitInput(DSLParser.InputContext ctx){
@@ -24,8 +24,8 @@ public class InputVisitor extends DSLParserBaseVisitor {
         else
             input.setTEXT("");
         if(ctx.inputAttribute() != null) {
-            visitTextFieldAttribute = new InputAttributeVisitor();
-            input.setATTRIBUTE(visitTextFieldAttribute.visitInputAttribute(ctx.inputAttribute()));
+            visitInputAttribute = new InputAttributeVisitor();
+            input.setATTRIBUTE(visitInputAttribute.visitInputAttribute(ctx.inputAttribute()));
         }else{
             InputAttribute attribute = new InputAttribute();
             attribute.setTEXT("Text");

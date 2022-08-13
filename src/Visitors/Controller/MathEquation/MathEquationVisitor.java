@@ -17,11 +17,11 @@ public class MathEquationVisitor extends DSLParserBaseVisitor {
 
     SimpleMathEquationVisitor simpleMathEquationVisitor;
     ComplexMathEquationVisitor complexMathEquationVisitor;
-
+    MathEquation mathEquation;
 
     public MathEquation visitMathEquation(DSLParser.MathEquationContext ctx, Node father) {
 
-        MathEquation mathEquation = new MathEquation();
+         mathEquation = new MathEquation();
         simpleMathEquationVisitor = new SimpleMathEquationVisitor();
         complexMathEquationVisitor = new ComplexMathEquationVisitor();
         boolean addVariable = false;

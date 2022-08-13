@@ -17,9 +17,9 @@ public class EqualConditionVisitor extends DSLParserBaseVisitor {
 
 
     TextValueVisitor textValueVisitor;
-
+    EqualCondition equalCondition;
     public EqualCondition visitEqual_condition(DSLParser.Equal_conditionContext ctx, Node father) {
-        EqualCondition equalCondition = new EqualCondition();
+         equalCondition = new EqualCondition();
         textValueVisitor = new TextValueVisitor();
         String firstVariableType = "";
         if(ctx.FILE_NAME_ID(0) != null) {

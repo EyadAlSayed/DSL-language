@@ -80,6 +80,6 @@ VAR_NAME_ID: '_' [a-zA-Z]+ [1-9]*;
 
 FILE_NAME_ID: [a-zA-Z]+ [1-9]* | [a-zA-Z]+  [1-9]+ ;
 
-TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [0-9]+ | '/' | '\\' | DOT | '_' | '-' | ':' )+ | WHITE_SPACE)* DOUBLE_QUOTE;
+TEXT: DOUBLE_QUOTE (([a-zA-Z]+ | [0-9]+ | '/' | '\\' | DOT | '_' | '-' | ':' | ',' | '+' |'-' | '*')+ | WHITE_SPACE)* DOUBLE_QUOTE;
 TEXTNUM: '0' | [1-9][0-9]* | '-'[1-9][0-9]*;
 

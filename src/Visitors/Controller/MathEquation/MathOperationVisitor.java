@@ -6,9 +6,11 @@ import gen.DSLParserBaseVisitor;
 
 public class MathOperationVisitor extends DSLParserBaseVisitor {
 
+    MathOperation mathOperation;
+
     @Override
     public MathOperation visitMathOperation(DSLParser.MathOperationContext ctx) {
-        MathOperation mathOperation = new MathOperation();
+         mathOperation = new MathOperation();
 
 
         if(ctx.SUM_OP_ID() != null)

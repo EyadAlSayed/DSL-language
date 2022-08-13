@@ -18,9 +18,10 @@ public class ComplexMathEquationVisitor extends DSLParserBaseVisitor {
     MathOperationVisitor mathOperationVisitor;
 
     TextValueVisitor textValueVisitor;
+    ComplexMathEquation complexMathEquation;
 
     public ComplexMathEquation visitComplexMathEquation(DSLParser.ComplexMathEquationContext ctx, Node father) {
-        ComplexMathEquation complexMathEquation = new ComplexMathEquation();
+         complexMathEquation = new ComplexMathEquation();
 
         textValueVisitor = new TextValueVisitor();
         mathOperationVisitor = new MathOperationVisitor();

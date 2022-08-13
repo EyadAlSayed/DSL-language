@@ -19,7 +19,7 @@ public class SendGenerator {
         }
 
         if (send.getCloseParBracktId() != null)
-            stringBuilder.append(".php").append("'").append(send.getCloseParBracktId());
+            stringBuilder.append(".html").append("'").append(send.getCloseParBracktId());
 
         if (send.getEndStatement() != null)
             stringBuilder.append(send.getEndStatement());
