@@ -25,7 +25,7 @@ public class ProjectMain {
     public static boolean ERROR = false;
     static String pagePath = "src/Sample/PageSyntax";
     static String controllerPath = "src/Sample/ControllerSyntax";
-    public static String htdocsPath = "D:\\xampp\\htdocs\\compiler";
+    public static String htdocsPath = "D:\\xampp\\htdocs";
 
     protected static void showGUI(ParseTree pt, DSLParser parser) {
         Trees.inspect(pt, parser);
