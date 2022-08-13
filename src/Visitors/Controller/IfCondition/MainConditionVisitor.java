@@ -9,9 +9,10 @@ public class MainConditionVisitor extends DSLParserBaseVisitor {
 
     EqualConditionVisitor equalConditionVisitor;
     BinaryEqualConditionVisitor binaryEqualConditionVisitor;
+    MainCondition mainCondition;
 
     public MainCondition visitMain_condition(DSLParser.Main_conditionContext ctx, Node father) {
-        MainCondition mainCondition = new MainCondition();
+         mainCondition = new MainCondition();
 
         equalConditionVisitor = new EqualConditionVisitor();
         binaryEqualConditionVisitor = new BinaryEqualConditionVisitor();

@@ -64,7 +64,7 @@ public class ProjectMain {
                 }
             }
             if(pageDoc != null) {
-                File pageFile = new File("D:\\xampp\\htdocs\\" + pageDoc.getPageStructure().getPAGE_NAME() + ".php");
+                File pageFile = new File("D:\\xampp\\htdocs\\" + pageDoc.getPageStructure().getPAGE_NAME() + ".html");
                 try {
                     Files.writeString(pageFile.toPath(), pageGenerator.generatePage(pageDoc));
                 } catch (IOException e) {

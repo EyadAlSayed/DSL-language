@@ -17,9 +17,9 @@ public class SimpleMathEquationVisitor extends DSLParserBaseVisitor {
 
     TextValueVisitor textValueVisitor;
     MathOperationVisitor mathOperationVisitor;
-
+    SimpleMathEquation simpleMathEquation;
     public SimpleMathEquation visitSimpleMathEquation(DSLParser.SimpleMathEquationContext ctx, Node father) {
-        SimpleMathEquation simpleMathEquation = new SimpleMathEquation();
+         simpleMathEquation = new SimpleMathEquation();
 
         textValueVisitor = new TextValueVisitor();
         mathOperationVisitor = new MathOperationVisitor();

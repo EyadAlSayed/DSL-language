@@ -17,7 +17,6 @@ public class IFStatement extends Printer {
     String openCurlyBracktId;
      List<ControllerTokens> controllerTokens = new ArrayList<>();
     String closeCurlyBracktId;
-    Object father;
 
     public MainCondition getMainCondition() {
         return mainCondition;

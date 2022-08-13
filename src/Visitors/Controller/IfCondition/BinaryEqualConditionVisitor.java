@@ -17,10 +17,10 @@ public class BinaryEqualConditionVisitor  extends DSLParserBaseVisitor {
 
     LogicalOperationVisitor logicalOperationVisitor;
     TextValueVisitor textValueVisitor;
-
+    BinaryEqualCondition binaryEqualCondition;
 
     public BinaryEqualCondition visitBinary_equal_condition(DSLParser.Binary_equal_conditionContext ctx, Node father) {
-        BinaryEqualCondition binaryEqualCondition = new BinaryEqualCondition();
+         binaryEqualCondition = new BinaryEqualCondition();
         logicalOperationVisitor = new LogicalOperationVisitor();
         textValueVisitor = new TextValueVisitor();
         String firstVariableType = "";

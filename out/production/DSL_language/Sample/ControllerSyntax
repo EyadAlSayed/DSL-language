@@ -1,10 +1,23 @@
-Controller loginPageController controls loginpage{
+Controller calculatorPageController controls calculatorPage{
 
-if(username EQUAL "salem" AND password EQUAL "123")
+if(operation EQUAL "addition")
 {
- send("SignUpSuccessPage");
+ result = firstNumber + secondNumber;
+ print result;
 }
-if(username NOTEQUAL "salem" AND password NOTEQUAL "123"){
-send("SignUpFailedPage");
+if(operation EQUAL "subtraction")
+{
+ result = firstNumber - secondNumber;
+ print result;
+}
+if(operation EQUAL "multiplication")
+{
+ result = firstNumber * secondNumber;
+ print result;
+}
+if(operation EQUAL "division")
+{
+result = firstNumber/secondNumber;
+print result;
 }
 }

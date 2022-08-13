@@ -1,9 +1,10 @@
-Page loginpage controlled by loginPageController{
-  Title("Login in")
-  Image("login.png",[20,0,0,500])
-  Text(usernameText,"Username" , [10,0,0,600])
-  Input(username,"username",Text,[5,0,0,600])
-  Text(passwordText,"Password" , [10,0,0,600])
-  Input(password,"password",Password,[5,0,0,600])
-  Button(submit,"Login",[10,0,0,600])
+Page calculatorPage controlled by calculatorPageController{
+  Title("Calculator")
+  Image("math.webp",[20,0,0,500])
+  Text(firstNumberText,"First number" , [10,0,0,600])
+  Input(firstNumber,"first number",Text,[5,0,0,600])
+  Text(secondNumberText,"Second number" , [10,0,0,600])
+  Input(secondNumber,"second number",Text,[5,0,0,600])
+  Dropdown(operation,[addition,subtraction,multiplication,division], [10,0,0,600])
+  Button(submit,"calculate",[10,0,0,600])
 }
