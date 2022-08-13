@@ -13,6 +13,10 @@ public class LoopGenerator {
         stringBuilder = new StringBuilder();
         String var1 = "", var2 = "";
 
+        if(loop.getFileNameId1()!=null)
+        stringBuilder.append("if(is_numeric($").append(loop.getFileNameId1()).append(")").append(")\n");
+        if(loop.getFileNameId2()!=null)
+            stringBuilder.append("if(is_numeric($").append(loop.getFileNameId2()).append(")").append(")\n");
         stringBuilder.append("for( $i").append(ProjectMain.VARIABLE_COUNTER).append(" = ");
 
         if (loop.getFileNameId1() != null) {
@@ -41,7 +45,7 @@ public class LoopGenerator {
         }
 
         ProjectMain.VARIABLE_COUNTER++;
-    stringBuilder.append("}\n");
+    stringBuilder.append("}else{echo\"could not execute for because one of the variables is not a number\";}\n");
         return stringBuilder.toString();
     }
 }
