@@ -63,4 +63,5 @@ public class CustomPair {
       else
           return inScope(node.getFather(),variableName,variableType);
   }
+
 }

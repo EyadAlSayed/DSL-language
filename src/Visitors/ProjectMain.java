@@ -25,7 +25,7 @@ public class ProjectMain {
     public static boolean ERROR = false;
     static String pagePath = "src/Sample/PageSyntax";
     static String controllerPath = "src/Sample/ControllerSyntax";
-    public static String htdocsPath = "D:\\xampp\\htdocs";
+    public static String htdocsPath = "D:\\xampp\\htdocs\\compiler";
 
     protected static void showGUI(ParseTree pt, DSLParser parser) {
         Trees.inspect(pt, parser);
@@ -56,7 +56,7 @@ public class ProjectMain {
             BaseGenerartor controllerGenerator = new BaseGenerartor();
             BaseGenerartor pageGenerator = new BaseGenerartor();
             if(controllerDoc != null) {
-                File controllerFile = new File("D:\\xampp\\htdocs\\" + controllerDoc.getController().getFileNameId1() + ".php");
+                File controllerFile = new File(htdocsPath +"\\"+ controllerDoc.getController().getFileNameId1() + ".php");
                 try {
                     Files.writeString(controllerFile.toPath(), controllerGenerator.generateController(controllerDoc));
                 } catch (IOException e) {
@@ -64,7 +64,7 @@ public class ProjectMain {
                 }
             }
             if(pageDoc != null) {
-                File pageFile = new File("D:\\xampp\\htdocs\\" + pageDoc.getPageStructure().getPAGE_NAME() + ".html");
+                File pageFile = new File(htdocsPath+"\\" + pageDoc.getPageStructure().getPAGE_NAME() + ".html");
                 try {
                     Files.writeString(pageFile.toPath(), pageGenerator.generatePage(pageDoc));
                 } catch (IOException e) {
